@@ -48,7 +48,7 @@ Si suppone che lo studente abbia già installato sulla sua macchina l’ultima v
 - Utlizzare il canale `Formazione gruppi` su Teams per pubblicare annunci di ricerca gruppo o di accoglienza;
 - Scrivere il nome del gruppo nello spreadsheet, associato al form, che il docente condividerà su Teams:
   - il nome del gruppo deve essere un cognome di un vincitore di [**ACM Turing Award**](https://amturing.acm.org/byyear.cfm), scritto tutto in minuscolo senza spazi e caratteri speciali. </br>
-  Il nome del gruppo sarà usato per la creazione del team e la configurazione del repository su GitHub.
+    Il nome del gruppo sarà usato per la creazione del team e la configurazione del repository su GitHub.
 - Una volta completata la formazione del gruppo o raggiunto il numero minimo di componenti, mettersi d'accordo su chi sarà il primo componente del gruppo che accetterà l'*assignment* su GitHub Classroom.
 - Il componente designato dal gruppo dovrà scrivere sul canale `Formazione gruppi` di Teams un messaggio rivolto al docente (usare il *mention* con *@*) dichiarando che "il gruppo *x* è pronto" dove *x* è il nome del gruppo.
 - Il docente risponderà inviando allo studente in chat il link di assegnazione del progetto.
@@ -58,15 +58,20 @@ Si suppone che lo studente abbia già installato sulla sua macchina l’ultima v
 **Le seguenti azioni sono di responsabilità del componente designato dal gruppo**:
 
 - Cliccare sul link di assegnazione del progetto che il docente ha inviato in chat su Teams.
+
 - Scorrere la lista e cliccare sul proprio indirizzo di email
   ![joinClassroom](./img/joinClassroom.png)
 
 - Creare il team scrivendo il nome prescelto e cliccando sul pulsante verde `Create team`.
+
 - Aspettare che GitHub Classroom cloni il repository base per te.
   ![configuringRepository](./img/configuringRepository.png)
+
 - *Fai un refresh della pagina web per verificare il completamento.
   ![readyToGo](./img/readyToGo.png)
+
 - Comunicare al docente in chat l'esito della creazione.
+
 - Comunicare agli altri componenti del gruppo il link di assegnazione del progetto precedentemente inviato dal docente.
 
 ### Accettazione assignment degli altri componenti e accesso al repository su GitHub
@@ -74,8 +79,10 @@ Si suppone che lo studente abbia già installato sulla sua macchina l’ultima v
 **Le seguenti azioni sono di responsabilità di tutti i componenti tranne quello designato per la creazione del repository**:
 
 - Cliccare sul link di assegnazione del progetto ricevuto dal collega designato.
+
 - Scorrere la lista e cliccare sul proprio indirizzo di email
   ![joinClassroom](./img/joinClassroom.png)
+
 - Unisciti al tuo team cliccando il corrispondente pulsante `Join`
    ![joinTeam](./img/joinTeam.png)
    **Se non trovi il team è probabile che l'assignment sia stato accettato prima della creazione del team. Fermarsi e avvisare il componente designato dal.
@@ -115,25 +122,26 @@ L'intervento iniziale a voi richiesto deve essere svolto da *un solo membro del 
 Il membro del team, avendo i diritti di amministratore sul repository, deve:
 
 - entrare nella pagina delle impostazioni del proprio profilo GitHub (click sull'immagine di profilo in alto a destra, poi click sulla voce *"Settings"* nel menù a tendina che compare);
-  ![SaveTokenInSecret_1](./img/SaveTokenInSecret_1.png)
+  ![screen1](./img/screen1.png)
 
 - entrare nella sezione delle impostazioni per sviluppatori, *"Developer Settings"*, facendo click sul relativo pulsante nella barra laterale;
-  ![SaveTokenInSecret_2](./img/SaveTokenInSecret_2.png)
+  ![screen2](./img/screen2.png)
 
-- selezionare *"Personal Access Token"* nella barra laterale e successivamente fare click su *"Generate new Token"*, in alto a destra;
-  ![SaveTokenInSecret_3](./img/SaveTokenInSecret_3.png)
+- selezionare *"Personal Access Token"* nella barra laterale, scegliendo poi l'opzione *"Tokens (classic)"*, e successivamente fare click su *"Generate new Token (classic)"*, in alto a destra;
+  ![screen3](./img/screen3.png)
 
 - indicare nel campo *"Note"* l'utilizzo che si intende fare del token (ad es.: *"Uploads of Docker images to GitHub Packages"*). Tale appunto tornerà utile in futuro per ricordarsi a quale scopo era stato generato il token;
 
 - selezionare gli ambiti di validità del token (*"Scopes"*). Per consentire al processo Docker di caricare un'immagine su GitHub Packages, il set minimale di scope da abilitare è il seguente (vedi figura):
-
+  
   - `repo` (con tutte le relative sotto-voci)
   - `write:packages`
   - `read:packages`
-
-  ![SaveTokenInSecret_4](./img/SaveTokenInSecret_4.png)
+  
+  ![screen4](./img/screen4.png)
 
 - fare click sul pulsante *"Generate token"*, in basso nella pagina;
+
 - copiare il token che apparirà alla pagina seguente e memorizzarlo in un luogo sicuro.
   **N.B.**: non sarà più possibile visionare il token una volta usciti dalla pagina!
 
@@ -143,11 +151,11 @@ A questo punto, il membro del team che ha generato il token dovrà:
 
 - recarsi sulla pagina principale del repository e fare click sull'icona *"Settings"* (ultima tab in alto a destra);
   **N.B.**: solo l'amministratore visualizza questa tab!
-  ![SaveTokenInSecret_5](./img/SaveTokenInSecret_5.png)
+  ![screen5](./img/screen5.png)
 - selezionare la voce *"Secrets"* e la sottovoce *"Actions"* dalla barra laterale;
   ![SaveTokenInSecret_6](./img/SaveTokenInSecret_6.png)
 - fare click sul pulsante *"New repository secret"*:
- ![SaveTokenInSecret_6](./img/SaveTokenInSecret_7.png)
+  ![SaveTokenInSecret_6](./img/SaveTokenInSecret_7.png)
   - inserire la stringa `GH_ACCESS_TOKEN` nella textbox con l'etichetta *"Name"*;
   - inserire il Personal Access Token precedentemente generato nella textarea con l'etichetta *"Value"*;
   - concludere l'operazione cliccando sul pulsante *"Add secret"*.
@@ -164,8 +172,8 @@ Affinché tutti i membri del team possano visualizzare e scaricare l'immagine Do
 
 1. accedere al proprio repository su GitHub;
 2. cliccare sul link del package associato al repository; il link è collocato nella barra laterale destra della pagina principale del repository, sotto l'intestazione "Packages"
-(vedi freccia rossa in figura); ![ExecuteDockerImage_1](./img/ExecuteDockerImage_1.png)
-N.B.: il package sarà visibile solo dopo che GitHub Actions avrà completato con successo la prima build del progetto;
+   (vedi freccia rossa in figura); ![ExecuteDockerImage_1](./img/ExecuteDockerImage_1.png)
+   N.B.: il package sarà visibile solo dopo che GitHub Actions avrà completato con successo la prima build del progetto;
 3. cliccare sul link "Package settings", presente nella pagina dedicata al package come ultima voce nella barra laterale destra (vedi freccia rossa in figura); ![ExecuteDockerImage_1](./img/packageSettings.png)
 4. scorrere in basso, sino all'intestazione "Manage access"; aggiungere il proprio team alla lista dei membri, conferendo allo stesso i permessi di "Admin" (vedi freccia rossa in figura); ![ExecuteDockerImage_1](./img/manageAccess.png).
 
@@ -174,7 +182,7 @@ N.B.: il package sarà visibile solo dopo che GitHub Actions avrà completato co
 Per aggiungere il badge che riporta l'ultimo esito dell'esecuzione del workflow `docker_build&push.yml` (stato del workflow) all'interno del file README del vostro repository, seguire le seguenti istruzioni:
 
 - entrare nella pagina principale del repository e cliccare su `Actions` (subito sotto il titolo, in alto al centro);
-![Update_GitHub_badge_1](./img/Update_GitHub_badge_1.png)
+  ![screen6](./img/screen6.png)
 - la pagina *"All workflows"* sotto la tab *"Actions"*, riporta l'elenco delle esecuzioni (*run*) di tutti i workflow di GitHub Actions attivabili nel repository; per filtrarne il contenuto e visualizzare soltanto le esecuzioni relative al workflow `docker_build&push.yml`, fare click sulla voce corrispondente nel pannello laterale a sinistra. (**N.B.**: all'inizio del progetto, è del tutto normale che queste liste siano vuote. I workflow si attiveranno per la prima volta quando modificherete il codice nella cartella `src/` ed effettuerete Pull Request o operazioni di push/merge sul branch `main`);
 - Una volta selezionato il workflow `docker_build&push.yml` dal pannello laterale, in alto a destra nella pagina – di fianco alla text box con la scritta "Filter workflow runs" – comparirà un nuovo bottone con tre puntini `•••`. Fare click su tale bottone e poi selezionare la voce "Create status badge" nel menù a tendina.
 - Lasciando invariate le impostazioni di default (`branch` e `event`) nella finestra a comparsa, fare click su `Copy status badge Markdown`;
@@ -187,14 +195,14 @@ Il titolo del README.md dovrà apparire come nella seguente figura, con *Battles
 
 Il colore e lo stato del badge potranno cambiare dopo ogni build, riflettendo lo stato del progetto.
 
-
 ## Clonazione del repository
 
 Come prima attività, è necessario clonare il repository remoto sulla propria macchina. Procedere come segue:
 
 - Individuare la posizione nel proprio file system dove clonare la cartella di progetto.
-<!--*Per evitare successivi problemi con l'importazione di Eclipse, evitare di salvare la cartella di progetto nella root del workspace di Eclipse*;
--->
+  
+  <!--*Per evitare successivi problemi con l'importazione di Eclipse, evitare di salvare la cartella di progetto nella root del workspace di Eclipse*;
+  -->
 - Da terminale con shell bash spostarsi attraverso il comando *cd* nella cartella scelta al passo precedente;
 - Scrivere il comando `git clone <url>` , dove l’url è quello visibile da GitHub premendo il bottone *Clone or Download*, in alto a destra nell’interfaccia. Ad esempio:
 
@@ -253,6 +261,7 @@ Il workflow da utilizzare è il [GitHub Flow](https://guides.github.com/introduc
 ## Test automatici e Controlli di Qualità
 
 È possibile effettuare test automatici e operare dei controlli statici sulla qualità del codice Java (QA, quality assurance), grazie a strumenti come *JUnit*, *Checkstyle*, *Spotbugs* e *PMD*. Per lanciarli in un colpo solo si può utilizzare *Gradle*.
+
 <!--
 - Assicurarsi che sia aperta la vista *Gradle Tasks* in Eclipse. In caso negativo, dal menù *Window*, selezionare *Show View* e poi *Other*. La vista si troverà sotto la voce *Gradle*. Nell’eventualità che la vista non compaia, provare a cambiare *perspective* su Eclipse e selezionare *Java EE*: ciò si può fare o premendo Java EE dal bottone in alto a destra o da menù *Window-\>Perspective-\>Open Perspective-\>Other* e poi *Java EE*.
 - Selezionare il nome del progetto e, tra le diverse opzioni, *verification*.
@@ -275,16 +284,19 @@ Svolgere le seguenti operazioni:
 - avviare Docker Desktop localmente;
 
 - effettuare l'autenticazione di Docker a GitHub Packages:
+  
   - se non l'avete già fatto, create un vostro *personal access token* di GitHub seguendo le istruzioni riportate in questa guida nella sezione ["Creazione del Personal Access Token"](#creazione-del-personal-access-token);
+  
   - salvate il vostro token in un file di testo (ad esempio, potete salvarlo in un file chiamato `TOKEN.txt`);
+  
   - portatevi nella cartella in cui avete salvato il token ed eseguite il comando:
-
+    
     ```bash
     cat ./TOKEN.txt | docker login ghcr.io -u <USERNAME> --password-stdin
     ```
-
+    
     sostituendo il vostro username di GitHub alla voce `<USERNAME>`.
-
+    
     **N.B.**: è necessario effettuare questo passaggio soltanto al primo utilizzo di Docker con GitHub Packages;
 
 <!--- se si utilizza Windows selezionare `Switch to Linux containers` nel menu di Docker;
@@ -300,11 +312,11 @@ Svolgere le seguenti operazioni:
 - incollare ed eseguire il comando nel terminale. Attendere che Docker scarichi l’immagine dell’applicazione
 
 - digitare infine il comando:
-
+  
   ```shell
     docker run --rm -it <nome_immagine>
   ```
-
+  
   dove per `<nome_immagine>` si intende l'url riportato nel comando precedente, immediatamente dopo le prime due parole (`docker pull`).
 
 Ad esempio, se il comando precedente (copiato da GitHub dal riquadro mostrato in figura), è:
