@@ -1,4 +1,4 @@
-# Edgar Frank
+# Edgar Frank Codd
 
 ## Biografia
 Edgar Frank "Ted" Codd (Portland, 23 agosto 1923 – Williams Island, 18 aprile 2003) è stato un informatico britannico, fondatore della teoria delle basi di dati relazionali.
