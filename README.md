@@ -21,6 +21,8 @@ La struttura della repository si presenta nel seguente modo:
 |    |–– Guida per lo studente.md
 |    |–– img
 |    |–– Report.md
+|    |–– ISPIRATORE.md
+|    |–– CODE_OF_CONDUCT.md
 |–– drawings
 |–– gradle
 |–– lib
@@ -46,6 +48,8 @@ Nel seguito si dettagliano i ruoli dei diversi componenti:
   La cartella raccoglie inoltre:
   - `Assegnazione progetto.md`: contenente la descrizione dettagliata del progetto assegnato;
   - `Guida per lo studente.md`: contenente la descrizione di tutti i passi di configurazione necessari per l'attivazione del flusso di lavoro a supporto dello sviluppo del progetto;
+  - `ISPIRATORE.md`: contenente la descrizione della biografia e delle principali attività di Edgar Frank Codd; 
+  - `CODE_OF_CONDUCT.md`: contenente la descrizione del codice di condotta da seguire durante la realizzazione del progetto; 
 - `gradle/`: ospita il `.jar` relativo al sistema di gestione delle dipendenze *Gradle*.
 - `lib`: include eventuali librerie esterne utilizzate dal progetto.
 - `res`: contiene risorse varie utilizzate dal sistema
