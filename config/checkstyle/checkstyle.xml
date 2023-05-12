@@ -73,6 +73,7 @@
   <module name="FileLength"/>
   <module name="LineLength">
     <property name="fileExtensions" value="java"/>
+    <property name="max" value="120"/>
   </module>
 
   <!-- Checks for whitespace                               -->
@@ -101,7 +102,10 @@
     <!-- See https://checkstyle.org/config_javadoc.html -->
     <!-- <module name="JavadocVariable"/> -->
     <module name="InvalidJavadocPosition"/>
-    <module name="JavadocMethod"/>
+    <module name="JavadocMethod">
+      <property name="allowMissingParamTags" value="true"/>
+      <property name="allowMissingReturnTag" value="true"/>
+    </module>
     <module name="JavadocType"/>
     <module name="JavadocStyle"/>
     <module name="MissingJavadocMethod">
