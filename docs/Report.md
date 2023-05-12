@@ -132,3 +132,29 @@ Al comando **/svelagriglia**
 l’applicazione risponde visualizzando, una griglia 10x10, con le righe numerate da 1 a 10 e le colonne numerate da A a J, e tutte le navi posizionate
 
     
+
+### 3.2 Requisiti non funzionali
+
+**RNF1**: 
+il container docker dell’app deve essere eseguito da terminali che supportano Unicode con encoding UTF-8 o UTF-16. 
+
+
+**Elenco di terminali supportati** 
+Linux:
+
+- terminal
+
+Windows:
+
+- Powershell
+
+- Git Bash (in questo caso il comando Docker ha come prefisso winpty; es: winpty docker -it ....)
+
+**Comando per l’esecuzione del container** 
+Dopo aver eseguito il comando docker pull copiandolo da GitHub Packages, Il comando Docker da usare per eseguire il container contenente l’applicazione è:
+
+```bash
+docker run --rm -it ghcr.io/softeng2223-inf-uniba/battleship-base2223:latest
+```
+
+dove *base2223* sarà sostitituito con il nome del gruppo.
