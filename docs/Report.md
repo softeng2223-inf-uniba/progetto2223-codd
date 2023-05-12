@@ -38,6 +38,14 @@ La durata della partita potrà essere dettata dal numero di tentavi a disposizio
 
     
 
+## 2. Modello di dominio
+
+Di seguito si riporta il diagramma UML che, secondo prospettiva concettuale, descrive il ***dominio*** del gioco *Battaglia Navale*.
+
+![modello_dominio](./img/modello_dominio.png)
+
+
+
 ## 3. Requisiti specifici
 
 ### 3.1 Requisiti funzionali
