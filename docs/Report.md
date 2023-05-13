@@ -184,6 +184,8 @@ Se riuscirai ad affondarle tutte, avrai vinto la partita.
 Mi raccomando! Le coordinate devono essere espresse nella forma: [colonna][riga] 
 (dove le colonne sono inidicate dalle lettere dalla A alla J, e le righe dai numeri da 1 a 10).
         
+
+        
 **Comandi disponibili**:
 
 Di seguito ti lascio una lista dei comandi che potrai utilizzare:
