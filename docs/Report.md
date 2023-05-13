@@ -166,3 +166,53 @@ docker run --rm -it ghcr.io/softeng2223-inf-uniba/battleship-base2223:latest
 ```
 
 dove *base2223* sarà sostitituito con il nome del gruppo.
+
+
+
+## 7. Manuale utente
+
+**Descrizione del gioco**:
+
+Il gioco della battaglia navale prevede la generazione di una griglia 10 x 10, all'interno della quale saranno posizionate 10 navi. 
+
+L'obiettivo del gioco è quello di trovarle e affondarle, indicando ad ogni turno le coordinate della cella che vorrai colpire. 
+
+In base al livello scelto avrai un numero massimo di tentativi che potrai fallire. Potrai scegliere tra i seguenti livelli: facile, medio e difficile.
+
+Se riuscirai ad affondarle tutte, avrai vinto la partita. 
+
+Mi raccomando! Le coordinate devono essere espresse nella forma: [colonna][riga] 
+(dove le colonne sono inidicate dalle lettere dalla A alla J, e le righe dai numeri da 1 a 10).
+        
+
+        
+**Comandi disponibili**:
+
+Di seguito ti lascio una lista dei comandi che potrai utilizzare:
+
+- /help : per visualizzare questo manuale durante il gioco
+
+- /gioca : per avviare una nuova partita 
+
+- /esci : per uscire dal gioco
+
+- /facile : per impostare il livello della partita a facile (MAX 50 tentativi falliti)
+
+- /medio : per impostare il livello della partita a media (MAX 30 tentativi falliti)
+
+- /difficile : per impostare il livello della partita a difficile (MAX 10 tentativi falliti)
+
+- /mostralivello : per mostrare il livello di difficoltà impostato 
+
+- /mostranavi : per mostrare il tipo, la dimensione e il numero delle navi che devi ancora affondare
+
+- /svelagriglia : per mostrare la griglia e tutte le navi posizionate
+
+
+
+## 9. Analisi retrospettiva
+
+### 9.1 Sprint 0
+
+![lavagna_retrospettiva_sprint0](./img/lavagna_retrospettiva_sprint0.png)
+      
