@@ -207,3 +207,10 @@ Di seguito ti lascio una lista dei comandi che potrai utilizzare:
 - /svelagriglia : per mostrare la griglia e tutte le navi posizionate
 
 
+
+## 9. Analisi retrospettiva
+
+### 9.1 Sprint 0
+
+![lavagna_retrospettiva_sprint0](./img/lavagna_retrospettiva_sprint0.png)
+      
