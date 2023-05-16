@@ -75,6 +75,35 @@ public final class Input {
     }
 
     /**
+     * Metodo per l'acquisizione corretta della conferma di uscita dal gioco.
+     * @return il booleano che rappresenta la risposta (true = SI, false = NO).
+     */
+    public static boolean acquisisciConferma() {
+
+        Scanner tastiera = new Scanner(System.in);
+        String input;
+        boolean conferma = false;
+
+        do {
+            System.out.print("\nInserisci SI per confermare oppure NO per restare nel gioco.\n> ");
+            input = tastiera.nextLine().toLowerCase();
+
+            if (input.equals("si")) {
+                conferma = true;
+                break;
+            } else if (input.equals("no")) {
+                conferma = false;
+                break;
+            } else {
+                System.out.println("\nNon capisco...\n");
+            }
+
+        } while (true);
+
+        return conferma;
+    }
+
+    /**
      * Metodo che riempie una lista con le stringhe passate in input.
      * @param comandi stringhe con le quali riempire la lista.
      * @return la lista contenente le stringhe passate.
