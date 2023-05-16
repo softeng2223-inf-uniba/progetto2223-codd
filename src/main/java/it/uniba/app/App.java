@@ -37,7 +37,9 @@ public final class App {
                 break;
 
                 case "/esci":
-
+                if (Input.acquisisciConferma()) {
+                    System.exit(0);
+                }
                 break;
 
                 case "/facile":
