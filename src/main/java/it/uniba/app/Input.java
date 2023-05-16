@@ -7,10 +7,11 @@ import java.util.List;
 /**
  * Classe per l'acquisizione dell'input da tastiera.
  */
-public class Input {
+public final class Input {
 
     private static List<String> listaCompletaComandi =
-    riempiComandi("/gioca", "/esci", "/facile", "/medio", "/difficile", "/help", "/mostralivello", "/mostranavi", "/svelagriglia");
+    riempiComandi("/gioca", "/esci", "/facile", "/medio", "/difficile",
+    "/help", "/mostralivello", "/mostranavi", "/svelagriglia");
 
     private static List<String> listaComandiPartitaNonIniziata =
     riempiComandi("/gioca", "/esci", "/facile", "/medio", "/difficile", "/help", "/mostralivello");
