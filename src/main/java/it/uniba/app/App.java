@@ -5,7 +5,22 @@ package it.uniba.app;
  */
 public final class App {
 
-        /**
+    /**
+     * Costruttore privato.
+     */
+    private App() {
+    }
+
+    /**
+     * Ottiene una stringa di saluto.
+     *
+     * @return La stringa "Ciao dal gioco della Battaglia Navale!".
+     */
+    public String getGreeting() {
+        return "Ciao dal gioco della Battaglia Navale!";
+    }
+
+    /**
      * Metodo main dell'applicazione.
      * @param args Argomenti linea di comando.
      */
