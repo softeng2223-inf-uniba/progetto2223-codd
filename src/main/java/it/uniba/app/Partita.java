@@ -23,10 +23,10 @@ public class Partita {
 
     /**
      * Setter per il numero di tentativi falliti.
-     * @param numeroTentativiFalliti
+     * @param numTentativiFalliti
      */
-    public void setNumeroTentativiFalliti(int numeroTentativiFalliti) {
-        this.numeroTentativiFalliti = numeroTentativiFalliti;
+    public void setNumeroTentativiFalliti(final int numTentativiFalliti) {
+        this.numeroTentativiFalliti = numTentativiFalliti;
     }
 
     /**
