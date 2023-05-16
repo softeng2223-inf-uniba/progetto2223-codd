@@ -43,15 +43,18 @@ public final class App {
                 break;
 
                 case "/facile":
-
+                    LivelloSessione.setCorrente(Livello.FACILE);
+                    System.out.println("\nOK.");
                 break;
 
                 case "/medio":
-
+                    LivelloSessione.setCorrente(Livello.MEDIO);
+                    System.out.println("\nOK.");
                 break;
 
                 case "/difficile":
-
+                    LivelloSessione.setCorrente(Livello.DIFFICILE);
+                    System.out.println("\nOK.");
                 break;
 
                 case "/mostralivello":
