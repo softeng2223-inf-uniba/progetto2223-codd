@@ -58,7 +58,9 @@ public final class App {
                 break;
 
                 case "/mostralivello":
-
+                    System.out.println("\nIl livello impostato è " + LivelloSessione.getCorrente()
+                    + ".\nPuoi fallire un massimo di "
+                    + LivelloSessione.getCorrente().getMaxTentativi() + " tentativi.");
                 break;
 
                 case "/help":
