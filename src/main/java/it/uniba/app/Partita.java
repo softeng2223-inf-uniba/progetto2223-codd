@@ -7,6 +7,7 @@ public final class Partita {
 
     private int numeroTentativiFalliti = 0;
     private Livello livello;
+    private Griglia griglia;
 
     /**
      * Enumerativo per rappresentare lo stato della partita.
@@ -23,10 +24,11 @@ public final class Partita {
     }
 
     /**
-     * Costruttore che imposta il livello della partita da iniziare.
+     * Costruttore che imposta una nuova griglia e il livello della partita da iniziare.
      * @param livelloCorrente livello al quale impostare la partita.
      */
     public Partita(final Livello livelloCorrente) {
+        // da invocare costruttore di Griglia
         setLivello(livelloCorrente);
     }
 
