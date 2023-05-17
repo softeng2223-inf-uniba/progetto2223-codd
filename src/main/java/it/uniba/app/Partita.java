@@ -1,7 +1,5 @@
 package it.uniba.app;
 
-import com.mycompany.battaglianavale.Griglia;
-
 /**
  * Classe che rappresenta la partita.
  */
@@ -30,7 +28,7 @@ public final class Partita {
      * @param livelloCorrente livello al quale impostare la partita.
      */
     public Partita(final Livello livelloCorrente) {
-        this.griglia = new Griglia();
+        // da invocare costruttore di Griglia
         setLivello(livelloCorrente);
     }
 
