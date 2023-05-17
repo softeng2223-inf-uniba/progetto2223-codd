@@ -47,6 +47,14 @@ public final class Partita {
     }
 
     /**
+     * Getter del livello relativo alla partita.
+     * @return livello
+     */
+    public Livello getLivello() {
+        return livello;
+    }
+
+    /**
      * Getter per il numero di tentativi falliti.
      * @return numeroTentativiFalliti
      */
