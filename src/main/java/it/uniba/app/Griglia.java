@@ -33,6 +33,12 @@ public final class Griglia {
     }
 
     private static final int DIMENSIONE = 10;
+    private Cella[][] campo = new Cella[DIMENSIONE][DIMENSIONE];
 
+    /**
+     * Costruttore vuoto.
+     */
+    private Griglia() {
+    }
 
 }
