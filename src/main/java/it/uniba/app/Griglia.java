@@ -10,8 +10,8 @@ public final class Griglia {
      */
     public final class Cella {
 
-        private final int riga = 0;
-        private final int colonna = 0;
+        private int riga;
+        private int colonna;
         private boolean colpita = false;
 
         /**
@@ -27,8 +27,41 @@ public final class Griglia {
          * @param colonnaY
          */
         public Cella(final int rigaX, final int colonnaY) {
+            setRiga(rigaX);
+            setColonna(colonnaY);
+        }
+
+
+        /**
+         * Setter della riga della cella.
+         * @param rigaX
+         */
+        public void setRiga(final int rigaX) {
             this.riga = rigaX;
+        }
+
+        /**
+         * Setter della colonna della cella.
+         * @param colonnaY
+         */
+        public void setColonna(final int colonnaY) {
             this.colonna = colonnaY;
+        }
+
+        /**
+         * Getter della riga della cella.
+         * @return riga
+         */
+        public int getRiga() {
+            return riga;
+        }
+
+        /**
+         * Getter della colonna della cella.
+         * @return colonna
+         */
+        public int getColonna() {
+            return colonna;
         }
 
     }
