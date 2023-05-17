@@ -6,7 +6,8 @@ package it.uniba.app;
 public class Incrociatore extends Nave {
 
     private static final int NUMERO_CELLE = 3;
-    private static int numeroEsemplari = 3;
+    private static final int NUMERO_ESEMPLARI_INIZIALE = 3;
+    private static int numeroEsemplari = NUMERO_ESEMPLARI_INIZIALE;
 
     /**
      * override del costruttore vuoto di Nave che imposta il numero delle celle.

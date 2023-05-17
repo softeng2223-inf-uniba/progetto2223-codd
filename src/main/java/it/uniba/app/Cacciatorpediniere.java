@@ -6,7 +6,8 @@ package it.uniba.app;
 public class Cacciatorpediniere extends Nave {
 
     private static final int NUMERO_CELLE = 2;
-    private static int numeroEsemplari = 4;
+    private static final int NUMERO_ESEMPLARI_INIZIALE = 4;
+    private static int numeroEsemplari = NUMERO_ESEMPLARI_INIZIALE;
 
     /**
      * override del costruttore vuoto di Nave che imposta il numero delle celle.
