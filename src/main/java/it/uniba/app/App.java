@@ -33,13 +33,14 @@ public final class App {
 
             switch (comando) {
                 case "/gioca":
-
+                    Partita partita = new Partita(LivelloSessione.getCorrente());
+                    partita.gioca();
                 break;
 
                 case "/esci":
-                if (Input.acquisisciConferma()) {
-                    System.exit(0);
-                }
+                    if (Input.acquisisciConferma()) {
+                        System.exit(0);
+                    }
                 break;
 
                 case "/facile":
@@ -73,5 +74,5 @@ public final class App {
 
         } while (true);
     }
-
 }
+
