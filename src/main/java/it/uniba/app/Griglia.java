@@ -10,14 +10,15 @@ public final class Griglia {
      */
     public final class Cella {
 
-        private final int riga;
-        private final int colonna;
+        private final int riga = 0;
+        private final int colonna = 0;
         private boolean colpita = false;
 
         /**
          * Costruttore vuoto.
          */
         private Cella() {
+            // do nothing
         }
 
         /**
