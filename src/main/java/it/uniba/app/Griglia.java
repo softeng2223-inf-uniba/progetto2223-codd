@@ -75,4 +75,17 @@ public final class Griglia {
     private Griglia() {
     }
 
+    /**
+     * Metodo che mostra le navi presenti nel gioco con relativa lunghezza e numero esemplari.
+     */
+    public void mostraNavi() {
+
+        System.out.println("\nEcco la lista delle navi presenti:");
+
+        System.out.println(new Cacciatorpediniere());
+        System.out.println(new Incrociatore());
+        System.out.println(new Corazzata());
+        System.out.println(new Portaerei());
+    }
+
 }
