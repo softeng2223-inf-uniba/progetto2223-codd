@@ -64,6 +64,13 @@ public final class Griglia {
             return colonna;
         }
 
+    }//fine inner class Cella
+
+    /**
+     * Enumerazione che rappresenta le direzioni in cui posizionare le navi.
+     */
+    public enum Direzione {
+        ALTO, BASSO, SINISTRA, DESTRA;
     }
 
     private static final int DIMENSIONE = 10;
@@ -73,6 +80,31 @@ public final class Griglia {
      * Costruttore vuoto.
      */
     private Griglia() {
+    }
+
+    /**
+     * Metodo che restituisce la cella corrispondente alle coordinate passate.
+     * @param rigaX
+     * @param colonnaY
+     * @return campo[rigaX][colonnaY]
+     */
+    public Cella getCella(final int rigaX, final int colonnaY) {
+        if (!esisteCella(rigaX, colonnaY)) {
+            return null;
+        } else {
+            return campo[rigaX][colonnaY];
+        }
+    }
+    
+    /**
+     * Metodo che verifica l'esistenza di una cella
+     * in relazione alle coordinate passate.
+     * @param rigaX
+     * @param colonnaY
+     * @return true se la cella esiste, false altrimenti
+     */
+    private boolean esisteCella(final int rigaX, final int colonnaY) {
+        return ((rigaX >= 0 && rigaX < DIMENSIONE) && (colonnaY >= 0 && colonnaY < DIMENSIONE));
     }
 
     /**
@@ -89,3 +121,4 @@ public final class Griglia {
     }
 
 }
+
