@@ -401,5 +401,33 @@ public final class Griglia {
         }
         System.out.println("+------+---+---+---+---+---+---+---+---+---+---+");
     }
+
+    /**
+     * Metodo che stampa la griglia vuota.
+     */
+    public void stampaGrigliaVuota() {
+
+        System.out.println("\n+----------------------------------------------+");
+        System.out.println("|      | A |" + " B |" + " C |" + " D |" + " E |" + " F |"
+        + " G |" + " H |" + " I |" + " J |");
+
+        for (int i = 0; i < DIMENSIONE; i++) {
+
+            System.out.print("+------+---+---+---+---+---+---+---+---+---+---+\n");
+            if (i != DIMENSIONE - 1) {
+                System.out.print("|  " + (i + 1) + "   ");
+            } else {
+                System.out.print("|  " + (i + 1) + "  ");
+            }
+            for (int j = 0; j < DIMENSIONE; j++) {
+                System.out.print("|   ");
+                if (j == DIMENSIONE - 1) {
+                        System.out.print("|");
+                }
+            }
+            System.out.println("");
+        }
+        System.out.println("+------+---+---+---+---+---+---+---+---+---+---+");
+    }
 }
 
