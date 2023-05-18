@@ -112,11 +112,7 @@ public final class Partita {
             }
         } while (true);
 
-        if (continua) {
-            return true;
-        } else {
-            return false;
-        }
+        return false;
     }
 }
 
