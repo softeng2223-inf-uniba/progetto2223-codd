@@ -235,12 +235,12 @@ public final class Griglia {
     private void predisponiNavi() {
 
         boolean posizionata;
+        Random rand = new Random();
 
         for (Nave naveCorrente : listaNaviPresenti) {
 
             do {
                 posizionata = false;
-                Random rand = new Random();
 
                 int rigaRandom = rand.nextInt(DIMENSIONE);
                 int colonnaRandom = rand.nextInt(DIMENSIONE);
@@ -274,7 +274,8 @@ public final class Griglia {
      * @param cellaIniziale
      * @return true se la nave è posizionabile, false altrimenti
      */
-    private boolean isNavePosizionabile(final Nave naveCorrente, final Direzione direzioneCorrente, final Cella cellaIniziale) {
+    private boolean isNavePosizionabile(final Nave naveCorrente,
+    final Direzione direzioneCorrente, final Cella cellaIniziale) {
 
         int lunghezzaNave = naveCorrente.getNumeroCelleOccupate();
         Cella cellaCorrente = cellaIniziale;
