@@ -72,22 +72,6 @@ public final class Griglia {
         }
 
         /**
-         * Getter della nave ospitata nella cella.
-         * @return naveOspitata
-         */
-        public Nave getNaveOspitata() {
-            return naveOspitata;
-        }
-
-        /**
-         * Setter della nave ospitata nella cella.
-         * @param nave
-         */
-        public void setNaveOspitata(final Nave nave) {
-            this.naveOspitata = nave;
-        }
-
-        /**
          * Getter della variabile booleana colpita.
          * @return colpita
          */
@@ -297,7 +281,7 @@ public final class Griglia {
         int cont = 0;
 
         while (cont < lunghezzaNave) {
-            cellaCorrente.setNaveOspitata(naveCorrente);
+            cellaCorrente.naveOspitata = naveCorrente;
             listaCelleNave.add(cellaCorrente);
             cellaCorrente = cellaCorrente.getCellaSuccessiva(direzioneCorrente);
             cont++;
