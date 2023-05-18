@@ -82,7 +82,7 @@ public final class Partita {
                 break;
 
                 case "/svelagriglia":
-
+                    griglia.svelaGriglia();
                 break;
 
                 case "/mostranavi":
