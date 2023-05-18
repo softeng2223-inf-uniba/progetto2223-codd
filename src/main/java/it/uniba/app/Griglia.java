@@ -34,57 +34,8 @@ public final class Griglia {
          * @param colonnaY
          */
         public Cella(final int rigaX, final int colonnaY) {
-            setRiga(rigaX);
-            setColonna(colonnaY);
-        }
-
-
-        /**
-         * Setter della riga della cella.
-         * @param rigaX
-         */
-        public void setRiga(final int rigaX) {
             this.riga = rigaX;
-        }
-
-        /**
-         * Setter della colonna della cella.
-         * @param colonnaY
-         */
-        public void setColonna(final int colonnaY) {
             this.colonna = colonnaY;
-        }
-
-        /**
-         * Getter della riga della cella.
-         * @return riga
-         */
-        public int getRiga() {
-            return riga;
-        }
-
-        /**
-         * Getter della colonna della cella.
-         * @return colonna
-         */
-        public int getColonna() {
-            return colonna;
-        }
-
-        /**
-         * Getter della nave ospitata nella cella.
-         * @return naveOspitata
-         */
-        public Nave getNaveOspitata() {
-            return naveOspitata;
-        }
-
-        /**
-         * Setter della nave ospitata nella cella.
-         * @param nave
-         */
-        public void setNaveOspitata(final Nave nave) {
-            this.naveOspitata = nave;
         }
 
         /**
@@ -183,22 +134,6 @@ public final class Griglia {
 
 
     /**
-     * Getter della lista di navi presenti nella griglia.
-     * @return listaNaviPresenti
-     */
-    public List<Nave> getListaNaviPresenti() {
-        return listaNaviPresenti;
-    }
-
-    /**
-     * Setter della lista di navi presenti nella griglia.
-     * @param listaNavi
-     */
-    public void setListaNaviPresenti(final List<Nave> listaNavi) {
-        this.listaNaviPresenti = listaNavi;
-    }
-
-    /**
      * Metodo che restituisce la cella corrispondente alle coordinate passate.
      * @param rigaX
      * @param colonnaY
@@ -292,18 +227,15 @@ public final class Griglia {
     private void posizionaNave(final Nave naveCorrente, final Direzione direzioneCorrente, final Cella cellaIniziale) {
 
         int lunghezzaNave = naveCorrente.getNumeroCelleOccupate();
-        List<Cella> listaCelleNave = naveCorrente.getListaCelleOccupate();
         Cella cellaCorrente = cellaIniziale;
         int cont = 0;
 
         while (cont < lunghezzaNave) {
-            cellaCorrente.setNaveOspitata(naveCorrente);
-            listaCelleNave.add(cellaCorrente);
+            cellaCorrente.naveOspitata = naveCorrente;
+            naveCorrente.addToListaCelleOccupate(cellaCorrente);
             cellaCorrente = cellaCorrente.getCellaSuccessiva(direzioneCorrente);
             cont++;
         }
-
-        naveCorrente.setListaCelleOccupate(listaCelleNave);
     }
 
     /**
