@@ -227,13 +227,12 @@ public final class Griglia {
     private void posizionaNave(final Nave naveCorrente, final Direzione direzioneCorrente, final Cella cellaIniziale) {
 
         int lunghezzaNave = naveCorrente.getNumeroCelleOccupate();
-        List<Cella> listaCelleNave = naveCorrente.getListaCelleOccupate();
         Cella cellaCorrente = cellaIniziale;
         int cont = 0;
 
         while (cont < lunghezzaNave) {
             cellaCorrente.naveOspitata = naveCorrente;
-            listaCelleNave.add(cellaCorrente);
+            naveCorrente.addToListaCelleOccupate(cellaCorrente);
             cellaCorrente = cellaCorrente.getCellaSuccessiva(direzioneCorrente);
             cont++;
         }

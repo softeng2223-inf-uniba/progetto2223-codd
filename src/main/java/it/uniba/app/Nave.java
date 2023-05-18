@@ -44,14 +44,6 @@ public abstract class Nave {
     }
 
     /**
-     * getter della lista delle celle occupate dalla nave.
-     * @return listaCelleOccupate
-     */
-    public final List<Griglia.Cella> getListaCelleOccupate() {
-        return listaCelleOccupate;
-    }
-
-    /**
      * setter del numero delle celle occupate dalla nave.
      * @param numCelleOccupate
      */
@@ -68,11 +60,11 @@ public abstract class Nave {
     }
 
     /**
-     * setter della lista delle celle occupate dalla nave.
-     * @param celleOccupate
+     * Metodo che aggiunge la cella passata alla lista di celle occupate dalla nave.
+     * @param cella
      */
-    public final void setListaCelleOccupate(final List<Griglia.Cella> celleOccupate) {
-        this.listaCelleOccupate = celleOccupate;
+    public final void addToListaCelleOccupate(final Griglia.Cella cella) {
+        this.listaCelleOccupate.add(cella);
     }
 
 
