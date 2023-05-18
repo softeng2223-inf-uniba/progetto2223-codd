@@ -101,7 +101,7 @@ public final class Griglia {
          * Metodo che controlla se la cella è occupata da una nave.
          * @return true se la cella è occupata, false altrimenti
          */
-        public final boolean isOccupata() {
+        public boolean isOccupata() {
             return (naveOspitata != null);
         }
 
@@ -111,7 +111,7 @@ public final class Griglia {
          * @param direzione in cui si vuole controllare
          * @return true se la cella è disponibile, false altrimenti
          */
-        public final boolean isSuccessivaDisponibile(final Direzione direzione) {
+        public boolean isSuccessivaDisponibile(final Direzione direzione) {
 
             Cella cellaSuccessiva = getCellaSuccessiva(direzione);
 
@@ -127,7 +127,7 @@ public final class Griglia {
          * @param direzione della cella che si vuole ottenere
          * @return cellaSuccessiva
          */
-        public final Cella getCellaSuccessiva(final Direzione direzione) {
+        public Cella getCellaSuccessiva(final Direzione direzione) {
 
             Cella cellaSuccessiva = null;
 
@@ -151,7 +151,7 @@ public final class Griglia {
             return cellaSuccessiva;
         }
 
-    }//fine inner class Cella
+    }
 
     /**
      * Enumerazione che rappresenta le direzioni in cui posizionare le navi.
