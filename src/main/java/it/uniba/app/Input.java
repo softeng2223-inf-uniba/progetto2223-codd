@@ -35,31 +35,31 @@ public final class Input {
      */
     public static String acquisisci(final Partita.StatoPartita stato) {
 
-        Scanner tastiera = new Scanner(System.in);
+        Scanner tastiera = new Scanner(System.in, "utf-8");
         String input;
         boolean corretto;
 
         do {
             corretto = false;
-            System.out.print("\nInserisci a capo un comando: \n> ");
+            System.out.print("\n\n\nInserisci a capo un comando:\n> ");
             input = tastiera.nextLine().toLowerCase();
 
             if (!listaCompletaComandi.contains(input)) {
-                System.out.print("\nNon capisco, usa un comando tra quelli disponibili... "
-                + "(scrivere /help per visualizzare la lista dei comandi)\n");
+                System.out.println("\nNon capisco, usa un comando tra quelli disponibili... "
+                + "\n(scrivere /help per visualizzare la lista dei comandi)");
             } else {
 
                 switch (stato) {
                     case IN_CORSO:
                         if (!listaComandiPartitaInCorso.contains(input)) {
-                            System.out.println("\nNon puoi usare questo comando ora!\n");
+                            System.out.println("\n: Non puoi usare questo comando ora!");
                         } else {
                             corretto = true;
                         }
                     break;
                     case NON_INIZIATA:
                         if (!listaComandiPartitaNonIniziata.contains(input)) {
-                            System.out.println("\nNon puoi usare questo comando ora!\n");
+                            System.out.println("\n: Non puoi usare questo comando ora!");
                         } else {
                             corretto = true;
                         }
@@ -80,12 +80,12 @@ public final class Input {
      */
     public static boolean acquisisciConferma() {
 
-        Scanner tastiera = new Scanner(System.in);
+        Scanner tastiera = new Scanner(System.in, "utf-8");
         String input;
         boolean conferma = false;
 
         do {
-            System.out.print("\nInserisci SI per confermare oppure NO per restare nel gioco.\n> ");
+            System.out.print("\nInserisci SI per confermare oppure NO per restare nel gioco:\n> ");
             input = tastiera.nextLine().toLowerCase();
 
             if (input.equals("si")) {
@@ -95,7 +95,7 @@ public final class Input {
                 conferma = false;
                 break;
             } else {
-                System.out.println("\nNon capisco...\n");
+                System.out.println("\nNon capisco...");
             }
 
         } while (true);
@@ -110,8 +110,7 @@ public final class Input {
      */
     public static List<String> riempiComandi(final String... comandi) {
 
-        List<String> listaComandi = new ArrayList<>();
-        listaComandi = Arrays.asList(comandi);
+        List<String> listaComandi = Arrays.asList(comandi);
 
         return listaComandi;
     }
