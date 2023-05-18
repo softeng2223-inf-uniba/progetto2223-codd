@@ -134,22 +134,6 @@ public final class Griglia {
 
 
     /**
-     * Getter della lista di navi presenti nella griglia.
-     * @return listaNaviPresenti
-     */
-    public List<Nave> getListaNaviPresenti() {
-        return listaNaviPresenti;
-    }
-
-    /**
-     * Setter della lista di navi presenti nella griglia.
-     * @param listaNavi
-     */
-    public void setListaNaviPresenti(final List<Nave> listaNavi) {
-        this.listaNaviPresenti = listaNavi;
-    }
-
-    /**
      * Metodo che restituisce la cella corrispondente alle coordinate passate.
      * @param rigaX
      * @param colonnaY
