@@ -1,5 +1,11 @@
 package it.uniba.app;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
+
 /**
  * Classe che rappresenta il campo da gioco sotto forma di griglia.
  */
@@ -162,11 +168,40 @@ public final class Griglia {
 
     private static final int DIMENSIONE = 10;
     private Cella[][] campo = new Cella[DIMENSIONE][DIMENSIONE];
+    private List<Nave> listaNaviPresenti = inizializzaNavi();
 
     /**
-     * Costruttore vuoto.
+     * Costruttore che inizializza le celle della griglia e
+     * predispone le navi in essa, calcolando randomicamente il loro posizionamento.
      */
-    private Griglia() {
+    public Griglia() {
+        inizializzaCelle();
+        predisponiNavi();
+    }
+
+
+    /**
+     * Getter della matrice rappresentante il campo da gioco.
+     * @return campo
+     */
+    public Cella[][] getCampo() {
+        return campo;
+    }
+
+    /**
+     * Getter della lista di navi presenti nella griglia.
+     * @return listaNaviPresenti
+     */
+    public List<Nave> getListaNaviPresenti() {
+        return listaNaviPresenti;
+    }
+
+    /**
+     * Setter della lista di navi presenti nella griglia.
+     * @param listaNavi
+     */
+    public void setListaNaviPresenti(final List<Nave> listaNavi) {
+        this.listaNaviPresenti = listaNavi;
     }
 
     /**
@@ -192,6 +227,129 @@ public final class Griglia {
      */
     private boolean esisteCella(final int rigaX, final int colonnaY) {
         return ((rigaX >= 0 && rigaX < DIMENSIONE) && (colonnaY >= 0 && colonnaY < DIMENSIONE));
+    }
+
+    /**
+     * Metodo che predispone randomicamente le navi nella griglia al momento della sua creazione.
+     */
+    private void predisponiNavi() {
+
+        boolean posizionata;
+
+        for (Nave naveCorrente : listaNaviPresenti) {
+
+            do {
+                posizionata = false;
+                Random rand = new Random();
+
+                int rigaRandom = rand.nextInt(DIMENSIONE);
+                int colonnaRandom = rand.nextInt(DIMENSIONE);
+
+                Cella cellaRandom = getCella(rigaRandom, colonnaRandom);
+
+                if (!cellaRandom.isOccupata()) {
+
+                    Direzione[] direzioni = {Direzione.ALTO, Direzione.BASSO, Direzione.SINISTRA, Direzione.DESTRA};
+                    List<Direzione> listaDirezioni = Arrays.asList(direzioni);
+                    Collections.shuffle(listaDirezioni);
+
+                    for (Direzione direzioneCorrente : listaDirezioni) {
+
+                        if (isNavePosizionabile(naveCorrente, direzioneCorrente, cellaRandom)) {
+                            posizionaNave(naveCorrente, direzioneCorrente, cellaRandom);
+                            posizionata = true;
+                            break;
+                        }
+                    }
+                }
+            } while (!posizionata);
+        }
+    }
+
+    /**
+     * Metodo che verifica se la naveCorrente passata è posizionabile
+     * a partire dalla cellaIniziale passata, lungo la direzioneCorrente.
+     * @param naveCorrente
+     * @param direzioneCorrente
+     * @param cellaIniziale
+     * @return true se la nave è posizionabile, false altrimenti
+     */
+    private boolean isNavePosizionabile(final Nave naveCorrente, final Direzione direzioneCorrente, final Cella cellaIniziale) {
+
+        int lunghezzaNave = naveCorrente.getNumeroCelleOccupate();
+        Cella cellaCorrente = cellaIniziale;
+        int cont = 1;
+
+        while (cellaCorrente.isSuccessivaDisponibile(direzioneCorrente) && cont < lunghezzaNave) {
+            cellaCorrente = cellaCorrente.getCellaSuccessiva(direzioneCorrente);
+            cont++;
+        }
+
+        return (cont == lunghezzaNave);
+    }
+
+    /**
+     * Metodo che posiziona la naveCorrente passata nella griglia
+     * a partire dalla cellaIniziale passata e lungo la direzioneCorrente.
+     * @param naveCorrente
+     * @param direzioneCorrente
+     * @param cellaIniziale
+     */
+    private void posizionaNave(final Nave naveCorrente, final Direzione direzioneCorrente, final Cella cellaIniziale) {
+
+        int lunghezzaNave = naveCorrente.getNumeroCelleOccupate();
+        List<Cella> listaCelleNave = naveCorrente.getListaCelleOccupate();
+        Cella cellaCorrente = cellaIniziale;
+        int cont = 0;
+
+        while (cont < lunghezzaNave) {
+            cellaCorrente.setNaveOspitata(naveCorrente);
+            listaCelleNave.add(cellaCorrente);
+            cellaCorrente = cellaCorrente.getCellaSuccessiva(direzioneCorrente);
+            cont++;
+        }
+
+        naveCorrente.setListaCelleOccupate(listaCelleNave);
+    }
+
+    /**
+     * Metodo che inizializza la lista delle navi presenti inizialmente nella griglia.
+     * @return listaNavi
+     */
+    private List<Nave> inizializzaNavi() {
+
+        List<Nave> listaNavi = new ArrayList<>();
+
+        for (int i = 0; i < Portaerei.getNumeroEsemplari(); i++) {
+            listaNavi.add(new Portaerei());
+        }
+
+        for (int i = 0; i < Corazzata.getNumeroEsemplari(); i++) {
+            listaNavi.add(new Corazzata());
+        }
+
+        for (int i = 0; i < Incrociatore.getNumeroEsemplari(); i++) {
+            listaNavi.add(new Incrociatore());
+        }
+
+        for (int i = 0; i < Cacciatorpediniere.getNumeroEsemplari(); i++) {
+            listaNavi.add(new Cacciatorpediniere());
+        }
+
+        return listaNavi;
+    }
+
+    /**
+     * Metodo che inizializza le celle, impostando
+     * i corrispondenti valori di riga e colonna.
+     */
+    private void inizializzaCelle() {
+
+        for (int i = 0; i < DIMENSIONE; i++) {
+            for (int j = 0; j < DIMENSIONE; j++) {
+                campo[i][j] = new Cella(i, j);
+            }
+        }
     }
 
     /**
