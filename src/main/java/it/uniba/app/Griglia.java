@@ -236,8 +236,6 @@ public final class Griglia {
             cellaCorrente = cellaCorrente.getCellaSuccessiva(direzioneCorrente);
             cont++;
         }
-
-        naveCorrente.setListaCelleOccupate(listaCelleNave);
     }
 
     /**
