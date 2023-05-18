@@ -70,6 +70,7 @@ public final class Partita {
     public void gioca() {
 
         System.out.println("\nHai iniziato una nuova partita!\n\n(In partita...)\n");
+        griglia.stampaGrigliaVuota();
 
         do {
             String comando = Input.acquisisci(StatoPartita.IN_CORSO);
