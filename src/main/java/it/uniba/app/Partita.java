@@ -86,7 +86,7 @@ public final class Partita {
                 break;
 
                 case "/mostranavi":
-
+                    griglia.mostraNavi();
                 break;
 
                 case "/mostralivello":
