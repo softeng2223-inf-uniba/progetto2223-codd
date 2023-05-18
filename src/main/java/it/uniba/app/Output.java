@@ -6,10 +6,10 @@ package it.uniba.app;
 public final class Output {
 
     private static final String BENVENUTO =
-    "                             BENVENUTO NEL GIOCO DELLA BATTAGLIA NAVALE                             \n";
+    "\n\n                             BENVENUTO NEL GIOCO DELLA BATTAGLIA NAVALE                             \n";
 
     private static final String DESCRIZIONE =
-      " +-------------------------------------------------------------------------------------------------+\n"
+      "+--------------------------------------------------------------------------------------------------+\n"
     + "|                                                                                                  |\n"
     + "|          Il gioco della battaglia navale prevede la generazione di una griglia 10 x 10,          |\n"
     + "|                    all'interno della quale saranno posizionate 10 navi.                          |\n"
