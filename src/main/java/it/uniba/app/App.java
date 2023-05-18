@@ -34,7 +34,11 @@ public final class App {
             switch (comando) {
                 case "/gioca":
                     Partita partita = new Partita(LivelloSessione.getCorrente());
-                    partita.gioca();
+                    boolean continua = partita.gioca();
+
+                    if (!continua) {
+                        System.exit(0);
+                    }
                 break;
 
                 case "/esci":

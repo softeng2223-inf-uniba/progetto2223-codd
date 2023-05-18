@@ -66,11 +66,13 @@ public final class Partita {
 
     /**
      * Metodo che permette di giocare la partita.
+     * @return true se si vuole giocare un'altra partita, false altrimenti
      */
-    public void gioca() {
+    public boolean gioca() {
 
         System.out.println("\nHai iniziato una nuova partita!\n\n(In partita...)\n");
         griglia.stampaGrigliaVuota();
+        boolean continua = true;
 
         do {
             String comando = Input.acquisisci(StatoPartita.IN_CORSO);
@@ -78,7 +80,7 @@ public final class Partita {
             switch (comando) {
                 case "/esci":
                     if (Input.acquisisciConferma()) {
-                        System.exit(0);
+                        continua = false;
                     }
                 break;
 
@@ -105,7 +107,12 @@ public final class Partita {
                 break;
             }
 
+            if (!continua) {
+               break;
+            }
         } while (true);
+
+        return false;
     }
 }
 

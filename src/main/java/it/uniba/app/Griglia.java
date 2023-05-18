@@ -170,6 +170,8 @@ public final class Griglia {
     private Cella[][] campo = new Cella[DIMENSIONE][DIMENSIONE];
     private List<Nave> listaNaviPresenti = inizializzaNavi();
 
+    private Random rand = new Random();
+
     /**
      * Costruttore che inizializza le celle della griglia e
      * predispone le navi in essa, calcolando randomicamente il loro posizionamento.
@@ -179,14 +181,6 @@ public final class Griglia {
         predisponiNavi();
     }
 
-
-    /**
-     * Getter della matrice rappresentante il campo da gioco.
-     * @return campo
-     */
-    public Cella[][] getCampo() {
-        return campo;
-    }
 
     /**
      * Getter della lista di navi presenti nella griglia.
@@ -235,7 +229,6 @@ public final class Griglia {
     private void predisponiNavi() {
 
         boolean posizionata;
-        Random rand = new Random();
 
         for (Nave naveCorrente : listaNaviPresenti) {
 
