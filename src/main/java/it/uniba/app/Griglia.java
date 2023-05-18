@@ -366,5 +366,40 @@ public final class Griglia {
         System.out.println(new Portaerei());
     }
 
+    /**
+     * metodo che mostra la griglia con le navi posizionate.
+     */
+    public void svelaGriglia() {
+
+        System.out.println("\n+----------------------------------------------+");
+        System.out.println("|      | A |" + " B |" + " C |" + " D |" + " E |" + " F |"
+        + " G |" + " H |" + " I |" + " J |");
+
+        for (int i = 0; i < DIMENSIONE; i++) {
+
+            System.out.print("+------+---+---+---+---+---+---+---+---+---+---+\n");
+
+            if (i != DIMENSIONE - 1) {
+                System.out.print("|  " + (i + 1) + "   ");
+            } else {
+                System.out.print("|  " + (i + 1) + "  ");
+            }
+
+            for (int j = 0; j < DIMENSIONE; j++) {
+
+                if (getCella(i, j).isOccupata()) {
+                    System.out.print("| N ");
+                } else {
+                    System.out.print("| ~ ");
+                }
+
+                if (j == DIMENSIONE - 1) {
+                        System.out.print("|");
+                }
+            }
+            System.out.println("");
+        }
+        System.out.println("+------+---+---+---+---+---+---+---+---+---+---+");
+    }
 }
 
