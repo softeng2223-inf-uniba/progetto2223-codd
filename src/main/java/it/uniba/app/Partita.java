@@ -28,7 +28,7 @@ public final class Partita {
      * @param livelloCorrente livello al quale impostare la partita.
      */
     public Partita(final Livello livelloCorrente) {
-        // da invocare costruttore di Griglia
+        this.griglia = new Griglia();
         setLivello(livelloCorrente);
     }
 
