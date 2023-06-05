@@ -42,7 +42,7 @@ La durata della partita potrà essere dettata dal numero di tentavi a disposizio
 
 Di seguito si riporta il diagramma UML che, secondo prospettiva concettuale, descrive il ***dominio*** del gioco *Battaglia Navale*.
 
-![modello_dominio](./img/modello_dominio.png)
+![modello_dominio](./img/ModelloDiDominio.png)
 
 
 
