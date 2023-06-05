@@ -50,7 +50,7 @@ Di seguito si riporta il diagramma UML che, secondo prospettiva concettuale, des
 
 ### 3.1 Requisiti funzionali
 
-**Come giocatore voglio mostrare l'help con elenco comandi**
+**RF1: Come giocatore voglio mostrare l'help con elenco comandi**
 
 *Criteri di accettazione*
 
@@ -64,7 +64,7 @@ il risultato è una descrizione concisa, che normalmente appare all'avvio del pr
 
     
 
-**Come giocatore voglio chiudere il gioco**
+**RF2: Come giocatore voglio chiudere il gioco**
 
 *Criteri di accettazione* 
 
@@ -80,7 +80,7 @@ l'applicazione chiede conferma:
 
                     
 
-**Come giocatore voglio impostare il livello di gioco per variare il numero massimo di tentativi sbagliati**
+**RF3: Come giocatore voglio impostare il livello di gioco per variare il numero massimo di tentativi sbagliati**
 
 *Criteri di accettazione*
 
@@ -98,7 +98,7 @@ l'applicazione chiede conferma:
 
     
 
-**Come giocatore voglio mostrare il livello di gioco e il numero di massimo di tentativi falliti**
+**RF4: Come giocatore voglio mostrare il livello di gioco e il numero di massimo di tentativi falliti**
 
 *Criteri di accettazione*
 
@@ -108,7 +108,7 @@ l’applicazione risponde visualizzando il livello di gioco e il numero di massi
 
     
 
-**Come giocatore voglio mostrare i tipi di nave e il numero**
+**RF5: Come giocatore voglio mostrare i tipi di nave e il numero**
 
 *Criteri di accettazione*
 
@@ -125,7 +125,7 @@ l’applicazione risponde visualizzando, per ogni tipo di nave, la dimensione in
 
     
 
-**Come giocatore voglio iniziare una nuova partita**
+**RF6: Come giocatore voglio iniziare una nuova partita**
 
 Al comando **/gioca** 
 
@@ -133,7 +133,7 @@ se nessuna partita è in corso l'applicazione imposta causalmente le navi, in or
 
     
 
-**Come giocatore voglio svelare la griglia con le navi posizionate**
+**RF7: Come giocatore voglio svelare la griglia con le navi posizionate**
 
 Al comando **/svelagriglia**
 
