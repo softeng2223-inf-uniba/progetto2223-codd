@@ -215,4 +215,15 @@ Di seguito ti lascio una lista dei comandi che potrai utilizzare:
 ### 9.1 Sprint 0
 
 ![lavagna_retrospettiva_sprint0](./img/lavagna_retrospettiva_sprint0.png)
+
+### 9.2 Sprint 1
+
+![LavagnaRetrospettivaSprint1](.img/LavagnaRetrospettivaSprint1.png)
+      
+
+Dalla discussione avvenuta in occasione del meeting di retrospettiva relativo allo Sprint 1, sono emerse le seguenti conclusioni.
+
+Se da un lato continueremo a lavorare mantenendo l'efficienza riscontrata fino ad ora, e la disponibilità alla pronta e attenta revisione del lavoro svolto da ciascun componente del team; dall'altro lato ci impegnamo a lavorare ancora meglio: in particolare prestando maggiore attenzione nella redazione e conseguente completamento della relazione tecnica, nell'arricchimento della parte di presentazione grafica dell'applicazione da realizzare.
+
+In ultimo si lavorerà per rendere più produttivi gli incontri in presenza, cercando di sfruttare sempre al meglio il tempo a disposizione durante gli stessi.
       
