@@ -218,7 +218,7 @@ Di seguito ti lascio una lista dei comandi che potrai utilizzare:
 
 ### 9.2 Sprint 1
 
-![LavagnaRetrospettivaSprint1](.img/LavagnaRetrospettivaSprint1.png)
+![LavagnaRetrospettivaSprint1](./img/LavagnaRetrospettivaSprint1.png)
       
 
 Dalla discussione avvenuta in occasione del meeting di retrospettiva relativo allo Sprint 1, sono emerse le seguenti conclusioni.
