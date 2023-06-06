@@ -179,16 +179,16 @@ l’applicazione risponde con OK e imposta a *numero* il numero massimo di tenta
 
 - Al comando **/standard**
 
- l’applicazione risponde con OK e imposta a 10x10 la dimensione della griglia (è il default)
+  l’applicazione risponde con OK e imposta a 10x10 la dimensione della griglia (è il default)
 
 - Al comando **/large**
 
- l’applicazione risponde con OK e imposta a 18x18 la dimensione della griglia
+  l’applicazione risponde con OK e imposta a 18x18 la dimensione della griglia
 
 - Al comando **/extralarge**
 
- l’applicazione risponde con OK e imposta a 26x26 la dimensione della griglia
- 
+  l’applicazione risponde con OK e imposta a 26x26 la dimensione della griglia
+
                     
 
 **RF11: Come giocatore voglio impostare il tempo di gioco**
@@ -259,8 +259,6 @@ l'applicazione chiede conferma
 
 - se la conferma è positiva, l'applicazione risponde visualizzando sulla griglia la posizione di tutte le navi e si predispone a ricevere nuovi comandi
 - se la conferma è negativa, l'applicazione si predispone a ricevere nuovi tentativi o comandi
-
-                    
 
                     
 
