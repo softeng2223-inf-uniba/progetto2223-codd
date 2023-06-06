@@ -143,25 +143,25 @@ Al comando **/svelagriglia**
 
 l’applicazione risponde visualizzando, una griglia 10x10, con le righe numerate da 1 a 10 e le colonne numerate da A a J, e tutte le navi posizionate
 
-    
+                    
+
 **RF8: Come giocatore voglio impostare il numero massimo di tentativi falliti per livello di gioco**
 
 *Criteri di accettazione*
 
-Al comando **/facile** *numero*
+- Al comando **/facile** *numero*
 
-l'applicazione risponde con OK e imposta a *numero* il numero massimo di tentativi falliti
+  l'applicazione risponde con OK e imposta a *numero* il numero massimo di tentativi falliti
 
+- Al comando **/medio** *numero*
 
-Al comando **/medio** *numero*
+  l'applicazione risponde con OK e imposta a *numero* il numero massimo di tentativi falliti
 
-l'applicazione risponde con OK e imposta a *numero* il numero massimo di tentativi falliti
+- Al comando **/difficile** *numero*
 
+  l'applicazione risponde con OK e imposta a *numero* il numero massimo di tentativi falliti
 
-Al comando **/difficile** *numero*
-
-l'applicazione risponde con OK e imposta a *numero* il numero massimo di tentativi falliti
-
+                    
 
 **RF9: Come giocatore voglio impostare direttamente il numero massimo di tentativi che si possono fallire**
 
@@ -171,25 +171,25 @@ Al comando **/tentativi** *numero*
 
 l’applicazione risponde con OK e imposta a *numero* il numero massimo di tentativi falliti
 
-      
+                    
+
 **RF10: Come giocatore voglio impostare la taglia della griglia**
 
 *Criteri di accettazione*
 
-Al comando **/standard**
+- Al comando **/standard**
 
-l’applicazione risponde con OK e imposta a 10x10 la dimensione della griglia (è il default)
+ l’applicazione risponde con OK e imposta a 10x10 la dimensione della griglia (è il default)
 
-      
-Al comando **/large**
+- Al comando **/large**
 
-l’applicazione risponde con OK e imposta a 18x18 la dimensione della griglia
+ l’applicazione risponde con OK e imposta a 18x18 la dimensione della griglia
 
+- Al comando **/extralarge**
 
-Al comando **/extralarge**
-
-l’applicazione risponde con OK e imposta a 26x26 la dimensione della griglia
-
+ l’applicazione risponde con OK e imposta a 26x26 la dimensione della griglia
+ 
+                    
 
 **RF11: Come giocatore voglio impostare il tempo di gioco**
 
@@ -199,6 +199,7 @@ Al comando **/tempo** *numero*
 
 l'applicazione risponde con OK e imposta a *numero* il numero di minuti a disposizione per giocare
 
+                    
 
 **RF12: Come giocatore voglio mostrare il tempo di gioco**
 
@@ -207,6 +208,8 @@ l'applicazione risponde con OK e imposta a *numero* il numero di minuti a dispos
 Al comando **/mostratempo**
 
 l'applicazione risponde visualizzando il numero di minuti trascorsi nel gioco e il numero di minuti ancora disponibili
+
+                    
 
 **RF13: Come giocatore voglio effettuare un tentativo per colpire la nave**
 
@@ -224,6 +227,7 @@ La partita termina con successo se il tentativo ha affondato l’ultima nave.
 
 La partita termina con insuccesso se è stato raggiunto il numero massimo di tentativi falliti o se è scaduto il tempo di gioco
 
+                    
 
 **RF14: Come giocatore voglio mostrare la griglia con le navi colpite e affondate**
 
@@ -233,6 +237,7 @@ Al comando **/mostragriglia**
 
 l'applicazione risponde visualizzando una griglia con le righe numerate a partire da 1 e le colonne a partire da A, con le navi affondate e le sole parti già colpite delle navi non affondate
 
+                    
 
 **RF15: Come giocatore voglio mostrare il numero di tentativi già effettuati e il numero di tentativi falliti**
 
@@ -242,6 +247,7 @@ Al comando **/mostratentativi**
 
 l'applicazione risponde visualizzando il numero di tentativi già effettuati, il numero di tentativi falliti e il numero massimo di tentativi falliti
 
+                    
 
 **RF16: Come giocatore voglio abbandonare una partita**
 
@@ -254,7 +260,9 @@ l'applicazione chiede conferma
 - se la conferma è positiva, l'applicazione risponde visualizzando sulla griglia la posizione di tutte le navi e si predispone a ricevere nuovi comandi
 - se la conferma è negativa, l'applicazione si predispone a ricevere nuovi tentativi o comandi
 
+                    
 
+                    
 
 ### 3.2 Requisiti non funzionali
 
