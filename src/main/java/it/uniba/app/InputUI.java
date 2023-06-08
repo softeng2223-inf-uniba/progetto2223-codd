@@ -68,13 +68,11 @@ public class InputUI {
      *
      * @param tastiera
      * @param contesto
-     * @param tipo
      * @param limite
      *
      * @return array di 2 stringhe, ciascuna un token del comando letto.
      */
-    public String[] acquisisciComando(final Scanner tastiera, final StatoGioco contesto, TipoComando tipo,
-        final int limite) {
+    public String[] acquisisciComando(final Scanner tastiera, final StatoGioco contesto, final int limite) {
 
         String[] comando = new String[2];
         String input;
@@ -86,11 +84,12 @@ public class InputUI {
 
             Matcher m = TENTATIVO_REGEX.matcher(input);
             if (!m.matches()) {
-                parseInput(input, contesto, comando, isCorretto);
-                if (isCorretto) {
-                    tipo = TipoComando.AZIONE;
+                if (isCorretto = parseInput(input, contesto)) {
+                    comando = input.split("\\s");
                 }
+
             } else {
+
                 if (contesto == StatoGioco.PARTITA) {
                     String[] inputTokens = input.split("-");
 
@@ -99,8 +98,7 @@ public class InputUI {
 
                     if (colonna < limite && (riga >= 0 && riga < limite)) {
                         comando = inputTokens;
-                        tipo = TipoComando.TENTATIVO;
-                        break;
+                        isCorretto = true;
                     } else {
                         System.out.println("\n: Le coordinate specificate sono fuori dalla griglia!");
                     }
@@ -135,7 +133,9 @@ public class InputUI {
 
             Matcher m = TENTATIVO_REGEX.matcher(input);
             if (!m.matches()) {
-                parseInput(input, contesto, comando, isCorretto);
+                if (isCorretto = parseInput(input, contesto)) {
+                    comando = input.split("\\s");
+                }
 
             } else {
                 System.out.println("\n: Per effettuare un tentativo devi prima iniziare una partita!");
@@ -146,16 +146,15 @@ public class InputUI {
     }
 
     /**
-     * Metodo verifica, avvalorando isCorretto, la correttezza della stringa in input relativamente
-     * al contesto, dopo averla suddivisa in token.
+     * Metodo che verifica, dopo averla suddivisa in token, la correttezza della stringa in input
+     * relativamente al contesto.
      *
      * @param input
      * @param contesto
-     * @param comando
-     * @param isCorretto
+     *
+     * @return true se la stringa è corretta, false altrimenti.
      */
-    private void parseInput(final String input, final StatoGioco contesto, String[] comando,
-        boolean isCorretto) {
+    private boolean parseInput(final String input, final StatoGioco contesto) {
 
         String[] inputTokens = input.split("\\s");
         int numTokens = inputTokens.length;
@@ -168,11 +167,9 @@ public class InputUI {
             if (numTokens == 2) {
                 cmdTokens[1] = inputTokens[1];
             }
-            if (verificaComando(cmdTokens, contesto)) {
-                comando = cmdTokens;
-                isCorretto = true;
-            }
+            return verificaComando(cmdTokens, contesto);
         }
+        return false;
     }
 
 
@@ -243,6 +240,22 @@ public class InputUI {
             System.out.println("\n: Il comando inserito prevede che accanto sia specificato un numero, non altro!");
             return false;
         }
+    }
+
+
+    /**
+     * Metodo che verifica se un comando passato è o meno un TENTATIVO.
+     *
+     * @param comando
+     *
+     * @return true se il comando è un tentativo, false altrimenti.
+     */
+    public boolean isTentativo(String[] comando) {
+
+        if (LETTERE.contains(comando[0])) {
+            return true;
+        }
+        return false;
     }
 
 
