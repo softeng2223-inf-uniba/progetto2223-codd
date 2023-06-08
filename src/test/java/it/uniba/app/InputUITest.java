@@ -10,7 +10,6 @@ import java.nio.charset.StandardCharsets;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class InputTest {
 
@@ -85,7 +84,7 @@ class InputTest {
         System.setIn(in);
         String[] expected = {"a", "1"};
         assertArrayEquals(expected, inputUI.acquisisciComando(new Scanner(System.in, "UTF-8"),
-        InputUI.StatoGioco.PARTITA, limite),"Il tentativo deve essere valido in partita");
+        InputUI.StatoGioco.PARTITA, limite), "Il tentativo deve essere valido in partita");
     }
 
 
@@ -98,7 +97,8 @@ class InputTest {
         Scanner scanner = new Scanner(inputStream, "UTF-8");
         InputUI inputUI = new InputUI();
         String[] result = inputUI.acquisisciComando(scanner, InputUI.StatoGioco.SESSIONE, limite);
-        assertArrayEquals(new String[]{"/tentativi", "10"}, result,"Il comando con numero deve essere valido in sessione");
+        assertArrayEquals(new String[]{"/tentativi", "10"}, result, 
+        "Il comando con numero deve essere valido in sessione");
     }
 
 }
