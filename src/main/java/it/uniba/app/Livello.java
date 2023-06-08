@@ -7,9 +7,9 @@ package it.uniba.app;
  */
 public final class Livello {
 
-    private final int TENT_INIZIALE_FACILE = 50;
-    private final int TENT_INIZIALE_MEDIO = 30;
-    private final int TENT_INIZIALE_DIFFICILE = 10;
+    private static final int TENT_INIZIALE_FACILE = 50;
+    private static final int TENT_INIZIALE_MEDIO = 30;
+    private static final int TENT_INIZIALE_DIFFICILE = 10;
 
 
     /**
@@ -134,7 +134,7 @@ public final class Livello {
     /**
      * Setter del livello corrente.
      *
-     * @param tent
+     * @param liv
      */
     public void setLivCorrente(final Tipo liv) {
         this.livCorrente = liv;
