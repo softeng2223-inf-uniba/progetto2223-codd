@@ -15,7 +15,7 @@ public final class Livello {
     /**
      * Enumerativo che rappresenta i diversi livelli di difficoltà impostabili.
      */
-    public enum TipoLivello {
+    public enum Tipo {
         FACILE, MEDIO, DIFFICILE, PERSONALIZZATO;
     }
 
@@ -25,7 +25,7 @@ public final class Livello {
     private int tentDifficile = TENT_INIZIALE_DIFFICILE;
 
     private int tentCorrenti = TENT_INIZIALE_FACILE;
-    private TipoLivello livCorrente = TipoLivello.FACILE;
+    private Tipo livCorrente = Tipo.FACILE;
 
     private static Livello istanza = null;
 
