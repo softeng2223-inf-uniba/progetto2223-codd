@@ -97,7 +97,7 @@ class InputTest {
         Scanner scanner = new Scanner(inputStream, "UTF-8");
         InputUI inputUI = new InputUI();
         String[] result = inputUI.acquisisciComando(scanner, InputUI.StatoGioco.SESSIONE, limite);
-        assertArrayEquals(new String[]{"/tentativi", "10"}, result, 
+        assertArrayEquals(new String[]{"/tentativi", "10"}, result,
         "Il comando con numero deve essere valido in sessione");
     }
 
