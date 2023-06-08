@@ -90,7 +90,7 @@ public final class Livello {
      *
      * @return livCorrente
      */
-    public TipoLivello getLivCorrente() {
+    public Tipo getLivCorrente() {
         return this.livCorrente;
     }
 
@@ -136,7 +136,7 @@ public final class Livello {
      *
      * @param tent
      */
-    public void setLivCorrente(final TipoLivello liv) {
+    public void setLivCorrente(final Tipo liv) {
         this.livCorrente = liv;
     }
 
