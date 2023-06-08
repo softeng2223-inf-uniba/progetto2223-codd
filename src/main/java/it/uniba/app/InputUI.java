@@ -84,7 +84,8 @@ public class InputUI {
 
             Matcher m = TENTATIVO_REGEX.matcher(input);
             if (!m.matches()) {
-                if (isCorretto = parseInput(input, contesto)) {
+                isCorretto = parseInput(input, contesto);
+                if (isCorretto) {
                     comando = input.split("\\s");
                 }
 
@@ -133,7 +134,8 @@ public class InputUI {
 
             Matcher m = TENTATIVO_REGEX.matcher(input);
             if (!m.matches()) {
-                if (isCorretto = parseInput(input, contesto)) {
+                isCorretto = parseInput(input, contesto);
+                if (isCorretto) {
                     comando = input.split("\\s");
                 }
 
@@ -250,7 +252,7 @@ public class InputUI {
      *
      * @return true se il comando è un tentativo, false altrimenti.
      */
-    public boolean isTentativo(String[] comando) {
+    public boolean isTentativo(final String[] comando) {
 
         if (LETTERE.contains(comando[0])) {
             return true;
