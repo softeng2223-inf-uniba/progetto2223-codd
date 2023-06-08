@@ -14,24 +14,24 @@ import java.util.regex.Pattern;
  */
 public class InputUI {
 
-    private static final List<String> listaComandiCompleta = Arrays.asList(
+    private static final List<String> LISTA_COMANDI_COMPLETA = Arrays.asList(
             "/gioca", "/esci", "/facile", "/medio", "/difficile",
             "/help", "/mostralivello", "/mostranavi", "/svelagriglia", "/tentativi",
             "/standard", "/large", "/extralarge", "/tempo",
             "/mostratempo", "/mostragriglia", "/mostratentativi", "/abbandona");
-    private static final List<String> listaComandiAmmessiInSessione = Arrays.asList(
+    private static final List<String> LISTA_COMANDI_AMMESSI_SESSIONE = Arrays.asList(
             "/gioca", "/esci", "/facile", "/medio", "/difficile",
             "/help", "/mostralivello", "/mostranavi", "/tentativi",
             "/standard", "/large", "/extralarge", "/tempo");
-    private static final List<String> listaComandiAmmessiInPartita = Arrays.asList(
+    private static final List<String> LISTA_COMANDI_AMMESSI_PARTITA = Arrays.asList(
             "/help", "/mostralivello", "/mostranavi", "/svelagriglia",
             "/mostratempo", "/mostragriglia", "/mostratentativi", "/abbandona");
-    private static final List<String> listaComandiConNumero = Arrays.asList("/facile", "/medio", "/difficile",
+    private static final List<String> LISTA_COMANDI_CON_NUMERO = Arrays.asList("/facile", "/medio", "/difficile",
             "/tentativi", "/tempo");
-    private static final List<String> listaComandiConNumeroSpeciali = Arrays.asList("/tentativi", "/tempo");
+    private static final List<String> LISTA_COMANDI_CON_NUMERO_SPECIALI = Arrays.asList("/tentativi", "/tempo");
 
-    private static final List<String> lettere = Arrays.asList("ABCDEFGHIJKLMNOPQRSTUVWXYZ".split(""));
-    private static final Pattern tentativoRegex = Pattern.compile("[a-zA-Z]-[0-9]{1,2}");
+    private static final List<String> LETTERE = Arrays.asList("ABCDEFGHIJKLMNOPQRSTUVWXYZ".split(""));
+    private static final Pattern TENTATIVO_REGEX = Pattern.compile("[a-zA-Z]-[0-9]{1,2}");
 
 
     /**
@@ -64,13 +64,13 @@ public class InputUI {
      * Nel caso di un tentativo, verifica che sia corretto rispetto alle dimensioni
      * della griglia, date da limite.
      * Restituisce il comando letto suddiviso in due token.
-     * 
-     * 
+     *
+     *
      * @param tastiera
      * @param contesto
      * @param tipo
      * @param limite
-     * 
+     *
      * @return array di 2 stringhe, ciascuna un token del comando letto.
      */
     public String[] acquisisciComando(final Scanner tastiera, final StatoGioco contesto, TipoComando tipo,
@@ -84,7 +84,7 @@ public class InputUI {
             System.out.print("\n\n\n> Inserisci a capo un comando:\n-> ");
             input = tastiera.nextLine().toLowerCase().trim();
 
-            Matcher m = tentativoRegex.matcher(input);
+            Matcher m = TENTATIVO_REGEX.matcher(input);
             if (!m.matches()) {
                 parseInput(input, contesto, comando, isCorretto);
                 if (isCorretto) {
@@ -94,7 +94,7 @@ public class InputUI {
                 if (contesto == StatoGioco.PARTITA) {
                     String[] inputTokens = input.split("-");
 
-                    int colonna = lettere.indexOf(inputTokens[0]);
+                    int colonna = LETTERE.indexOf(inputTokens[0]);
                     int riga = Integer.parseInt(inputTokens[1]) - 1;
 
                     if (colonna < limite && (riga >= 0 && riga < limite)) {
@@ -117,10 +117,10 @@ public class InputUI {
      * Metodo che acquisisce un comando dell'utente da tastiera (solo AZIONE) e ne controlla
      * la correttezza relativamente al contesto.
      * Restituisce il comando letto suddiviso in due token.
-     * 
+     *
      * @param tastiera
      * @param contesto
-     * 
+     *
      * @return array di 2 stringhe, ciascuna un token del comando letto.
      */
     public String[] acquisisciComando(final Scanner tastiera, final StatoGioco contesto) {
@@ -133,7 +133,7 @@ public class InputUI {
             System.out.print("\n\n\n> Inserisci a capo un comando:\n-> ");
             input = tastiera.nextLine().toLowerCase().trim();
 
-            Matcher m = tentativoRegex.matcher(input);
+            Matcher m = TENTATIVO_REGEX.matcher(input);
             if (!m.matches()) {
                 parseInput(input, contesto, comando, isCorretto);
 
@@ -148,7 +148,7 @@ public class InputUI {
     /**
      * Metodo verifica, avvalorando isCorretto, la correttezza della stringa in input relativamente
      * al contesto, dopo averla suddivisa in token.
-     * 
+     *
      * @param input
      * @param contesto
      * @param comando
@@ -179,27 +179,27 @@ public class InputUI {
     /**
      * Metodo che, dato un comando e il contesto di gioco, verifica che il comando sia corretto prima
      * rispetto al contesto, e poi sintatticamente.
-     * 
+     *
      * @param comando
      * @param contesto
-     * 
+     *
      * @return true se il comando è corretto, false altrimenti.
      */
     private boolean verificaComando(final String[] comando, final StatoGioco contesto) {
 
-        if (!listaComandiCompleta.contains(comando[0])) {
+        if (!LISTA_COMANDI_COMPLETA.contains(comando[0])) {
             System.out.println("\n: Il comando inserito non esiste!");
             return false;
         }
         switch (contesto) {
             case PARTITA:
-                if (!listaComandiAmmessiInPartita.contains(comando[0])) {
+                if (!LISTA_COMANDI_AMMESSI_PARTITA.contains(comando[0])) {
                     System.out.println("\n: Il comando inserito non può essere utilizzato in questo contesto!");
                     return false;
                 }
                 break;
             case SESSIONE:
-                if (!listaComandiAmmessiInSessione.contains(comando[0])) {
+                if (!LISTA_COMANDI_AMMESSI_SESSIONE.contains(comando[0])) {
                     System.out.println("\n: Il comando inserito non può essere utilizzato in questo contesto!");
                     return false;
                 }
@@ -207,15 +207,15 @@ public class InputUI {
             default:
                 break;
         }
-        if (!listaComandiConNumero.contains(comando[0]) && comando[1] != null) {
+        if (!LISTA_COMANDI_CON_NUMERO.contains(comando[0]) && comando[1] != null) {
             System.out.println("\n: Il comando inserito non può essere accompagnato da un numero!");
             return false;
         }
-        if (listaComandiConNumeroSpeciali.contains(comando[0]) && comando[1] == null) {
+        if (LISTA_COMANDI_CON_NUMERO_SPECIALI.contains(comando[0]) && comando[1] == null) {
             System.out.println("\n: Il comando inserito non può essere utilizzato senza specificare un numero!");
             return false;
         }
-        if (listaComandiConNumero.contains(comando[0]) && comando[1] != null) {
+        if (LISTA_COMANDI_CON_NUMERO.contains(comando[0]) && comando[1] != null) {
             return verificaNumero(comando[1]);
         }
 
@@ -224,9 +224,9 @@ public class InputUI {
 
     /**
      * Metodo che, data una stringa, verifica che la stringa contenga effettivamente un numero positivo.
-     * 
+     *
      * @param numero
-     * 
+     *
      * @return true se la stringa contiene un numero positivo, false altrimenti.
      */
     private boolean verificaNumero(final String numero) {
@@ -248,9 +248,9 @@ public class InputUI {
 
     /**
      * Metodo che acquisisce una conferma dell'utente, relativamente ad una richiesta.
-     * 
+     *
      * @param tastiera
-     * 
+     *
      * @return true se la conferma è positiva, false altrimenti.
      */
     public boolean acquisisciConferma(final Scanner tastiera) {
