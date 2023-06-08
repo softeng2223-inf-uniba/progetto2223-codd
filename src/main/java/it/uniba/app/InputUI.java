@@ -81,18 +81,23 @@ public class InputUI {
         while (!isCorretto) {
             System.out.print("\n\n\n> Inserisci a capo un comando:\n-> ");
             input = tastiera.nextLine().toLowerCase().trim();
+            String[] inputTokens;
 
             Matcher m = TENTATIVO_REGEX.matcher(input);
             if (!m.matches()) {
                 isCorretto = parseInput(input, contesto);
                 if (isCorretto) {
-                    comando = input.split("\\s");
+                    inputTokens = input.split("\\s");
+                    comando[0] = inputTokens[0];
+                    if (inputTokens.length == 2) {
+                        comando[1] = inputTokens[1];
+                    }
                 }
 
             } else {
 
                 if (contesto == StatoGioco.PARTITA) {
-                    String[] inputTokens = input.split("-");
+                    inputTokens = input.split("-");
 
                     int colonna = LETTERE.indexOf(inputTokens[0]);
                     int riga = Integer.parseInt(inputTokens[1]) - 1;
@@ -131,12 +136,17 @@ public class InputUI {
         while (!isCorretto) {
             System.out.print("\n\n\n> Inserisci a capo un comando:\n-> ");
             input = tastiera.nextLine().toLowerCase().trim();
+            String[] inputTokens;
 
             Matcher m = TENTATIVO_REGEX.matcher(input);
             if (!m.matches()) {
                 isCorretto = parseInput(input, contesto);
                 if (isCorretto) {
-                    comando = input.split("\\s");
+                    inputTokens = input.split("\\s");
+                    comando[0] = inputTokens[0];
+                    if (inputTokens.length == 2) {
+                        comando[1] = inputTokens[1];
+                    }
                 }
 
             } else {
