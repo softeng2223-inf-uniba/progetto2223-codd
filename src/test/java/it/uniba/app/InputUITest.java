@@ -42,37 +42,35 @@ class InputTest {
     }
 
     @Test
-    public void testAcquisisciComandoPartitaValido() {
-        String input = "/svelagriglia";
-        ByteArrayInputStream inputStream = new ByteArrayInputStream(input.getBytes());
-        Scanner scanner = new Scanner(inputStream);
+    public void testAcquisisciComandoAzioneValidaInSessione() {
         InputUI inputUI = new InputUI();
-        String[] result = inputUI.acquisisciComando(scanner, InputUI.StatoGioco.PARTITA);
-        assertEquals("/svelagriglia", result[0]);
-        assertNull(result[1]);
+        String input = "/help";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+        String[] expected = {"/help", null};
+        assertArrayEquals(expected, inputUI.acquisisciComando(new Scanner(System.in), InputUI.StatoGioco.SESSIONE));
     }
 
     @Test
-    public void testAcquisisciComandoSessioneValido() {
-        String input = "/gioca";
-        ByteArrayInputStream inputStream = new ByteArrayInputStream(input.getBytes());
-        Scanner scanner = new Scanner(inputStream);
+    public void testAcquisisciComandoAzioneValidaInPartita() {
         InputUI inputUI = new InputUI();
-        String[] result = inputUI.acquisisciComando(scanner, InputUI.StatoGioco.SESSIONE);
-        assertEquals("/gioca", result[0]);
-        assertNull(result[1]);
+        String input = "/mostranavi";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+        String[] expected = {"/mostranavi", null};
+        assertArrayEquals(expected, inputUI.acquisisciComando(new Scanner(System.in), InputUI.StatoGioco.PARTITA));
     }
 
     @Test
     public void testAcquisisciComandoTentativoValido() {
-        String input = "A-1";
-        ByteArrayInputStream inputStream = new ByteArrayInputStream(input.getBytes());
-        Scanner scanner = new Scanner(inputStream);
         InputUI inputUI = new InputUI();
-        String[] result = inputUI.acquisisciComando(scanner, InputUI.StatoGioco.PARTITA, 10);
-        assertEquals("A", result[0]);
-        assertEquals("1", result[1]);
+        String input = "A-1";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+        String[] expected = {"A", "1"};
+        assertArrayEquals(expected, inputUI.acquisisciComando(new Scanner(System.in), InputUI.StatoGioco.PARTITA, 10));
     }
+
 
     @Test
     public void testAcquisisciComandoConNumeroSessioneValido() {
