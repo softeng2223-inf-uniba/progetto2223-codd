@@ -30,7 +30,7 @@ public class InputUI {
             "/tentativi", "/tempo");
     private static final List<String> LISTA_COMANDI_CON_NUMERO_SPECIALI = Arrays.asList("/tentativi", "/tempo");
 
-    private static final List<String> LETTERE = Arrays.asList("ABCDEFGHIJKLMNOPQRSTUVWXYZ".split(""));
+    private static final List<String> LETTERE = Arrays.asList("abcdefghijklmnopqrstuvwxyz".split(""));
     private static final Pattern TENTATIVO_REGEX = Pattern.compile("[a-zA-Z]-[0-9]{1,2}");
 
 
