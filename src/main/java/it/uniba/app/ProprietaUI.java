@@ -21,7 +21,7 @@ public final class ProprietaUI {
      * @param comando
      */
     public void impostaDimensioniGriglia(final String[] comando) {
-    
+
         switch (comando[0]) {
             case "/standard":
                 this.propController.impostaGrigliaStandard();
