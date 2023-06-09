@@ -1,3 +1,5 @@
+package it.uniba.app;
+
 /**
  * <Control>
  * Classe che gestisce le proprietà della partita.
