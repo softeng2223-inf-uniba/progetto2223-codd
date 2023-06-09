@@ -40,6 +40,9 @@ public final class App {
         InputUI input = new InputUI();
         InputUI.StatoGioco contesto = InputUI.StatoGioco.SESSIONE;
 
+        LivelloUI livUI;
+        LivelloController livContr;
+
         while (true) {
             comando = input.acquisisciComando(tastiera, contesto);
 
@@ -47,8 +50,8 @@ public final class App {
                 case "/facile":
                 case "/medio":
                 case "/difficile":
-                    LivelloController livContr = new LivelloController(liv);
-                    LivelloUI livUI = new LivelloUI(livContr);
+                    livContr = new LivelloController(liv);
+                    livUI = new LivelloUI(livContr);
                     if (livUI.isImpostazioneLivello(comando)) {
                         livUI.impostaLivello(comando);
                     } else {
@@ -56,13 +59,13 @@ public final class App {
                     }
                 break;
                 case "/tentativi":
-                    LivelloController livContr = new LivelloController(liv);
-                    LivelloUI livUI = new LivelloUI(livContr);
+                    livContr = new LivelloController(liv);
+                    livUI = new LivelloUI(livContr);
                     livUI.impostaTentativiPerLivelloPersonalizzato(comando);
                 break;
                 case "/mostralivello":
-                    LivelloController livContr = new LivelloController(liv);
-                    LivelloUI livUI = new LivelloUI(livContr);
+                    livContr = new LivelloController(liv);
+                    livUI = new LivelloUI(livContr);
                     livUI.displayLivelloCorrente();
                 break;
                 case "/esci":

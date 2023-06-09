@@ -7,7 +7,6 @@ package it.uniba.app;
  */
 public final class ProprietaPartita {
 
-    private Tempo tempo = null;
     private Livello livello = null;
     private static final int DIMENSIONI_GRIGLIA_DEFAULT = 10;
     private int dimensioniGriglia = DIMENSIONI_GRIGLIA_DEFAULT;
