@@ -1,7 +1,5 @@
 package it.uniba.app;
 
-import java.lang.Thread;
-
 /**
  * <Entity>
  * Classe che rappresenta il tempo di gioco.
@@ -12,8 +10,11 @@ public final class Tempo extends Thread {
     private int secondiTrascorsi = 0;
     private int minutiImpostati = 0;
 
+    private static final int TEMPO_ATTESA = 1000;
+    private static final int SECONDI = 59;
+
     private boolean isTempoScaduto = false;
-    
+
     private static Tempo istanza = null;
 
     /**
@@ -44,7 +45,7 @@ public final class Tempo extends Thread {
     }
 
     /**
-     * Getter dei minuti trascorsi
+     * Getter dei minuti trascorsi.
      * @return minutiTrascorsi
      */
     public int getMinutiTrascorsi() {
@@ -107,11 +108,11 @@ public final class Tempo extends Thread {
     public void run() {
         while (!isTempoScaduto) {
             try {
-                Thread.sleep(1000);
+                Thread.sleep(TEMPO_ATTESA);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            if (this.secondiTrascorsi == 59) {
+            if (this.secondiTrascorsi == SECONDI) {
                 this.secondiTrascorsi = 0;
                 this.minutiTrascorsi++;
             } else {

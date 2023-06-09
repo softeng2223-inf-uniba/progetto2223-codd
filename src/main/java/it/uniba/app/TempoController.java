@@ -7,6 +7,7 @@ package it.uniba.app;
 public final class TempoController {
 
     private Tempo tempo = null;
+    private static final int SECONDI = 60;
 
     /**
      * Costruttore della classe TempoController.
@@ -42,7 +43,7 @@ public final class TempoController {
     public int[] ottieniTempoRestante() {
         int[] temp = new int[2];
         temp[0] = this.tempo.getMinutiImpostati() - this.tempo.getMinutiTrascorsi();
-        temp[1] = 60 - this.tempo.getSecondiTrascorsi();
+        temp[1] = SECONDI - this.tempo.getSecondiTrascorsi();
         return temp;
     }
 

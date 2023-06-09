@@ -23,6 +23,7 @@ public final class TempoUI {
     public void impostaTempoDiGioco(final String[] comando) {
         int minuti = Integer.parseInt(comando[1]);
         this.tempController.impostaTempo(minuti);
+        System.out.println("\n: Ok.");
     }
 
     /**
