@@ -38,7 +38,7 @@ class InputTest {
     @DisplayName("Restituisce true se il tentativo è valido")
     void testIsTentativoValido() {
         InputUI inputUI = new InputUI();
-        String[] comando = {"A", "1"};
+        String[] comando = {"b", "5"};
         assertTrue(inputUI.isTentativo(comando), "Il tentativo deve essere valido");
     }
 
