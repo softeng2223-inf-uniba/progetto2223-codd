@@ -6,10 +6,10 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-
 /**
  * <Boundary>
- * Classe che fornisce una interfaccia generica di acquisizione corretta dei comandi
+ * Classe che fornisce una interfaccia generica di acquisizione corretta dei
+ * comandi
  * dell'utente da tastiera.
  */
 public class InputUI {
@@ -30,9 +30,8 @@ public class InputUI {
             "/tentativi", "/tempo");
     private static final List<String> LISTA_COMANDI_CON_NUMERO_SPECIALI = Arrays.asList("/tentativi", "/tempo");
 
-    private static final List<String> LETTERE = Arrays.asList("ABCDEFGHIJKLMNOPQRSTUVWXYZ".split(""));
+    private static final List<String> LETTERE = Arrays.asList("abcdefghijklmnopqrstuvwxyz".split(""));
     private static final Pattern TENTATIVO_REGEX = Pattern.compile("[a-zA-Z]-[0-9]{1,2}");
-
 
     /**
      * Enumerativo che rappresenta lo stato corrente del gioco
@@ -50,17 +49,15 @@ public class InputUI {
         AZIONE, TENTATIVO;
     }
 
-
     /**
      * Costruttore vuoto.
      */
     public InputUI() {
     }
 
-
     /**
-     * Metodo che acquisisce un comando dell'utente da tastiera (AZIONE o TENTATIVO) e ne controlla
-     * la correttezza relativamente al contesto.
+     * Metodo che acquisisce un comando dell'utente da tastiera (AZIONE o TENTATIVO)
+     * e ne controlla la correttezza relativamente al contesto.
      * Nel caso di un tentativo, verifica che sia corretto rispetto alle dimensioni
      * della griglia, date da limite.
      * Restituisce il comando letto suddiviso in due token.
@@ -76,41 +73,44 @@ public class InputUI {
 
         String[] comando = new String[2];
         String input;
-        boolean isCorretto = false;
 
-        while (!isCorretto) {
+        while (true) {
             System.out.print("\n\n\n> Inserisci a capo un comando:\n-> ");
             input = tastiera.nextLine().toLowerCase().trim();
             String[] inputTokens;
 
             Matcher m = TENTATIVO_REGEX.matcher(input);
             if (!m.matches()) {
-                isCorretto = parseInput(input, contesto);
-                if (isCorretto) {
-                    inputTokens = input.split("\\s");
-                    comando[0] = inputTokens[0];
-                    if (inputTokens.length == 2) {
-                        comando[1] = inputTokens[1];
-                    }
-                }
-
-            } else {
-
-                if (contesto == StatoGioco.PARTITA) {
-                    inputTokens = input.split("-");
-
-                    int colonna = LETTERE.indexOf(inputTokens[0]);
-                    int riga = Integer.parseInt(inputTokens[1]) - 1;
-
-                    if (colonna < limite && (riga >= 0 && riga < limite)) {
-                        comando = inputTokens;
-                        isCorretto = true;
-                    } else {
-                        System.out.println("\n: Le coordinate specificate sono fuori dalla griglia!");
-                    }
+                inputTokens = input.split("\\s");
+                int numTokens = inputTokens.length;
+                if (numTokens > 2) {
+                    System.out.println(":\n Il comando inserito ha troppe parole!");
                 } else {
-                    System.out.println("\n: Per effettuare un tentativo devi prima iniziare una partita!");
+                    if (numTokens == 2) {
+                        comando = inputTokens;
+                    } else {
+                        comando[0] = inputTokens[0];
+                        comando[1] = null;
+                    }
+                    if (verificaComando(comando, contesto)) {
+                        break;
+                    }
                 }
+
+            } else if (contesto == StatoGioco.PARTITA) {
+                inputTokens = input.split("-");
+
+                int colonna = LETTERE.indexOf(inputTokens[0]);
+                int riga = Integer.parseInt(inputTokens[1]) - 1;
+
+                if (colonna < limite && (riga >= 0 && riga < limite)) {
+                    comando = inputTokens;
+                    break;
+                } else {
+                    System.out.println("\n: Le coordinate specificate sono fuori dalla griglia!");
+                }
+            } else {
+                System.out.println("\n: Per effettuare un tentativo devi prima iniziare una partita!");
             }
         }
 
@@ -118,8 +118,8 @@ public class InputUI {
     }
 
     /**
-     * Metodo che acquisisce un comando dell'utente da tastiera (solo AZIONE) e ne controlla
-     * la correttezza relativamente al contesto.
+     * Metodo che acquisisce un comando dell'utente da tastiera (solo AZIONE) e ne
+     * controlla la correttezza relativamente al contesto.
      * Restituisce il comando letto suddiviso in due token.
      *
      * @param tastiera
@@ -131,21 +131,27 @@ public class InputUI {
 
         String[] comando = new String[2];
         String input;
-        boolean isCorretto = false;
 
-        while (!isCorretto) {
+        while (true) {
             System.out.print("\n\n\n> Inserisci a capo un comando:\n-> ");
             input = tastiera.nextLine().toLowerCase().trim();
             String[] inputTokens;
 
             Matcher m = TENTATIVO_REGEX.matcher(input);
             if (!m.matches()) {
-                isCorretto = parseInput(input, contesto);
-                if (isCorretto) {
-                    inputTokens = input.split("\\s");
-                    comando[0] = inputTokens[0];
-                    if (inputTokens.length == 2) {
-                        comando[1] = inputTokens[1];
+                inputTokens = input.split("\\s");
+                int numTokens = inputTokens.length;
+                if (numTokens > 2) {
+                    System.out.println(":\n Il comando inserito ha troppe parole!");
+                } else {
+                    if (numTokens == 2) {
+                        comando = inputTokens;
+                    } else {
+                        comando[0] = inputTokens[0];
+                        comando[1] = null;
+                    }
+                    if (verificaComando(comando, contesto)) {
+                        break;
                     }
                 }
 
@@ -157,36 +163,10 @@ public class InputUI {
         return comando;
     }
 
-    /**
-     * Metodo che verifica, dopo averla suddivisa in token, la correttezza della stringa in input
-     * relativamente al contesto.
-     *
-     * @param input
-     * @param contesto
-     *
-     * @return true se la stringa è corretta, false altrimenti.
-     */
-    private boolean parseInput(final String input, final StatoGioco contesto) {
-
-        String[] inputTokens = input.split("\\s");
-        int numTokens = inputTokens.length;
-
-        if (numTokens > 2) {
-            System.out.println("\n: Il comando inserito è troppo lungo!");
-        } else if (numTokens <= 2) {
-            String[] cmdTokens = new String[2];
-            cmdTokens[0] = inputTokens[0];
-            if (numTokens == 2) {
-                cmdTokens[1] = inputTokens[1];
-            }
-            return verificaComando(cmdTokens, contesto);
-        }
-        return false;
-    }
-
 
     /**
-     * Metodo che, dato un comando e il contesto di gioco, verifica che il comando sia corretto prima
+     * Metodo che, dato un comando e il contesto di gioco, verifica che il comando
+     * sia corretto prima
      * rispetto al contesto, e poi sintatticamente.
      *
      * @param comando
@@ -232,7 +212,8 @@ public class InputUI {
     }
 
     /**
-     * Metodo che, data una stringa, verifica che la stringa contenga effettivamente un numero positivo.
+     * Metodo che, data una stringa, verifica che la stringa contenga effettivamente
+     * un numero positivo.
      *
      * @param numero
      *
@@ -254,7 +235,6 @@ public class InputUI {
         }
     }
 
-
     /**
      * Metodo che verifica se un comando passato è o meno un TENTATIVO.
      *
@@ -270,9 +250,9 @@ public class InputUI {
         return false;
     }
 
-
     /**
-     * Metodo che acquisisce una conferma dell'utente, relativamente ad una richiesta.
+     * Metodo che acquisisce una conferma dell'utente, relativamente ad una
+     * richiesta.
      *
      * @param tastiera
      *
