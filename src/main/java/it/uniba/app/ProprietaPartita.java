@@ -39,7 +39,7 @@ public final class ProprietaPartita {
      * @return dimensioniGriglia
      */
     public int getDimensioniGriglia() {
-        return this.dimensioniGriglia; 
+        return this.dimensioniGriglia;
     }
 
     /**
