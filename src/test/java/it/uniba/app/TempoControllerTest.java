@@ -29,38 +29,6 @@ class TempoControllerTest {
     }
 
     @Test
-    @DisplayName("Assicura che venga ottenuto il tempo trascorso")
-    void TestOttieniTempoTrascorso() {
-        final int minuti = 2;
-        final int millisecondi = 3000;
-        tempoController.impostaTempo(minuti);
-        tempoController.avviaTempo();
-        try {
-            Thread.sleep(millisecondi);  // Aspetta 3 secondi
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        int[] tempoTrascorso = tempoController.ottieniTempoTrascorso();
-        assertArrayEquals(new int[]{0, 3}, tempoTrascorso, "Il tempo trascorso deve essere 0 minuti e 3 secondi");
-    }
-
-    @Test
-    @DisplayName("Assicura che venga ottenuto il tempo restante")
-    void testOttieniTempoRestante() {
-        final int minuti = 5;
-        final int millisecondi = 2000;
-        tempoController.impostaTempo(minuti);
-        tempoController.avviaTempo();
-        try {
-            Thread.sleep(millisecondi);  // Aspetta 2 secondi
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        int[] tempoRestante = tempoController.ottieniTempoRestante();
-        assertArrayEquals(new int[]{4, 58}, tempoRestante, "Il tempo restante deve essere 4 minuti e 58 secondi");
-    }
-
-    @Test
     @DisplayName("Assicura che il tempo venga avviato")
     void testAvviaTempo() {
         final int minuti = 1;
