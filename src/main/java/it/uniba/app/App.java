@@ -24,16 +24,18 @@ public final class App {
 
         ProprietaPartita prop = ProprietaPartita.getIstanza();
         Livello liv = Livello.getIstanza();
+        Tempo temp = Tempo.getIstanza();
 
-        mainEngine(prop, liv);
+        mainEngine(prop, liv, temp);
     }
 
     /**
      * Metodo che rappresenta il motore del gioco.
      * @param prop
      * @param liv
+     * @param temp
      */
-    private static void mainEngine(final ProprietaPartita prop, final Livello liv) {
+    private static void mainEngine(final ProprietaPartita prop, final Livello liv, final Tempo temp) {
 
         Scanner tastiera = new Scanner(System.in, "utf-8");
         String[] comando;
@@ -42,10 +44,11 @@ public final class App {
 
         LivelloUI livUI;
         LivelloController livContr;
+        TempoUI tempUI;
+        TempoController tempContr;
 
         while (true) {
             comando = input.acquisisciComando(tastiera, contesto);
-
             switch (comando[0]) {
                 case "/facile":
                 case "/medio":
@@ -67,6 +70,11 @@ public final class App {
                     livContr = new LivelloController(liv);
                     livUI = new LivelloUI(livContr);
                     livUI.displayLivelloCorrente();
+                break;
+                case "/tempo":
+                    tempContr = new TempoController(temp);
+                    tempUI = new TempoUI(tempContr);
+                    tempUI.impostaTempoDiGioco(comando);
                 break;
                 case "/esci":
                     if (input.acquisisciConferma(tastiera)) {
