@@ -36,7 +36,7 @@ public final class App {
     private static void mainEngine(final ProprietaPartita prop, final Livello liv) {
 
         Scanner tastiera = new Scanner(System.in, "utf-8");
-        String[] comando = new String[2];
+        String[] comando;
         InputUI input = new InputUI();
         InputUI.StatoGioco contesto = InputUI.StatoGioco.SESSIONE;
 
