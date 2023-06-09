@@ -8,6 +8,7 @@ package it.uniba.app;
 public final class ProprietaPartita {
 
     private Livello livello = null;
+    private Tempo tempo = null;
     private static final int DIMENSIONI_GRIGLIA_DEFAULT = 10;
     private int dimensioniGriglia = DIMENSIONI_GRIGLIA_DEFAULT;
 
@@ -18,6 +19,7 @@ public final class ProprietaPartita {
      */
     private ProprietaPartita() {
         this.livello = Livello.getIstanza();
+        this.tempo = Tempo.getIstanza();
     }
 
 
