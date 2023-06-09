@@ -264,7 +264,7 @@ public class InputUI {
         boolean conferma = false;
 
         while (true) {
-            System.out.println("\n> Inserisci SI per confermare, altrimenti NO:\n-> ");
+            System.out.print("\n> Inserisci SI per confermare, altrimenti NO:\n-> ");
             input = tastiera.nextLine().toLowerCase().trim();
 
             if (input.equals("si")) {
