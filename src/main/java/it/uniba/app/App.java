@@ -22,7 +22,7 @@ public final class App {
      */
     public static void main(final String[] args) {
 
-        ProprietaPartita prop = ProprietaPartita.getIstanza();
+        Proprieta prop = Proprieta.getIstanza();
         Livello liv = Livello.getIstanza();
         Tempo temp = Tempo.getIstanza();
 
@@ -35,7 +35,7 @@ public final class App {
      * @param liv
      * @param temp
      */
-    private static void mainEngine(final ProprietaPartita prop, final Livello liv, final Tempo temp) {
+    private static void mainEngine(final Proprieta prop, final Livello liv, final Tempo temp) {
 
         Scanner tastiera = new Scanner(System.in, "utf-8");
         String[] comando;

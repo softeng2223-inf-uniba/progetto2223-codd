@@ -5,19 +5,19 @@ package it.uniba.app;
  * Classe che rappresenta le proprietà generali della successiva
  * partita da giocare.
  */
-public final class ProprietaPartita {
+public final class Proprieta {
 
     private Livello livello = null;
     private Tempo tempo = null;
     private static final int DIMENSIONI_GRIGLIA_DEFAULT = 10;
     private int dimensioniGriglia = DIMENSIONI_GRIGLIA_DEFAULT;
 
-    private static ProprietaPartita istanza = null;
+    private static Proprieta istanza = null;
 
     /**
      * Costruttore privato della classe ProprietaPartita.
      */
-    private ProprietaPartita() {
+    private Proprieta() {
         this.livello = Livello.getIstanza();
         this.tempo = Tempo.getIstanza();
     }
@@ -28,10 +28,10 @@ public final class ProprietaPartita {
      * implementando il pattern Singleton.
      * @return istanza
      */
-    public static ProprietaPartita getIstanza() {
+    public static Proprieta getIstanza() {
 
         if (istanza == null) {
-            istanza = new ProprietaPartita();
+            istanza = new Proprieta();
         }
         return istanza;
     }
