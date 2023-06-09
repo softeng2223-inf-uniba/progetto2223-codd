@@ -95,7 +95,7 @@ public final class LivelloUI {
         if (tent > prop.getDimensioniGriglia()) {
             System.out.println("\n: Non puoi impostare un numero di tentativi maggiore della grandezza della griglia!");
         } else {
-            this.livController.impostaTetativiPersonalizzato(tent);
+            this.livController.impostaTentativiPersonalizzato(tent);
         }
     }
 
