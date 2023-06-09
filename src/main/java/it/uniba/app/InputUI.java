@@ -84,7 +84,7 @@ public class InputUI {
                 inputTokens = input.split("\\s");
                 int numTokens = inputTokens.length;
                 if (numTokens > 2) {
-                    System.out.println(":\n Il comando inserito ha troppe parole!");
+                    System.out.println("\n: Il comando inserito ha troppe parole!");
                 } else {
                     if (numTokens == 2) {
                         comando = inputTokens;
@@ -142,7 +142,7 @@ public class InputUI {
                 inputTokens = input.split("\\s");
                 int numTokens = inputTokens.length;
                 if (numTokens > 2) {
-                    System.out.println(":\n Il comando inserito ha troppe parole!");
+                    System.out.println("\n: Il comando inserito ha troppe parole!");
                 } else {
                     if (numTokens == 2) {
                         comando = inputTokens;
