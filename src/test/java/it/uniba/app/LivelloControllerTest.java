@@ -14,7 +14,7 @@ class LivelloControllerTest {
 
     @BeforeEach
     void setUp() {
-        livello = new Livello();
+        livello = Livello.getIstanza();
         controller = new LivelloController(livello);
     }
 
