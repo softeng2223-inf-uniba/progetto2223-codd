@@ -46,6 +46,8 @@ public final class App {
         LivelloController livContr;
         TempoUI tempUI;
         TempoController tempContr;
+        ProprietaUI propUI;
+        ProprietaController propContr;
 
         while (true) {
             comando = input.acquisisciComando(tastiera, contesto);
@@ -75,6 +77,13 @@ public final class App {
                     tempContr = new TempoController(temp);
                     tempUI = new TempoUI(tempContr);
                     tempUI.impostaTempoDiGioco(comando);
+                break;
+                case "/standard":
+                case "/large":
+                case "/extralarge":
+                    propContr = new ProprietaController(prop);
+                    propUI = new ProprietaUI(propContr);
+                    propUI.impostaDimensioniGriglia(comando);
                 break;
                 case "/esci":
                     if (input.acquisisciConferma(tastiera)) {
