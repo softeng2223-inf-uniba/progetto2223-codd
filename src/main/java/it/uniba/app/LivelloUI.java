@@ -61,7 +61,7 @@ public final class LivelloUI {
      */
     public void impostaTentativiPerLivello(final String[] comando) {
 
-        ProprietaPartita prop = ProprietaPartita.getIstanza();
+        Proprieta prop = Proprieta.getIstanza();
         int tent = Integer.parseInt(comando[1]);
         int dim = prop.getDimensioniGriglia() * prop.getDimensioniGriglia();
 
@@ -90,7 +90,7 @@ public final class LivelloUI {
      */
     public void impostaTentativiPerLivelloPersonalizzato(final String[] comando) {
 
-        ProprietaPartita prop = ProprietaPartita.getIstanza();
+        Proprieta prop = Proprieta.getIstanza();
         int tent = Integer.parseInt(comando[1]);
         int dim = prop.getDimensioniGriglia() * prop.getDimensioniGriglia();
 
