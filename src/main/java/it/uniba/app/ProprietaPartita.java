@@ -9,7 +9,7 @@ public final class ProprietaPartita {
 
     private Tempo tempo = null;
     private Livello livello = null;
-    private static final DIMENSIONI_GRIGLIA_DEFAULT = 10;
+    private static final int DIMENSIONI_GRIGLIA_DEFAULT = 10;
     private int dimensioniGriglia = DIMENSIONI_GRIGLIA_DEFAULT;
 
     private static ProprietaPartita istanza = null;
@@ -33,5 +33,21 @@ public final class ProprietaPartita {
             istanza = new ProprietaPartita();
         }
         return istanza;
+    }
+
+    /**
+     * Getter di dimensioniGriglia.
+     * @return dimensioniGriglia
+     */
+    public int getDimensioniGriglia() {
+        return this.dimensioniGriglia; 
+    }
+
+    /**
+     * Setter di dimensionigriglia.
+     * @param dim
+     */
+    public void setDimensioniGriglia(final int dim) {
+        this.dimensioniGriglia = dim;
     }
 }
