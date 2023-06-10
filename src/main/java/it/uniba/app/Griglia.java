@@ -156,19 +156,19 @@ public final class Griglia {
     /**
      * Metodo che inizializza le celle, impostando
      * i corrispondenti valori di riga e colonna.
-     * @return campo
+     * @return celle
      */
     private Cella[][] inizializzaCelle() {
 
         final int dim = this.dimensione;
-        Cella[][] campo = new Cella[dim][dim];
+        Cella[][] celle = new Cella[dim][dim];
 
         for (int i = 0; i < dim; i++) {
             for (int j = 0; j < dim; j++) {
-                campo[i][j] = new Cella(i + 1, j + 1);
+                celle[i][j] = new Cella(i + 1, j + 1);
             }
         }
-        return campo;
+        return celle;
     }
 
     /**
