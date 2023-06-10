@@ -23,8 +23,8 @@ public final class Livello {
     private int tentFacile = TENT_INIZIALE_FACILE;
     private int tentMedio = TENT_INIZIALE_MEDIO;
     private int tentDifficile = TENT_INIZIALE_DIFFICILE;
+    private int tentPersonalizzati = 0;
 
-    private int tentCorrenti = TENT_INIZIALE_FACILE;
     private Tipo livCorrente = Tipo.FACILE;
 
     private static Livello istanza = null;
@@ -77,12 +77,12 @@ public final class Livello {
     }
 
     /**
-     * Getter dei tentativi associati al livello corrente.
+     * Getter dei tentativi associati al livello PERSONALIZZATO.
      *
-     * @return tentCorrenti
+     * @return tentPersonalizzati
      */
-    public int getTentCorrenti() {
-        return this.tentCorrenti;
+    public int getTentPersonalizzati() {
+        return this.tentPersonalizzati;
     }
 
     /**
@@ -123,12 +123,12 @@ public final class Livello {
     }
 
     /**
-     * Setter dei tentativi associati al livello corrente.
+     * Setter dei tentativi associati al livello PERSONALIZZATO.
      *
      * @param tent
      */
-    public void setTentCorrenti(final int tent) {
-        this.tentCorrenti = tent;
+    public void setTentPersonalizzati(final int tent) {
+        this.tentPersonalizzati = tent;
     }
 
     /**
