@@ -12,7 +12,7 @@ public class ProprietaControllerTest {
 
     @BeforeEach
     void setUp() {
-        Proprieta proprieta = Proprieta.getIstanza();
+        Proprieta prop = Proprieta.getIstanza();
         controller = new ProprietaController(prop);
     }
 
