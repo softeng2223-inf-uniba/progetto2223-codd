@@ -137,7 +137,7 @@ public final class Griglia {
         if (!esisteCella(x, y)) {
             return null;
         }
-        return campo[x - 1][y - 1];
+        return this.campo[x - 1][y - 1];
     }
 
     /**
