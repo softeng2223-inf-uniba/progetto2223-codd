@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class ProprietaControllerTest {
+class ProprietaControllerTest {
 
     private ProprietaController proprietaController;
     private Proprieta proprieta;
