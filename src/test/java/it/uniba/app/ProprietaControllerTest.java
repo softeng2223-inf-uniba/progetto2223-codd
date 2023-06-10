@@ -20,30 +20,30 @@ public class ProprietaControllerTest {
     @Test
     @DisplayName ("Assicura che la dimensione della griglia sia la dimensione standard")
     public void testImpostaGrigliaStandard() {
-        final int DIMENSIONE_STANDARD = 10;
+        final int dimensioneStandard = 10;
         proprietaController.impostaGrigliaStandard();
         int dimensioniGriglia = proprieta.getDimensioniGriglia();
-        assertEquals(DIMENSIONE_STANDARD, dimensioniGriglia,
+        assertEquals(dimensioneStandard, dimensioniGriglia,
         "la dimensione della griglia è 10");
     }
 
     @Test
     @DisplayName ("Assicura che la dimensione della griglia sia la dimensione large")
     public void testImpostaGrigliaLarge() {
-        final int DIMENSIONE_LARGE = 18;
+        final int dimensioneLarge = 18;
         proprietaController.impostaGrigliaLarge();
         int dimensioniGriglia = proprieta.getDimensioniGriglia();
-        assertEquals(DIMENSIONE_LARGE, dimensioniGriglia,
+        assertEquals(dimensioneLarge, dimensioniGriglia,
         "la dimensione della griglia è 18");
     }
 
     @Test
     @DisplayName ("Assicura che la dimensione della griglia sia la dimensione extralarge")
     public void testImpostaGrigliaExtralarge() {
-        final int DIMENSIONE_EXTRALARGE = 26;
+        final int dimensioneExtralarge = 26;
         proprietaController.impostaGrigliaExtralarge();
         int dimensioniGriglia = proprieta.getDimensioniGriglia();
-        assertEquals(DIMENSIONE_EXTRALARGE, dimensioniGriglia,
+        assertEquals(dimensioneExtralarge, dimensioniGriglia,
         "la dimensione della griglia è 26");
     }
 }
