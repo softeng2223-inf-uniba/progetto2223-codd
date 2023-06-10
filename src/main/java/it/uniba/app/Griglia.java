@@ -2,7 +2,6 @@ package it.uniba.app;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 /**
  * <Entity>
@@ -24,7 +23,6 @@ public final class Griglia {
          * Costruttore vuoto.
          */
         private Cella() {
-            // do nothing
         }
 
         /**
@@ -47,87 +45,85 @@ public final class Griglia {
 
         /**
          * Setter della variabile booleana colpita.
-         * @param isColpita
+         * @param colp
          */
-        public void setColpita(final boolean isColpita) {
-            this.colpita = isColpita;
+        public void setColpita(final boolean colp) {
+            this.colpita = colp;
         }
 
         /**
          * Metodo che controlla se la cella è occupata da una nave.
-         * @return true se la cella è occupata, false altrimenti
+         * @return true se la cella è occupata, false altrimenti.
          */
         public boolean isOccupata() {
             return (naveOspitata != null);
         }
 
+
         /**
          * Metodo che controlla se la cella successiva è disponibile
          * ad ospitare una nave.
          * @param direzione in cui si vuole controllare
-         * @return true se la cella è disponibile, false altrimenti
+         * @return true se la cella è disponibile, false altrimenti.
          */
-        public boolean isSuccessivaDisponibile(final Direzione direzione) {
+        public boolean isSuccDisponibile(final Direzione direzione) {
 
-            Cella cellaSuccessiva = getCellaSuccessiva(direzione);
-
-            if (cellaSuccessiva == null) {
+            Cella cellaSucc = getCellaSucc(direzione);
+            if (cellaSucc == null) {
                 return false;
-            } else {
-                return !cellaSuccessiva.isOccupata();
             }
+            return !cellaSucc.isOccupata();
         }
 
         /**
          * Metodo che restituisce la cella successiva.
          * @param direzione della cella che si vuole ottenere
-         * @return cellaSuccessiva
+         * @return cellaSucc
          */
-        public Cella getCellaSuccessiva(final Direzione direzione) {
+        public Cella getCellaSucc(final Direzione direzione) {
 
-            Cella cellaSuccessiva = null;
+            Cella cellaSucc = null;
 
             switch (direzione) {
                 case ALTO:
-                    cellaSuccessiva = Griglia.this.getCella(riga - 1, colonna);
+                    cellaSucc = Griglia.this.getCella(riga - 1, colonna);
                 break;
                 case BASSO:
-                    cellaSuccessiva = Griglia.this.getCella(riga + 1, colonna);
+                    cellaSucc = Griglia.this.getCella(riga + 1, colonna);
                 break;
                 case SINISTRA:
-                    cellaSuccessiva = Griglia.this.getCella(riga, colonna - 1);
+                    cellaSucc = Griglia.this.getCella(riga, colonna - 1);
                 break;
                 case DESTRA:
-                    cellaSuccessiva = Griglia.this.getCella(riga, colonna + 1);
+                    cellaSucc = Griglia.this.getCella(riga, colonna + 1);
                 break;
                 default:
                 break;
             }
-
-            return cellaSuccessiva;
+            return cellaSucc;
         }
 
     }
 
     /**
-     * Enumerazione che rappresenta le direzioni in cui posizionare le navi.
+     * Enumerativo che rappresenta le direzioni in cui posizionare le navi.
      */
     public enum Direzione {
         ALTO, BASSO, SINISTRA, DESTRA;
     }
 
-    private static final int DIMENSIONE = 10;
-    private Cella[][] campo = new Cella[DIMENSIONE][DIMENSIONE];
+    private int dimensione;
+    private Cella[][] campo;
     private List<Nave> listaNaviPresenti = inizializzaNavi();
 
-    private Random rand = new Random();
 
     /**
-     * Costruttore che inizializza le celle della griglia e
-     * predispone le navi in essa, calcolando randomicamente il loro posizionamento.
+     * Costruttore che inizializza le celle della griglia.
+     * @param dim
      */
-    public Griglia() {
-        inizializzaCelle();
+    public Griglia(final int dim) {
+        this.dimensione = dim;
+        this.campo = inizializzaCelle();
     }
 
 
@@ -135,14 +131,13 @@ public final class Griglia {
      * Metodo che restituisce la cella corrispondente alle coordinate passate.
      * @param x
      * @param y
-     * @return campo[x][y]
+     * @return campo[x - 1][y - 1]
      */
     public Cella getCella(final int x, final int y) {
         if (!esisteCella(x, y)) {
             return null;
-        } else {
-            return campo[x][y];
         }
+        return this.campo[x - 1][y - 1];
     }
 
     /**
@@ -153,7 +148,27 @@ public final class Griglia {
      * @return true se la cella esiste, false altrimenti
      */
     private boolean esisteCella(final int x, final int y) {
-        return ((x >= 0 && x < DIMENSIONE) && (y >= 0 && y < DIMENSIONE));
+        final int dim = this.dimensione;
+        return ((x > 0 && x <= dim) && (y > 0 && y <= dim));
+    }
+
+
+    /**
+     * Metodo che inizializza le celle, impostando
+     * i corrispondenti valori di riga e colonna.
+     * @return celle
+     */
+    private Cella[][] inizializzaCelle() {
+
+        final int dim = this.dimensione;
+        Cella[][] celle = new Cella[dim][dim];
+
+        for (int i = 0; i < dim; i++) {
+            for (int j = 0; j < dim; j++) {
+                celle[i][j] = new Cella(i + 1, j + 1);
+            }
+        }
+        return celle;
     }
 
     /**
@@ -167,34 +182,16 @@ public final class Griglia {
         for (int i = 0; i < Portaerei.getNumeroEsemplari(); i++) {
             listaNavi.add(new Portaerei());
         }
-
         for (int i = 0; i < Corazzata.getNumeroEsemplari(); i++) {
             listaNavi.add(new Corazzata());
         }
-
         for (int i = 0; i < Incrociatore.getNumeroEsemplari(); i++) {
             listaNavi.add(new Incrociatore());
         }
-
         for (int i = 0; i < Cacciatorpediniere.getNumeroEsemplari(); i++) {
             listaNavi.add(new Cacciatorpediniere());
         }
-
         return listaNavi;
     }
-
-    /**
-     * Metodo che inizializza le celle, impostando
-     * i corrispondenti valori di riga e colonna.
-     */
-    private void inizializzaCelle() {
-
-        for (int i = 0; i < DIMENSIONE; i++) {
-            for (int j = 0; j < DIMENSIONE; j++) {
-                campo[i][j] = new Cella(i, j);
-            }
-        }
-    }
-
 }
 
