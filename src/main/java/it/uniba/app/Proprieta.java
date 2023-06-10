@@ -15,7 +15,7 @@ public final class Proprieta {
     private static Proprieta istanza = null;
 
     /**
-     * Costruttore privato della classe ProprietaPartita.
+     * Costruttore privato della classe Proprieta.
      */
     private Proprieta() {
         this.livello = Livello.getIstanza();
@@ -24,7 +24,7 @@ public final class Proprieta {
 
 
     /**
-     * Metodo statico che restituisce l'unica istanza di ProprietaPartita,
+     * Metodo statico che restituisce l'unica istanza di Proprieta,
      * implementando il pattern Singleton.
      * @return istanza
      */
