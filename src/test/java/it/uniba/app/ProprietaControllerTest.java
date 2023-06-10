@@ -7,13 +7,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ProprietaControllerTest {
 
-    private Proprieta prop;
     private ProprietaController controller;
 
 
     @BeforeEach
     void setUp() {
-        prop = new Proprieta();
+        Proprieta proprieta = Proprieta.getIstanza();
         controller = new ProprietaController(prop);
     }
 
