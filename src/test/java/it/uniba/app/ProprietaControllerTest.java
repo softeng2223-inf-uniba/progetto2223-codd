@@ -12,7 +12,7 @@ public class ProprietaControllerTest {
 
 
     @BeforeEach
-    void setUp {
+    void setUp() {
         prop = new Proprieta();
         controller = new ProprietaController(prop);
     }
