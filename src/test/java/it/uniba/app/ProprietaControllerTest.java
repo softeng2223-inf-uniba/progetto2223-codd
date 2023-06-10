@@ -7,21 +7,22 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ProprietaControllerTest {
 
-    private ProprietaController controller;
+    private ProprietaController proprietaController;
+    private Proprieta proprieta;
 
 
     @BeforeEach
     void setUp() {
-        Proprieta prop = Proprieta.getIstanza();
-        controller = new ProprietaController(prop);
+        proprieta = Proprieta.getIstanza();
+        proprietaController = new ProprietaController(proprieta);
     }
 
     @Test
     @DisplayName ("Assicura che la dimensione della griglia sia la dimensione standard")
     public void testImpostaGrigliaStandard() {
         final int DIMENSIONE_STANDARD = 10;
-        controller.impostaGrigliaStandard();
-        int dimensioniGriglia = prop.getDimensioniGriglia();
+        proprietaController.impostaGrigliaStandard();
+        int dimensioniGriglia = proprieta.getDimensioniGriglia();
         assertEquals(DIMENSIONE_STANDARD, dimensioniGriglia,
         "la dimensione della griglia è 10");
     }
@@ -30,8 +31,8 @@ public class ProprietaControllerTest {
     @DisplayName ("Assicura che la dimensione della griglia sia la dimensione large")
     public void testImpostaGrigliaLarge() {
         final int DIMENSIONE_LARGE = 18;
-        controller.impostaGrigliaLarge();
-        int dimensioniGriglia = prop.getDimensioniGriglia();
+        proprietaController.impostaGrigliaLarge();
+        int dimensioniGriglia = proprieta.getDimensioniGriglia();
         assertEquals(DIMENSIONE_LARGE, dimensioniGriglia,
         "la dimensione della griglia è 18");
     }
@@ -40,8 +41,8 @@ public class ProprietaControllerTest {
     @DisplayName ("Assicura che la dimensione della griglia sia la dimensione extralarge")
     public void testImpostaGrigliaExtralarge() {
         final int DIMENSIONE_EXTRALARGE = 26;
-        controller.impostaGrigliaExtralarge();
-        int dimensioniGriglia = prop.getDimensioniGriglia();
+        proprietaController.impostaGrigliaExtralarge();
+        int dimensioniGriglia = proprieta.getDimensioniGriglia();
         assertEquals(DIMENSIONE_EXTRALARGE, dimensioniGriglia,
         "la dimensione della griglia è 26");
     }
