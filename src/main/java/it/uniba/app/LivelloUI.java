@@ -20,7 +20,6 @@ public final class LivelloUI {
     /**
      * Metodo che gestisce l'impostazione del livello in base
      * al comando inserito dall'utente.
-     *
      * @param comando
      */
     public void impostaLivello(final String[] comando) {
