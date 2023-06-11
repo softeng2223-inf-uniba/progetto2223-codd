@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 
 class InputUITest {
 
-    InputUI inputUI;
+    private InputUI inputUI;
 
     @BeforeEach
     void setUp() {
