@@ -17,7 +17,7 @@ public final class Griglia {
         private int riga;
         private int colonna;
         private boolean colpita = false;
-        private Nave naveOspitata;
+        private Nave naveOspitata = null;
 
         /**
          * Costruttore vuoto.
@@ -57,6 +57,22 @@ public final class Griglia {
          */
         public boolean isOccupata() {
             return (naveOspitata != null);
+        }
+
+        /**
+         * Setter della nave ospitata.
+         * @param nave
+         */
+        public void setNaveOspitata(final Nave nave) {
+            this.naveOspitata = nave;
+        }
+
+        /**
+         * Getter della nave ospitata.
+         * @return naveOspitata
+         */
+        public Nave getNaveOspitata() {
+            return this.naveOspitata;
         }
 
 
@@ -193,5 +209,20 @@ public final class Griglia {
         }
         return listaNavi;
     }
-}
 
+    /**
+     * Getter della lista delle navi.
+     * @return listaNavi
+     */
+    public List<Nave> getListaNavi() {
+        return this.listaNavi;
+    }
+
+    /**
+     * Getter della dimensione.
+     * @return dimensione
+     */
+    public int getDimensione() {
+        return this.dimensione;
+    }
+}
