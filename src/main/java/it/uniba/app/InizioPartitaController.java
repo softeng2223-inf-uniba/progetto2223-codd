@@ -32,7 +32,8 @@ public final class InizioPartitaController {
 
         Griglia griglia = this.partita.getGriglia();
         final int dim = griglia.getDimensione();
-        List<Direzione> listaDir = Arrays.asList(Direzione.ALTO, Direzione.BASSO, Direzione.SINISTRA, Direzione.DESTRA);
+        List<Griglia.Direzione> listaDir = Arrays.asList(
+            Griglia.Direzione.ALTO, Griglia.Direzione.BASSO, Griglia.Direzione.SINISTRA, Griglia.Direzione.DESTRA);
 
         for (Nave nave : griglia.getListaNavi()) {
 
@@ -41,12 +42,12 @@ public final class InizioPartitaController {
 
                 int x = rand.nextInt(dim) + 1;
                 int y = rand.nextInt(dim) + 1;
-                Cella cella = griglia.getCella(x, y);
+                Griglia.Cella cella = griglia.getCella(x, y);
 
                 if (!cella.isOccupata()) {
                     Collections.shuffle(listaDir);
 
-                    for (Direzione dir : listaDir) {
+                    for (Griglia.Direzione dir : listaDir) {
                         if (isPosizionabile(nave, dir, cella)) {
                             posiziona(nave, dir, cella);
                             posizionata = true;
@@ -66,10 +67,10 @@ public final class InizioPartitaController {
      * @param cellaIniz
      * @return true se la nave è posizionabile, false altrimenti.
      */
-    private boolean isPosizionabile(final Nave nave, final Direzione dir, final Cella cellaIniz) {
+    private boolean isPosizionabile(final Nave nave, final Griglia.Direzione dir, final Griglia.Cella cellaIniz) {
 
         final int lung = nave.getNumeroCelleOccupate();
-        Cella cella = cellaIniz;
+        Griglia.Cella cella = cellaIniz;
         int cont = 1;
 
         while (cella.isSuccDisponibile(dir) && cont < lung) {
@@ -85,10 +86,10 @@ public final class InizioPartitaController {
      * @param dir
      * @param cellaIniz
      */
-    private void posiziona(final Nave nave, final Direzione dir, final Cella cellaIniz) {
+    private void posiziona(final Nave nave, final Griglia.Direzione dir, final Griglia.Cella cellaIniz) {
 
         final int lung = nave.getNumeroCelleOccupate();
-        Cella cella = cellaIniz;
+        Griglia.Cella cella = cellaIniz;
         int cont = 0;
 
         while (cont < lung) {
