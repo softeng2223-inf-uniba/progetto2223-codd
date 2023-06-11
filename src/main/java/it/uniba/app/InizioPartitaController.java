@@ -94,7 +94,7 @@ public final class InizioPartitaController {
 
         while (cont < lung) {
             cella.setNaveOspitata(nave);
-            nave.addToListaCelleOccupate(cella);
+            nave.aggiungiAListaCelleOccupate(cella);
             cella = cella.getCellaSucc(dir);
             cont++;
         }
