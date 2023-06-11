@@ -13,7 +13,7 @@ public final class InizioPartitaController {
 
     private Partita partita = null;
 
-    private Random rand;
+    private Random rand = new Random();
 
 
     /**
