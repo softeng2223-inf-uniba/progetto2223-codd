@@ -8,6 +8,7 @@ public final class Tempo extends Thread {
 
     private int minutiTrascorsi = 0;
     private int secondiTrascorsi = 0;
+
     private int minutiImpostati = 0;
 
     private static final int TEMPO_ATTESA = 1000;
@@ -106,7 +107,8 @@ public final class Tempo extends Thread {
      */
     @Override
     public void run() {
-        while (!isTempoScaduto) {
+        reset();
+        while (!this.isTempoScaduto) {
             try {
                 Thread.sleep(TEMPO_ATTESA);
             } catch (InterruptedException e) {
@@ -119,7 +121,7 @@ public final class Tempo extends Thread {
                 this.secondiTrascorsi++;
             }
             if (this.minutiTrascorsi == this.minutiImpostati) {
-                isTempoScaduto = true;
+                this.isTempoScaduto = true;
             }
         }
     }
