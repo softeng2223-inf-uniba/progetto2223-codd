@@ -12,7 +12,6 @@ public final class LivelloController {
 
     /**
      * Costruttore che inizializza la variabile livello.
-     *
      * @param liv
      */
     public LivelloController(final Livello liv) {
@@ -21,34 +20,17 @@ public final class LivelloController {
 
 
     /**
-     * Metodo che imposta il livello passato come corrente e aggiorna contestualmente
-     * anche il numero dei tentativi associato.
-     *
+     * Metodo che imposta il livello passato come corrente.
      * @param liv
      */
     public void impostaLivelloCorrente(final Livello.Tipo liv) {
 
         this.livello.setLivCorrente(liv);
-
-        switch (liv) {
-            case FACILE:
-                this.livello.setTentCorrenti(this.livello.getTentFacile());
-            break;
-            case MEDIO:
-                this.livello.setTentCorrenti(this.livello.getTentMedio());
-            break;
-            case DIFFICILE:
-                this.livello.setTentCorrenti(this.livello.getTentDifficile());
-            break;
-            default:
-            break;
-        }
     }
 
     /**
      * Metodo che, dato un livello e un numero di tentativi, associa questi ultimi
      * al come numero di tentativi di default del primo.
-     *
      * @param liv
      * @param tent
      */
@@ -71,20 +53,18 @@ public final class LivelloController {
 
     /**
      * Metodo che imposta il livello a PERSONALIZZATO, e contestualmente
-     * imposta il numero massimo di tentativi corrente.
-     *
+     * imposta il numero di tentativi ad esso associato.
      * @param tent
      */
     public void impostaTentativiPersonalizzato(final int tent) {
 
         this.livello.setLivCorrente(Livello.Tipo.PERSONALIZZATO);
-        this.livello.setTentCorrenti(tent);
+        this.livello.setTentPersonalizzati(tent);
     }
 
     /**
      * Metodo che ottiene il livello correntemente impostato.
-     *
-     * @return livello impostato.
+     * @return livello impostato
      */
     public Livello.Tipo ottieniLivelloCorrente() {
 
@@ -92,12 +72,31 @@ public final class LivelloController {
     }
 
     /**
-     * Metodo che ottiene il numero di tentativi impostato.
-     *
-     * @return numero di tentativi.
+     * Metodo che ottiene il numero di tentativi impostato
+     * a seconda del livello corrente.
+     * @return tent
      */
     public int ottieniTentativiCorrenti() {
 
-        return this.livello.getTentCorrenti();
+        final Livello.Tipo liv = this.livello.getLivCorrente();
+        int tent = 0;
+
+        switch (liv) {
+            case FACILE:
+                tent = this.livello.getTentFacile();
+            break;
+            case MEDIO:
+                tent = this.livello.getTentMedio();
+            break;
+            case DIFFICILE:
+                tent = this.livello.getTentDifficile();
+            break;
+            case PERSONALIZZATO:
+                tent = this.livello.getTentPersonalizzati();
+            break;
+            default:
+            break;
+        }
+        return tent;
     }
 }
