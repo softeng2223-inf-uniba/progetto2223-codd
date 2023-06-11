@@ -11,6 +11,7 @@ public abstract class Nave {
 
     private int numeroCelleOccupate;
     private boolean affondata = false;
+    private List<Griglia.Cella> listaCelleOccupate = new ArrayList<>();
 
     /**
      * Costruttore vuoto.
@@ -57,5 +58,33 @@ public abstract class Nave {
      */
     public final void setAffondata(final boolean isAffondata) {
         this.affondata = isAffondata;
+    }
+
+    /**
+     * Metodo che aggiunge una cella data alla lista di celle occupate dalla nave.
+     * @param cella
+     */
+    public void aggiungiAListaCelleOccupate(final Griglia.Cella cella) {
+        this.listaCelleOccupate.add(cella);
+    }
+
+    /**
+     * Metodo che rimuove una cella dalla lista di celle.
+     * @param cella
+     */
+    public void rimuoviDaListaCelleOccupate(final Griglia.Cella cella) {
+        int i = -1;
+        int cont = 0;
+        for (Griglia.Cella c : this.listaCelleOccupate) {
+            if (c == cella) {
+                i = cont;
+            }
+            cont++;
+        }
+        try {
+            this.listaCelleOccupate.remove(i);
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("La cella non è presente nella lista.");
+        }
     }
 }
