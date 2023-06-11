@@ -215,7 +215,7 @@ public final class Griglia {
      * @return listaNavi
      */
     public List<Nave> getListaNavi() {
-        return this.listaNavi;
+        return this.listaNaviPresenti;
     }
 
     /**
