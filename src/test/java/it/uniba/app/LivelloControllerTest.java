@@ -4,20 +4,28 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertAll;
 
-
+/**
+ * Classe di test per la classe LivelloController.
+ */
 class LivelloControllerTest {
 
     private Livello livello;
     private LivelloController controller;
 
+    /**
+     * Metodo che istanza gli oggetti delle classi Livello e LivelloController.
+     */
     @BeforeEach
     void setUp() {
         livello = Livello.getIstanza();
         controller = new LivelloController(livello);
     }
 
+    /**
+     * Test del metodo impostaLivelloCorrente della classe LivelloController.
+     * Ci si aspetta che il livello corrente sia impostato a facile.
+     */
     @Test
     @DisplayName ("Assicura che il livello corrente venga impostato a facile")
     void testImpostaLivelloCorrenteLivelloFacile() {
@@ -26,6 +34,10 @@ class LivelloControllerTest {
         "Il livello corrente è impostato a facile");
     }
 
+    /**
+     * Test del metodo impostaLivelloCorrente della classe LivelloController.
+     * Ci si aspetta che i tentativi correnti siano impostati a tentativi correnti di facile.
+     */
     @Test
     @DisplayName ("Assicura che i tentativi correnti vengano impostati a tentativi correnti di facile")
     void testImpostaLivelloCorrenteTentativiCorrentiPerLivelloFacile() {
@@ -34,7 +46,10 @@ class LivelloControllerTest {
         "i tentativi correnti sono impostati ai tentativi correnti di facile");
     }
 
-
+    /**
+     * Test del metodo impostaLivelloCorrente della classe LivelloController.
+     * Ci si aspetta che il livello corrente sia impostato a medio.
+     */
     @Test
     @DisplayName ("Assicura che il livello corrente venga impostato a medio")
     void testImpostaLivelloCorrenteLivelloMedio() {
@@ -43,6 +58,10 @@ class LivelloControllerTest {
         "Il livello corrente è impostato a medio");
     }
 
+    /**
+     * Test del metodo impostaLivelloCorrente della classe LivelloController.
+     * Ci si aspetta che i tentativi correnti siano impostati a tentativi correnti di medio.
+     */
     @Test
     @DisplayName ("Assicura che i tentativi correnti vengano impostati a tentativi correnti di medio")
     void testImpostaLivelloCorrenteTentativiCorrentiPerLivelloMedio() {
@@ -51,6 +70,10 @@ class LivelloControllerTest {
         "i tentativi correnti sono impostati ai tentativi correnti di medio");
     }
 
+    /**
+     * Test del metodo impostaLivelloCorrente della classe LivelloController.
+     * Ci si aspetta che il livello corrente sia impostato a difficile.
+     */
     @Test
     @DisplayName ("Assicura che il livello corrente venga impostato a difficile")
     void testImpostaLivelloCorrenteLivelloDifficile() {
@@ -59,6 +82,10 @@ class LivelloControllerTest {
         "Il livello corrente è impostato a difficile");
     }
 
+    /**
+     * Test del metodo impostaLivelloCorrente della classe LivelloController.
+     * Ci si aspetta che i tentativi correnti siano impostati a tentativi correnti di difficile.
+     */
     @Test
     @DisplayName ("Assicura che i tentativi correnti vengano impostati a tentativi correnti di difficile")
     void testImpostaLivelloCorrenteTentativiCorrentiPerLivelloDifficile() {
@@ -67,6 +94,10 @@ class LivelloControllerTest {
         "i tentativi correnti sono impostati ai tentativi correnti di difficile");
     }
 
+    /**
+     * Test del metodo impostaTentativiLivello della classe LivelloController.
+     * Ci si aspetta che i tentativi per livello facile siano impostati correttamente.
+     */
     @Test
     @DisplayName("Assicura che i tentativi per livello facile siano impostati correttamente")
     void testImpostaTentativiLivelloFacile() {
@@ -75,6 +106,10 @@ class LivelloControllerTest {
         assertEquals(tentativi, livello.getTentFacile(), "impostati tentativi di facile");
     }
 
+    /**
+     * Test del metodo impostaTentativiLivello della classe LivelloController.
+     * Ci si aspetta che i tentativi per livello medio siano impostati correttamente.
+     */
     @Test
     @DisplayName("Assicura che i tentativi per livello medio siano impostati correttamente")
     void testImpostaTentativiLivelloMedio() {
@@ -83,6 +118,10 @@ class LivelloControllerTest {
         assertEquals(tentativi, livello.getTentMedio(), "impostati tentativi di medio");
     }
 
+    /**
+     * Test del metodo impostaTentativiLivello della classe LivelloController.
+     * Ci si aspetta che i tentativi per livello difficile siano impostati correttamente.
+     */
     @Test
     @DisplayName("Assicura che i tentativi per livello difficile siano impostati correttamente")
     void testImpostaTentativiLivelloDifficile() {
@@ -91,6 +130,10 @@ class LivelloControllerTest {
         assertEquals(tentativi, livello.getTentDifficile(), "impostati tentativi di difficile");
     }
 
+    /**
+     * Test del metodo impostaTentativiPersonalizzato della classe LivelloController.
+     * Ci si aspetta che il livello corrente sia impostato a personalizzato.
+     */
     @Test
     @DisplayName("Assicura che venga impostato il livello personalizzato")
     void testImpostaTentativiPersonalizzatoLivello() {
@@ -100,6 +143,10 @@ class LivelloControllerTest {
         "imposta livello corrente a personalizzato");
     }
 
+    /**
+     * Test del metodo impostaTentativiPersonalizzato della classe LivelloController.
+     * Ci si aspetta che i tentativi per livello personalizzato siano impostati correttamente.
+     */
     @Test
     @DisplayName("Assicura che i tentativi per livello personalizzato siano impostati correttamente")
     void testImpostaTentativiLivelloPersonalizzatoTentativi() {
