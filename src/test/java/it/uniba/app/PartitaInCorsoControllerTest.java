@@ -31,7 +31,6 @@ class PartitaInCorsoControllerTest {
     @Test
     @DisplayName("Assicura che se effettuo un tentativo in una cella vuota,il risultato sia ACQUA.")
     void testGestisciTentativoAcqua() {
-        Griglia griglia = partita.getGriglia();
         final int coordinata = 1;
         PartitaInCorsoController.Esito risultato = controller.gestisciTentativo(coordinata, coordinata);
         assertEquals(PartitaInCorsoController.Esito.ACQUA, risultato, "Il risultato deve essere ACQUA");
