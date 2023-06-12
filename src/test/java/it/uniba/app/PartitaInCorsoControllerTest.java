@@ -34,7 +34,7 @@ class PartitaInCorsoControllerTest {
         Griglia griglia = partita.getGriglia();
         final int coordinata = 1;
         Griglia.Cella cella = griglia.getCella(coordinata, coordinata);
-        PartitaInCorsoController.Esito risultato = controller.gestisciTentativo(cella);
+        PartitaInCorsoController.Esito risultato = controller.gestisciTentativo(coordinata, coordinata);
         assertEquals(PartitaInCorsoController.Esito.ACQUA, risultato, "Il risultato deve essere ACQUA");
     }
 
@@ -50,7 +50,7 @@ class PartitaInCorsoControllerTest {
     final int coordinata = 1;
     Griglia.Cella cella = griglia.getCella(coordinata, coordinata);
     cella.setColpita(true); // Imposta la cella come già colpita
-    PartitaInCorsoController.Esito risultato = controller.gestisciTentativo(cella);
+    PartitaInCorsoController.Esito risultato = controller.gestisciTentativo(coordinata, coordinata);
     assertEquals(PartitaInCorsoController.Esito.GIA_COLPITO, risultato, "Il risultato deve essere GIA_COLPITO");
 }
 
@@ -72,7 +72,7 @@ class PartitaInCorsoControllerTest {
         cella2.setNaveOspitata(nave);
         nave.aggiungiAListaCelleOccupate(cella1);
         nave.aggiungiAListaCelleOccupate(cella2);
-        PartitaInCorsoController.Esito risultato = controller.gestisciTentativo(cella1);
+        PartitaInCorsoController.Esito risultato = controller.gestisciTentativo(coordinata1, coordinata1);
         assertEquals(PartitaInCorsoController.Esito.COLPITO, risultato, "Il risultato deve essere COLPITO");
     }
 
@@ -96,7 +96,7 @@ class PartitaInCorsoControllerTest {
         nave.aggiungiAListaCelleOccupate(cella1);
         nave.aggiungiAListaCelleOccupate(cella2);
 	    cella1.setColpita(true);
-        PartitaInCorsoController.Esito risultato = controller.gestisciTentativo(cella2);
+        PartitaInCorsoController.Esito risultato = controller.gestisciTentativo(coordinata1, coordinata2);
 	    assertEquals(PartitaInCorsoController.Esito.AFFONDATO, risultato, "Il risultato deve essere AFFONDATO");
     }
 }
