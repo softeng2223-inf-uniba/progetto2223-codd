@@ -152,7 +152,8 @@ class LivelloControllerTest {
     void testImpostaTentativiLivelloPersonalizzatoTentativi() {
         final int tentativi = 20;
         controller.impostaTentativiPersonalizzato(tentativi);
-        assertEquals(tentativi, livello.getTentPersonalizzato(), "impostati tentativi di personalizzato");
+        assertEquals(tentativi, controller.ottieniTentativiCorrenti(),
+        "impostati tentativi di personalizzato");
     }
 }
 
