@@ -113,5 +113,29 @@ public final class PartitaInCorsoController {
 
         return tent;
     }
-}
 
+
+    /**
+     * Metodo che verifica se la cella alle coordinate date è occupata da una nave.
+     * @param x
+     * @param y
+     * @return true se ospita una nave, false altrimenti
+     */
+    public boolean isCellaOccupata(final int x, final int y) {
+        Griglia griglia = this.partita.getGriglia();
+        Griglia.Cella cella = griglia.getCella(x, y);
+        return cella.isOccupata();
+    }
+
+    /**
+     * Metodo che verifica se la cella alle coordinate date è stata colpita.
+     * @param x
+     * @param y
+     * @return true se la cella è stata colpita, false altrimenti
+     */
+    public boolean isCellaColpita(final int x, final int y) {
+        Griglia griglia = this.partita.getGriglia();
+        Griglia.Cella cella = griglia.getCella(x, y);
+        return cella.isColpita();
+    }
+}
