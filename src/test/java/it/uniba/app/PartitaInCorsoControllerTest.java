@@ -34,8 +34,8 @@ class PartitaInCorsoControllerTest {
         Griglia griglia = partita.getGriglia();
         final int coordinata = 1;
         Griglia.Cella cella = griglia.getCella(coordinata, coordinata);
-        RisultatoTentativo risultato = controller.gestisciTentativo(cella);
-        assertEquals(RisultatoTentativo.ACQUA, risultato, "Il risultato deve essere ACQUA");
+        PartitaInCorsoController.Esito risultato = controller.gestisciTentativo(cella);
+        assertEquals(PartitaInCorsoController.Esito.ACQUA, risultato, "Il risultato deve essere ACQUA");
     }
 
     /**
@@ -50,8 +50,8 @@ class PartitaInCorsoControllerTest {
     final int coordinata = 1;
     Griglia.Cella cella = griglia.getCella(coordinata, coordinata);
     cella.setColpita(true); // Imposta la cella come già colpita
-    RisultatoTentativo risultato = controller.gestisciTentativo(cella);
-    assertEquals(RisultatoTentativo.GIA_COLPITO, risultato, "Il risultato deve essere GIA_COLPITO");
+    PartitaInCorsoController.Esito risultato = controller.gestisciTentativo(cella);
+    assertEquals(PartitaInCorsoController.Esito.GIA_COLPITO, risultato, "Il risultato deve essere GIA_COLPITO");
 }
 
     /**
@@ -72,8 +72,8 @@ class PartitaInCorsoControllerTest {
         cella2.setNaveOspitata(nave);
         nave.aggiungiAListaCelleOccupate(cella1);
         nave.aggiungiAListaCelleOccupate(cella2);
-        RisultatoTentativo risultato = controller.gestisciTentativo(cella1);
-        assertEquals(RisultatoTentativo.COLPITO, risultato, "Il risultato deve essere COLPITO");
+        PartitaInCorsoController.Esito risultato = controller.gestisciTentativo(cella1);
+        assertEquals(PartitaInCorsoController.Esito.COLPITO, risultato, "Il risultato deve essere COLPITO");
     }
 
     /**
@@ -96,8 +96,8 @@ class PartitaInCorsoControllerTest {
         nave.aggiungiAListaCelleOccupate(cella1);
         nave.aggiungiAListaCelleOccupate(cella2);
 	    cella1.setColpita(true);
-        RisultatoTentativo risultato2 = controller.gestisciTentativo(cella2);
-	    assertEquals(RisultatoTentativo.AFFONDATO, risultato2, "Il risultato deve essere AFFONDATO");
+        PartitaInCorsoController.Esito risultato = controller.gestisciTentativo(cella2);
+	    assertEquals(PartitaInCorsoController.Esito.AFFONDATO, risultato, "Il risultato deve essere AFFONDATO");
     }
 }
 
