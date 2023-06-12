@@ -81,7 +81,7 @@ public abstract class Nave {
      * @param cella
      */
     public void rimuoviDaListaCelleOccupate(final Griglia.Cella cella) {
-        int i = this.listaCelleOccupate.indexOf(cella);
+        final int i = this.listaCelleOccupate.indexOf(cella);
         try {
             this.listaCelleOccupate.remove(i);
         } catch (IndexOutOfBoundsException e) {
