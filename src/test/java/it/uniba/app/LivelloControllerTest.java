@@ -92,19 +92,20 @@ class LivelloControllerTest {
     }
 
     @Test
-    @DisplayName("Assicura che venga impostato il livello personalizzato con relativi tentativi")
-    void testImpostaTentativiPersonalizzato() {
+    @DisplayName("Assicura che venga impostato il livello personalizzato")
+    void testImpostaTentativiPersonalizzatoLivello() {
         final int tentativi = 20;
         controller.impostaTentativiPersonalizzato(tentativi);
-
-        assertAll("impostato livello personalizzato con tentativi", () -> {
-            assertEquals(Livello.Tipo.PERSONALIZZATO, controller.ottieniLivelloCorrente(),
-            "imposta livello corrente a personalizzato");
-            assertEquals(tentativi, controller.ottieniTentativiCorrenti(),
-            "imposta tentativi correnti a tentativi personalizzati");
-        });
-
+        assertEquals(Livello.Tipo.PERSONALIZZATO, controller.ottieniLivelloCorrente(),
+        "imposta livello corrente a personalizzato");
     }
 
+    @Test
+    @DisplayName("Assicura che i tentativi per livello personalizzato siano impostati correttamente")
+    void testImpostaTentativiLivelloPersonalizzatoTentativi() {
+        final int tentativi = 20;
+        controller.impostaTentativiPersonalizzato(tentativi);
+        assertEquals(tentativi, livello.getTentPersonalizzato(), "impostati tentativi di personalizzato");
+    }
 }
 
