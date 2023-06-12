@@ -81,18 +81,19 @@ public abstract class Nave {
      * @param cella
      */
     public void rimuoviDaListaCelleOccupate(final Griglia.Cella cella) {
-        int i = -1;
-        int cont = 0;
-        for (Griglia.Cella c : this.listaCelleOccupate) {
-            if (c == cella) {
-                i = cont;
-            }
-            cont++;
-        }
+        int i = this.listaCelleOccupate.indexOf(cella);
         try {
             this.listaCelleOccupate.remove(i);
         } catch (IndexOutOfBoundsException e) {
             System.out.println("La cella non è presente nella lista.");
         }
+    }
+
+    /**
+     * Metodo che restituisce true se la lista delle celle occupate è vuota, false altrimenti.
+     * @return true se la lista delle celle occupate è vuota, false altrimenti
+     */
+    public boolean isListaCelleOccupateVuota() {
+        return this.listaCelleOccupate.isEmpty();
     }
 }
