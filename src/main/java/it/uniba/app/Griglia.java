@@ -130,7 +130,7 @@ public final class Griglia {
 
     private int dimensione;
     private Cella[][] campo;
-    private List<Nave> listaNaviPresenti;
+    private List<Nave> listaNaviPresenti = new ArrayList<>();
 
 
     /**
