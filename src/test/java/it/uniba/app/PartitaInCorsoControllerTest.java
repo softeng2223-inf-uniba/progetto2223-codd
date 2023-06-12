@@ -1,4 +1,4 @@
-import it.uniba.app;
+package it.uniba.app;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
