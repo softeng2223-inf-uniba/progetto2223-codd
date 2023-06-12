@@ -211,6 +211,14 @@ public final class Griglia {
     }
 
     /**
+     * Getter della dimensione.
+     * @return dimensione
+     */
+    public int getDimensione() {
+        return this.dimensione;
+    }
+
+    /**
      * Getter della lista delle navi.
      * @return listaNavi
      */
@@ -219,10 +227,23 @@ public final class Griglia {
     }
 
     /**
-     * Getter della dimensione.
-     * @return dimensione
+     * Metodo che rimuove una nave dalla lista delle navi presenti.
+     * @param nave
      */
-    public int getDimensione() {
-        return this.dimensione;
+    public void rimuoviDaListaNaviPresenti(final Nave nave) {
+        final int i = this.listaNaviPresenti.indexOf(nave);
+        try {
+            this.listaNaviPresenti.remove(i);
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("La nave non è presente nella lista.");
+        }
+    }
+
+    /**
+     * Metodo che verifica se la lista delle navi presenti è vuota.
+     * @return true se la lista è vuota, false altrimenti
+     */
+    public boolean isListaNaviPresentiVuota() {
+        return this.listaNaviPresenti.isEmpty();
     }
 }
