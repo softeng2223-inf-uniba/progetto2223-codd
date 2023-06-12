@@ -12,15 +12,25 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
+/**
+ * Classe di test di InputUITest.
+ */
 class InputUITest {
 
     private InputUI inputUI;
 
+    /**
+     * Metodo che istanzia l'oggetto della classe InputUI.
+     */
     @BeforeEach
     void setUp() {
         inputUI = new InputUI();
     }
 
+    /**
+     * Test del metodo AcquisisciConferma della classe InputUITest.
+     * Il valore aspettato è vero qualora l'input sia SI.
+     */
     @Test
     @DisplayName("Restituisce vero se l'input è 'si'")
     void testAcquisisciConfermaSi() {
@@ -31,6 +41,10 @@ class InputUITest {
 
     }
 
+    /**
+     * Test del metodo AcquisisciConferma della classe InputUITest.
+     * Il valore aspettato è falso qualora l'input sia NO.
+     */
     @Test
     @DisplayName("Restituisce falso se l'input è 'no'")
     void testAcquisisciConfermaNo() {
@@ -40,6 +54,10 @@ class InputUITest {
         assertFalse(inputUI.acquisisciConferma(new Scanner(System.in, "UTF-8")), "L'input deve essere 'no'");
     }
 
+    /**
+     * Test del metodo isTentativo della classe InputUITest.
+     * Il valore aspettato è vero qualora il tentativo sia valido.
+     */
     @Test
     @DisplayName("Restituisce true se il tentativo è valido")
     void testIsTentativoValido() {
@@ -47,6 +65,10 @@ class InputUITest {
         assertTrue(inputUI.isTentativo(comando), "Il tentativo deve essere valido");
     }
 
+    /**
+     * Test del metodo isTentativo della classe InputUITest.
+     * Il valore aspettato è falso qualora il tentativo sia non valido.
+     */
     @Test
     @DisplayName("Restituisce false se il tentativo non è valido")
     void testIsTentativoNonValido() {
@@ -54,6 +76,11 @@ class InputUITest {
         assertFalse(inputUI.isTentativo(comando), "Il tentativo non deve essere valido");
     }
 
+    /**
+     * Test del metodo AcquisisciComando della classe InputUITest.
+     * Ci si aspetta che la stringa inserita in input
+     * sia utlizzabile in sessione.
+     */
     @Test
     @DisplayName("Assicura che il comando sia valido in sessione")
     void testAcquisisciComandoAzioneValidaInSessione() {
@@ -65,6 +92,11 @@ class InputUITest {
         InputUI.StatoGioco.SESSIONE), "Il comando deve essere valido in sessione");
     }
 
+    /**
+     * Test del metodo AcquisisciComando della classe InputUITest.
+     * Ci si aspetta che la stringa inserita in input
+     * sia utilizzabile in partita.
+     */
     @Test
     @DisplayName("Assicura che il comando sia valido in partita")
     void testAcquisisciComandoAzioneValidaInPartita() {
@@ -76,6 +108,11 @@ class InputUITest {
         InputUI.StatoGioco.PARTITA), "Il comando deve essere valido in partita");
     }
 
+    /**
+     * Test del metodo AcquisisciComando della classe InputUITest.
+     * Ci si aspetta che la stringa inserita in input
+     * sia un tentativo valido in partita.
+     */
     @Test
     @DisplayName("Assicura che il tentativo sia valido in partita")
     void testAcquisisciComandoTentativoValido() {
@@ -88,7 +125,11 @@ class InputUITest {
         InputUI.StatoGioco.PARTITA, limite), "Il tentativo deve essere valido in partita");
     }
 
-
+    /**
+     * Test del metodo AcquisisciComando della classe InputUITest.
+     * Ci si aspetta che la stringa inserita in input
+     * sia un comando con numero valido in sessione.
+     */
     @Test
     @DisplayName("Assicura che il comando con numero sia valido in sessione")
     void testAcquisisciComandoConNumeroSessioneValido() {
