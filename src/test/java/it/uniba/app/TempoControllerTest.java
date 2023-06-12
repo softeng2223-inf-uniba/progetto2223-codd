@@ -16,7 +16,7 @@ class TempoControllerTest {
     private TempoController tempoController;
 
     /**
-     * Metodo che istanzia gli oggetti delle classi 
+     * Metodo che istanzia gli oggetti delle classi
      * Tempo e TempoController.
      */
     @BeforeEach
