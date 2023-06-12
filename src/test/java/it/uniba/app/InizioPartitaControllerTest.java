@@ -9,11 +9,13 @@ class InizioPartitaControllerTest {
 
     private InizioPartitaController controller;
     private Tempo tempo;
+    private Partita partita;
 
     @BeforeEach
     public void setUp() {
         controller = new InizioPartitaController(partita);
         tempo = Tempo.getIstanza();
+        partita = new Partita();
     }
 
     @Test
