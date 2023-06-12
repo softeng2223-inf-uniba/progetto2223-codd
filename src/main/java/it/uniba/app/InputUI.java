@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 
 /**
  * <Boundary>
- * Classe che fornisce una interfaccia generica di acquisizione corretta dei 
+ * Classe che fornisce una interfaccia generica di acquisizione corretta dei
  * comandi dell'utente da tastiera.
  */
 public final class InputUI {
@@ -62,7 +62,6 @@ public final class InputUI {
      * Restituisce il comando letto suddiviso in due token.
      * @param tastiera
      * @param contesto
-     * @param limite
      * @return array di 2 stringhe, ciascuna un token del comando letto.
      */
     public String[] acquisisciComando(final Scanner tastiera, final StatoGioco contesto) {
