@@ -13,9 +13,9 @@ class InizioPartitaControllerTest {
 
     @BeforeEach
     public void setUp() {
+        partita = new Partita();
         controller = new InizioPartitaController(partita);
         tempo = Tempo.getIstanza();
-        partita = new Partita();
     }
 
     @Test
