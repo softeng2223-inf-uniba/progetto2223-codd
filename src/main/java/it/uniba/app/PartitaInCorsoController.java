@@ -44,11 +44,11 @@ public final class PartitaInCorsoController {
         if (cella.isColpita()) {
             return Esito.GIA_COLPITO;
         } else {
-            this.partita.setTentEffettuati(tentEff++);
+            this.partita.setTentEffettuati(tentEff + 1);
             cella.setColpita(true);
 
             if (!cella.isOccupata()) {
-                this.partita.setTentFalliti(tentFall++);
+                this.partita.setTentFalliti(tentFall + 1);
                 return Esito.ACQUA;
             } else {
 
@@ -81,8 +81,8 @@ public final class PartitaInCorsoController {
      * @return tent
      */
     public int[] ottieniTentativi() {
-        
-        int[] tent = new int[3];
+        final int dimTent = 3;
+        int[] tent = new int[dimTent];
         tent[0] = this.partita.getTentEffettuati();
         tent[1] = this.partita.getTentFalliti();
         tent[2] = this.partita.getMaxTent();
