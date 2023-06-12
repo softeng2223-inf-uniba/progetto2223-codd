@@ -10,12 +10,17 @@ public final class Partita {
 
     private int tentEffettuati = 0;
     private int tentFalliti = 0;
+    private final int maxTent;
 
 
     /**
-     * Costruttore che inizializza la griglia.
+     * Costruttore che inizializza la griglia e il numero massimo di tentativi
+     * associati alla partita.
      */
     public Partita() {
+        LivelloController livContr = new LivelloController(Livello.getIstanza());
+        this.maxTent = livContr.ottieniTentativiCorrenti();
+
         Proprieta prop = Proprieta.getIstanza();
         int dim = prop.getDimensioniGriglia();
         this.griglia = new Griglia(dim);
@@ -59,6 +64,14 @@ public final class Partita {
      */
     public void setTentFalliti(final int tent) {
         this.tentFalliti = tent;
+    }
+
+    /**
+     * Getter del numero massimo di tentativi fallibili.
+     * @return maxTent
+     */
+    public int getMaxTent() {
+        return this.maxTent;
     }
 
 }

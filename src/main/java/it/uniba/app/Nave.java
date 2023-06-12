@@ -61,6 +61,14 @@ public abstract class Nave {
     }
 
     /**
+     * Getter della lista delle celle occupate dalla nave.
+     * @return listaCelleOccupate
+     */
+    public List<Griglia.Cella> getListaCelleOccupate() {
+        return this.listaCelleOccupate;
+    }
+
+    /**
      * Metodo che aggiunge una cella data alla lista di celle occupate dalla nave.
      * @param cella
      */
