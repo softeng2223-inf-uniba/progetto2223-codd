@@ -33,7 +33,6 @@ class PartitaInCorsoControllerTest {
     void testGestisciTentativoAcqua() {
         Griglia griglia = partita.getGriglia();
         final int coordinata = 1;
-        Griglia.Cella cella = griglia.getCella(coordinata, coordinata);
         PartitaInCorsoController.Esito risultato = controller.gestisciTentativo(coordinata, coordinata);
         assertEquals(PartitaInCorsoController.Esito.ACQUA, risultato, "Il risultato deve essere ACQUA");
     }
