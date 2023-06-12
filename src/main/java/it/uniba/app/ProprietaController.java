@@ -40,5 +40,13 @@ public final class ProprietaController {
     public void impostaGrigliaExtralarge() {
         this.proprieta.setDimensioniGriglia(DIMENSIONI_GRIGLIA_EXTRALARGE);
     }
+
+    /**
+     * Metodo che ottiene la dimensione della griglia impostata correntemente.
+     * @return dimensioni impostate
+     */
+    public int ottieniDimGriglia() {
+        return this.proprieta.getDimensioniGriglia();
+    }
 }
 
