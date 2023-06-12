@@ -117,12 +117,11 @@ class InputUITest {
     @DisplayName("Assicura che il tentativo sia valido in partita")
     void testAcquisisciComandoTentativoValido() {
         String input = "A-1";
-        final int limite = 10;
         InputStream in = new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8));
         System.setIn(in);
         String[] expected = {"a", "1"};
         assertArrayEquals(expected, inputUI.acquisisciComando(new Scanner(System.in, "UTF-8"),
-        InputUI.StatoGioco.PARTITA, limite), "Il tentativo deve essere valido in partita");
+        InputUI.StatoGioco.PARTITA), "Il tentativo deve essere valido in partita");
     }
 
     /**
@@ -134,10 +133,9 @@ class InputUITest {
     @DisplayName("Assicura che il comando con numero sia valido in sessione")
     void testAcquisisciComandoConNumeroSessioneValido() {
         String input = "/tentativi 10";
-        final int limite = 10;
         ByteArrayInputStream inputStream = new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8));
         Scanner scanner = new Scanner(inputStream, "UTF-8");
-        String[] result = inputUI.acquisisciComando(scanner, InputUI.StatoGioco.SESSIONE, limite);
+        String[] result = inputUI.acquisisciComando(scanner, InputUI.StatoGioco.SESSIONE);
         assertArrayEquals(new String[]{"/tentativi", "10"}, result,
         "Il comando con numero deve essere valido in sessione");
     }
