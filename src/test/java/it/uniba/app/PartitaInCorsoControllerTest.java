@@ -43,9 +43,9 @@ class PartitaInCorsoControllerTest {
      * Assicura che se effettuo un tentativo in una cella già colpita, il risultato
      * sia GIA_COLPITO.
      */
-	@Test
+    @Test
     @DisplayName("Assicura che se effettuo un tentativo in una cella già colpita, il risultato sia GIA_COLPITO.")
-	void testGestisciTentativoGiàColpito() {
+	void testGestisciTentativoGiaColpito() {
    	Griglia griglia = partita.getGriglia();
     final int coordinata = 1;
     Griglia.Cella cella = griglia.getCella(coordinata, coordinata);
@@ -96,6 +96,7 @@ class PartitaInCorsoControllerTest {
         nave.aggiungiAListaCelleOccupate(cella1);
         nave.aggiungiAListaCelleOccupate(cella2);
 	    cella1.setColpita(true);
+        nave.rimuoviDaListaCelleOccupate(cella1);
         PartitaInCorsoController.Esito risultato = controller.gestisciTentativo(coordinata1, coordinata2);
 	    assertEquals(PartitaInCorsoController.Esito.AFFONDATO, risultato, "Il risultato deve essere AFFONDATO");
     }
