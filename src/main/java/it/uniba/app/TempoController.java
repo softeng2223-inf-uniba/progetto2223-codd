@@ -44,7 +44,8 @@ public final class TempoController {
      */
     public int[] ottieniTempoRestante() {
         int[] temp = new int[2];
-        temp[0] = this.tempo.getMinutiImpostati() - this.tempo.getMinutiTrascorsi();
+        final int diff = this.tempo.getMinutiImpostati() - this.tempo.getMinutiTrascorsi();
+        temp[0] = this.tempo.getMinutiImpostati() - this.tempo.getMinutiTrascorsi() - diff;
         temp[1] = SECONDI - this.tempo.getSecondiTrascorsi();
         return temp;
     }
@@ -61,9 +62,11 @@ public final class TempoController {
     }
 
     /**
-     * Metodo che imposta nuovamente il tempo come non impostato.
+     * Metodo che reimposta il tempo.
      */
     public void reimpostaTempo() {
+        this.tempo.setMinutiImpostati(0);
+        this.tempo.setScaduto(false);
         this.tempo.setImpostato(false);
     }
 

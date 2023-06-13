@@ -34,9 +34,11 @@ class TempoControllerTest {
     @Test
     @DisplayName("Assicura che il tempo venga impostato a 5 minuti")
     void testImpostaTempo() {
+        Tempo tempo = Tempo.getIstanza();
         final int minuti = 5;
         tempoController.impostaTempo(minuti);
-        assertEquals(minuti, tempoController.ottieniTempoRestante()[0], "Il tempo deve essere impostato a 5 minuti");
+        final int minutiImpostati = tempo.getMinutiImpostati();
+        assertEquals(minuti, minutiImpostati, "Il tempo deve essere impostato a 5 minuti");
     }
 
     /**
