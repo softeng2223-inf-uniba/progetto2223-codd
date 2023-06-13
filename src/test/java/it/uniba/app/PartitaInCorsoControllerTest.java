@@ -81,7 +81,7 @@ class PartitaInCorsoControllerTest {
      * il risultato sia AFFONDATO.
      */
     @Test
-    @DisplayName("Assicura che se effettuo un tentativo nell'ultima cella occupata da una nave"
+    @DisplayName("Assicura che se effettuo un tentativo nell'ultima cella occupata da una nave "
     + "il risultato sia AFFONDATO.")
     void testGestisciTentativoAffondato() {
         Griglia griglia = partita.getGriglia();
