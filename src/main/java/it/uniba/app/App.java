@@ -110,7 +110,7 @@ public final class App {
      * @param liv
      * @param temp
      */
-    private void enginePartita(final Scanner tastiera, final Livello liv, final Tempo temp) {
+    private static void enginePartita(final Scanner tastiera, final Livello liv, final Tempo temp) {
 
         String[] comando;
         InputUI input = new InputUI();
