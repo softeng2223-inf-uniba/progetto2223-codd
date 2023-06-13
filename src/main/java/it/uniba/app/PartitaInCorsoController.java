@@ -72,7 +72,7 @@ public final class PartitaInCorsoController {
      * Metodo che rimuove la cella passata dalla lista di celle occupate dalla nave.
      * @param nave
      * @param cella
-     */    
+     */
     public void rimuoviDaListaCelleOccupate(final Nave nave, final Griglia.Cella cella) {
         List<Griglia.Cella> listaCelle = nave.getListaCelleOccupate();
         listaCelle.remove(cella);

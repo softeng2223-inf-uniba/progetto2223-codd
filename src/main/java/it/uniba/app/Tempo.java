@@ -14,6 +14,7 @@ public final class Tempo extends Thread {
     private static final int TEMPO_ATTESA = 1000;
     private static final int SECONDI = 59;
 
+    private boolean isTempoImpostato = false;
     private boolean isTempoScaduto = false;
 
     private static Tempo istanza = null;
@@ -91,6 +92,30 @@ public final class Tempo extends Thread {
      */
     public boolean isTempoScaduto() {
         return this.isTempoScaduto;
+    }
+
+    /**
+     * Setter della variabile booleana isTempoScaduto.
+     * @param scaduto
+     */
+    public void setTempoScaduto(final boolean scaduto) {
+        this.isTempoScaduto = scaduto;
+    }
+
+    /**
+     * Getter della variabile booleana isTempoImpostato.
+     * @return isTempoImpostato
+     */
+    public boolean isTempoImpostato() {
+        return this.isTempoImpostato;
+    }
+
+    /**
+     * Setter della variabile booleana isTempoScaduto.
+     * @param impostato
+     */
+    public void setTempoImpostato(final boolean impostato) {
+        this.isTempoImpostato = impostato;
     }
 
     /**

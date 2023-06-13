@@ -18,11 +18,12 @@ public final class TempoController {
     }
 
     /**
-     * Metodo che imposta i minuti trascorsi.
+     * Metodo che imposta i minuti trascorsi e setta il tempo come impostato.
      * @param minuti
      */
     public void impostaTempo(final int minuti) {
         this.tempo.setMinutiImpostati(minuti);
+        this.tempo.setTempoImpostato(true);
     }
 
     /**
@@ -56,6 +57,14 @@ public final class TempoController {
         } catch (IllegalThreadStateException e) {
             System.out.println("Tempo già avviato");
         }
+    }
+
+    /**
+     * Metodo che verifica se il tempo è stato impostato.
+     * @return true se il tempo è stato impostato, false altrimenti
+     */
+    public boolean isTempoImpostato() {
+        return this.tempo.isTempoImpostato();
     }
 
     /**

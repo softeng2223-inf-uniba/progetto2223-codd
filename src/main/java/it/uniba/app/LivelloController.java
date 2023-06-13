@@ -99,4 +99,20 @@ public final class LivelloController {
         }
         return tent;
     }
+
+    /**
+     * Metodo booleano che verifica se il numero di tentativi inserito
+     * sia valido o meno.
+     * @param tent
+     * @return true se il numero di tentativi è valido, false altrimenti.
+     */
+    public boolean isTentativiValidi(final int tent) {
+        ProprietaController propContr = new ProprietaController(Proprieta.getIstanza());
+        int dim = propContr.ottieniDimGriglia();
+
+        if (tent > dim) {
+            return false;
+        }
+        return true;
+    }
 }
