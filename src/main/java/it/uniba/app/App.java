@@ -22,9 +22,11 @@ public final class App {
      */
     public static void main(final String[] args) {
         HelpUI helpUI = new HelpUI();
-        if (args[0].equals("--help") || args[0].equals("-h")) {
-            helpUI.displayHelp();
-            return;
+        if (args.length > 0) {
+            if (args[0].equals("--help") || args[0].equals("-h")) {
+                helpUI.displayHelp();
+                return;
+            }
         }
         helpUI.displayHelp();
         Scanner tastiera = new Scanner(System.in, "utf-8");
