@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 /**
  * Classe di test di FinePartitaController.
  */
-public class FinePartitaControllerTest {
+class FinePartitaControllerTest {
 
     private Partita partita;
 
@@ -16,7 +16,7 @@ public class FinePartitaControllerTest {
      * Metodo che istanzia l'oggetto della classe Partita.
      */
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         partita = new Partita();
     }
 
@@ -28,7 +28,7 @@ public class FinePartitaControllerTest {
     @Test
     @DisplayName("Assicura che la partita sia terminata per sconfitta quando i tentativi"
     + " falliti sono pari al massimo consentito")
-    public void testVerificaPartitaTerminataTentativiTerminati() {
+    void testVerificaPartitaTerminataTentativiTerminati() {
         partita.setTentFalliti(partita.getMaxTent());  // Imposta i tentativi falliti al massimo consentito
         FinePartitaController finePartitaController = new FinePartitaController(partita);
         assertEquals(FinePartitaController.Esito.SCONFITTA, finePartitaController.verificaPartitaTerminata(),
@@ -43,7 +43,7 @@ public class FinePartitaControllerTest {
     @Test
     @DisplayName("Assicura che la partita sia terminata per vittoria quando tutte le navi"
     + " presenti nella griglia sono state affondate")
-    public void testVerificaPartitaTerminataAllNaviAffondate() {
+    void testVerificaPartitaTerminataAllNaviAffondate() {
         Griglia griglia = partita.getGriglia();
         griglia.getListaNaviPresenti().clear();  // Rimuove tutte le navi dalla griglia
         FinePartitaController finePartitaController = new FinePartitaController(partita);
@@ -59,10 +59,10 @@ public class FinePartitaControllerTest {
     @Test
     @DisplayName("Assicura che la partita sia terminata per tempo scaduto quando il tempo"
     + " è scaduto")
-    public void testVerificaPartitaTerminataTempoScaduto() {
+    void testVerificaPartitaTerminataTempoScaduto() {
         Tempo tempo = Tempo.getIstanza();
-        FinePartitaController finePartitaController = new FinePartitaController(partita);
         tempo.setTempoScaduto(true);
+        FinePartitaController finePartitaController = new FinePartitaController(partita);
         assertEquals(FinePartitaController.Esito.TEMPO_SCADUTO, finePartitaController.verificaPartitaTerminata(),
         "La partita è terminata per tempo scaduto");
     }
