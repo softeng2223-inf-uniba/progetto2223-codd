@@ -95,6 +95,14 @@ public final class Tempo extends Thread {
     }
 
     /**
+     * Setter della variabile booleana isTempoScaduto.
+     * @param scaduto
+     */
+    public void setTempoScaduto(final boolean scaduto) {
+        this.isTempoScaduto = scaduto;
+    }
+
+    /**
      * Getter della variabile booleana isTempoImpostato.
      * @return isTempoImpostato
      */
