@@ -94,8 +94,8 @@ public final class PartitaInCorsoController {
      * @return true se la lista è vuota, false altrimenti
      */
     private boolean isListaCelleOccupateVuota(final Nave nave) {
-        List<Nave> listaNavi = griglia.getListaNaviPresenti();
-        return listaNavi.isEmpty();
+        List<Griglia.Cella> listaCelle = nave.getListaCelleOccupate();
+        return listaCelle.isEmpty();
     }
 
 
