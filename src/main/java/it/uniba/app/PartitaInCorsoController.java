@@ -1,5 +1,7 @@
 package it.uniba.app;
 
+import java.util.List;
+
 /**
  * <Control>
  * Classe che gestisce il corso della partita.
@@ -53,11 +55,11 @@ public final class PartitaInCorsoController {
             } else {
 
                 Nave nave = cella.getNaveOspitata();
-                nave.rimuoviDaListaCelleOccupate(cella);
+                rimuoviDaListaCelleOccupate(nave, cella);
 
-                if (nave.isListaCelleOccupateVuota()) {
+                if (isListaCelleOccupateVuota(nave)) {
                     nave.setAffondata(true);
-                    griglia.rimuoviDaListaNaviPresenti(nave);
+                    rimuoviDaListaNaviPresenti(griglia, nave);
                     return Esito.AFFONDATO;
                 } else {
                     return Esito.COLPITO;
@@ -67,13 +69,35 @@ public final class PartitaInCorsoController {
     }
 
     /**
-     * Metodo che ottiene la griglia associata alla partita.
-     * @return griglia
-     */
-    public Griglia ottieniGriglia() {
-
-        return this.partita.getGriglia();
+     * Metodo che rimuove la cella passata dalla lista di celle occupate dalla nave.
+     * @param nave
+     * @param cella
+     */    
+    public void rimuoviDaListaCelleOccupate(final Nave nave, final Griglia.Cella cella) {
+        List<Griglia.Cella> listaCelle = nave.getListaCelleOccupate();
+        listaCelle.remove(cella);
     }
+
+    /**
+     * Metodo che rimuove la nave passata dalla lista di navi presenti nella griglia.
+     * @param griglia
+     * @param nave
+     */
+    public void rimuoviDaListaNaviPresenti(final Griglia griglia, final Nave nave) {
+        List<Nave> listaNavi = griglia.getListaNaviPresenti();
+        listaNavi.remove(nave);
+    }
+
+    /**
+     * Metodo che verifica se la lista di celle occupate da una nave passata è vuota.
+     * @param nave
+     * @return true se la lista è vuota, false altrimenti
+     */
+    public boolean isListaCelleOccupateVuota(final Nave nave) {
+        List<Griglia.Cella> listaCelle = nave.getListaCelleOccupate();
+        return listaCelle.isEmpty();
+    }
+
 
     /**
      * Metodo che ottiene il numero di tentativi effettuati, falliti e il
@@ -89,5 +113,29 @@ public final class PartitaInCorsoController {
 
         return tent;
     }
-}
 
+
+    /**
+     * Metodo che verifica se la cella alle coordinate date è occupata da una nave.
+     * @param x
+     * @param y
+     * @return true se ospita una nave, false altrimenti
+     */
+    public boolean isCellaOccupata(final int x, final int y) {
+        Griglia griglia = this.partita.getGriglia();
+        Griglia.Cella cella = griglia.getCella(x, y);
+        return cella.isOccupata();
+    }
+
+    /**
+     * Metodo che verifica se la cella alle coordinate date è stata colpita.
+     * @param x
+     * @param y
+     * @return true se la cella è stata colpita, false altrimenti
+     */
+    public boolean isCellaColpita(final int x, final int y) {
+        Griglia griglia = this.partita.getGriglia();
+        Griglia.Cella cella = griglia.getCella(x, y);
+        return cella.isColpita();
+    }
+}

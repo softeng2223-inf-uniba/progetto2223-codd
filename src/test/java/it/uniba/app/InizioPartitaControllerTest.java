@@ -35,7 +35,7 @@ class InizioPartitaControllerTest {
     void testDisponiNavi() {
         controller.disponiNavi();
         Griglia griglia = partita.getGriglia();
-        for (Nave nave : griglia.getListaNavi()) {
+        for (Nave nave : griglia.getListaNaviPresenti()) {
             for (Griglia.Cella cella : nave.getListaCelleOccupate()) {
                 assertTrue(cella.isOccupata(), "vero se la cella è occupata");
             }

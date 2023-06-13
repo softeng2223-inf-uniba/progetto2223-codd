@@ -26,6 +26,28 @@ public final class InizioPartitaController {
 
 
     /**
+     * Metodo che inizializza la lista delle navi presenti nella griglia.
+     */
+    private void inizializzaListaNavi() {
+
+        Griglia griglia = this.partita.getGriglia();
+        List<Nave> listaNavi = griglia.getListaNaviPresenti();
+
+        for (int i = 0; i < Portaerei.getNumeroEsemplari(); i++) {
+            listaNavi.add(new Portaerei());
+        }
+        for (int i = 0; i < Corazzata.getNumeroEsemplari(); i++) {
+            listaNavi.add(new Corazzata());
+        }
+        for (int i = 0; i < Incrociatore.getNumeroEsemplari(); i++) {
+            listaNavi.add(new Incrociatore());
+        }
+        for (int i = 0; i < Cacciatorpediniere.getNumeroEsemplari(); i++) {
+            listaNavi.add(new Cacciatorpediniere());
+        }
+    }
+
+    /**
      * Metodo che dispone randomicamente le navi nella griglia all'inizio della partita.
      */
     public void disponiNavi() {
@@ -35,7 +57,8 @@ public final class InizioPartitaController {
         List<Griglia.Direzione> listaDir = Arrays.asList(
             Griglia.Direzione.ALTO, Griglia.Direzione.BASSO, Griglia.Direzione.SINISTRA, Griglia.Direzione.DESTRA);
 
-        for (Nave nave : griglia.getListaNavi()) {
+        inizializzaListaNavi();
+        for (Nave nave : griglia.getListaNaviPresenti()) {
 
             boolean posizionata = false;
             while (!posizionata) {
@@ -93,11 +116,21 @@ public final class InizioPartitaController {
         int cont = 0;
 
         while (cont < lung) {
+            aggiungiAListaCelleOccupate(nave, cella);
             cella.setNaveOspitata(nave);
-            nave.aggiungiAListaCelleOccupate(cella);
             cella = cella.getCellaSucc(dir);
             cont++;
         }
+    }
+
+    /**
+     * Metodo che aggiunge alla lista di celle occupate da una nave la cella passata.
+     * @param nave
+     * @param cella
+     */
+    public void aggiungiAListaCelleOccupate(final Nave nave, final Griglia.Cella cella) {
+        List<Griglia.Cella> listaCelle = nave.getListaCelleOccupate();
+        listaCelle.add(cella);
     }
 
 

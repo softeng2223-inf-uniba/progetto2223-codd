@@ -130,7 +130,7 @@ public final class Griglia {
 
     private int dimensione;
     private Cella[][] campo;
-    private List<Nave> listaNaviPresenti = inizializzaNavi();
+    private List<Nave> listaNaviPresenti = new ArrayList<>();
 
 
     /**
@@ -188,30 +188,7 @@ public final class Griglia {
     }
 
     /**
-     * Metodo che inizializza la lista delle navi presenti inizialmente nella griglia.
-     * @return listaNavi
-     */
-    private List<Nave> inizializzaNavi() {
-
-        List<Nave> listaNavi = new ArrayList<>();
-
-        for (int i = 0; i < Portaerei.getNumeroEsemplari(); i++) {
-            listaNavi.add(new Portaerei());
-        }
-        for (int i = 0; i < Corazzata.getNumeroEsemplari(); i++) {
-            listaNavi.add(new Corazzata());
-        }
-        for (int i = 0; i < Incrociatore.getNumeroEsemplari(); i++) {
-            listaNavi.add(new Incrociatore());
-        }
-        for (int i = 0; i < Cacciatorpediniere.getNumeroEsemplari(); i++) {
-            listaNavi.add(new Cacciatorpediniere());
-        }
-        return listaNavi;
-    }
-
-    /**
-     * Getter della dimensione.
+     * Getter della dimensione della griglia.
      * @return dimensione
      */
     public int getDimensione() {
@@ -219,31 +196,10 @@ public final class Griglia {
     }
 
     /**
-     * Getter della lista delle navi.
-     * @return listaNavi
+     * Getter della lista delle navi presenti nella griglia.
+     * @return listaNaviPresenti
      */
-    public List<Nave> getListaNavi() {
+    public List<Nave> getListaNaviPresenti() {
         return this.listaNaviPresenti;
-    }
-
-    /**
-     * Metodo che rimuove una nave dalla lista delle navi presenti.
-     * @param nave
-     */
-    public void rimuoviDaListaNaviPresenti(final Nave nave) {
-        final int i = this.listaNaviPresenti.indexOf(nave);
-        try {
-            this.listaNaviPresenti.remove(i);
-        } catch (IndexOutOfBoundsException e) {
-            System.out.println("La nave non è presente nella lista.");
-        }
-    }
-
-    /**
-     * Metodo che verifica se la lista delle navi presenti è vuota.
-     * @return true se la lista è vuota, false altrimenti
-     */
-    public boolean isListaNaviPresentiVuota() {
-        return this.listaNaviPresenti.isEmpty();
     }
 }

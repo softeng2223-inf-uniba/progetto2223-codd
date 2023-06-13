@@ -67,33 +67,4 @@ public abstract class Nave {
     public List<Griglia.Cella> getListaCelleOccupate() {
         return this.listaCelleOccupate;
     }
-
-    /**
-     * Metodo che aggiunge una cella data alla lista di celle occupate dalla nave.
-     * @param cella
-     */
-    public void aggiungiAListaCelleOccupate(final Griglia.Cella cella) {
-        this.listaCelleOccupate.add(cella);
-    }
-
-    /**
-     * Metodo che rimuove una cella dalla lista di celle.
-     * @param cella
-     */
-    public void rimuoviDaListaCelleOccupate(final Griglia.Cella cella) {
-        final int i = this.listaCelleOccupate.indexOf(cella);
-        try {
-            this.listaCelleOccupate.remove(i);
-        } catch (IndexOutOfBoundsException e) {
-            System.out.println("La cella non è presente nella lista.");
-        }
-    }
-
-    /**
-     * Metodo che restituisce true se la lista delle celle occupate è vuota, false altrimenti.
-     * @return true se la lista delle celle occupate è vuota, false altrimenti
-     */
-    public boolean isListaCelleOccupateVuota() {
-        return this.listaCelleOccupate.isEmpty();
-    }
 }
