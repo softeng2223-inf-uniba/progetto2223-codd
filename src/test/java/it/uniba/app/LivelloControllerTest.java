@@ -169,7 +169,7 @@ class LivelloControllerTest {
     void testIsTentativiValidiCorretto() {
     final int dimensioneGriglia = 10;
     proprieta.setDimensioniGriglia(dimensioneGriglia);
-    int tentativiValidi = dimensioneGriglia - 1;   
+    int tentativiValidi = dimensioneGriglia - 1;
     assertTrue(controller.isTentativiValidi(tentativiValidi), "i tentativi sono validi");
     }
 
