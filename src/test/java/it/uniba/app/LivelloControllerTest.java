@@ -21,7 +21,7 @@ class LivelloControllerTest {
     void setUp() {
         livello = Livello.getIstanza();
         controller = new LivelloController(livello);
-        proprieta = new Proprieta();
+        proprieta = Proprieta.getIstanza();
     }
 
     /**
@@ -168,7 +168,7 @@ class LivelloControllerTest {
     final int dimensioneGriglia = 10;
     proprieta.setDimensioniGriglia(dimensioneGriglia);
     int tentativiValidi = dimensioneGriglia - 1;   
-    assertTrue(livelloController.isTentativiValidi(tentativiValidi), "i tentativi sono validi");
+    assertTrue(controller.isTentativiValidi(tentativiValidi), "i tentativi sono validi");
     }
 
     /**
@@ -181,7 +181,7 @@ class LivelloControllerTest {
     final int dimensioneGriglia = 10;
     proprieta.setDimensioniGriglia(dimensioneGriglia);
     int tentativiNonValidi = dimensioneGriglia + 1;
-    assertFalse(livelloController.isTentativiValidi(tentativiNonValidi), "i tentativi non sono validi");
+    assertFalse(controller.isTentativiValidi(tentativiNonValidi), "i tentativi non sono validi");
     }
 
 }
