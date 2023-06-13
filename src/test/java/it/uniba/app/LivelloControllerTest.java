@@ -167,10 +167,10 @@ class LivelloControllerTest {
     @Test
     @DisplayName("Assicura che i tentativi siano validi")
     void testIsTentativiValidiCorretto() {
-    final int dimensioneGriglia = 10;
-    proprieta.setDimensioniGriglia(dimensioneGriglia);
-    int tentativiValidi = dimensioneGriglia - 1;
-    assertTrue(controller.isTentativiValidi(tentativiValidi), "i tentativi sono validi");
+        final int dimensioneGriglia = 10;
+        proprieta.setDimensioniGriglia(dimensioneGriglia);
+        int tentativiValidi = dimensioneGriglia * dimensioneGriglia - 1;
+        assertTrue(controller.isTentativiValidi(tentativiValidi), "i tentativi sono validi");
     }
 
     /**
@@ -180,11 +180,22 @@ class LivelloControllerTest {
     @Test
     @DisplayName("Assicura che i tentativi non siano validi")
     void testIsTentativiValidiNonCorretto() {
-    final int dimensioneGriglia = 10;
-    proprieta.setDimensioniGriglia(dimensioneGriglia);
-    int tentativiNonValidi = dimensioneGriglia + 1;
-    assertFalse(controller.isTentativiValidi(tentativiNonValidi), "i tentativi non sono validi");
+        final int dimensioneGriglia = 10;
+        proprieta.setDimensioniGriglia(dimensioneGriglia);
+        int tentativiNonValidi = dimensioneGriglia * dimensioneGriglia + 1;
+        assertFalse(controller.isTentativiValidi(tentativiNonValidi), "i tentativi non sono validi");
     }
 
+    /**
+     * Test del metodo isTentativiValidi della classe LivelloController.
+     * Ci si aspetta che i tentativi siano validi.
+     */
+    @Test
+    @DisplayName("Assicura che i tentativi limite siano validi")
+    void testIsTentativiValidiLimiteCorretto() {
+        final int dimensioneGriglia = 10;
+        proprieta.setDimensioniGriglia(dimensioneGriglia);
+        int tentativiValidi = dimensioneGriglia * dimensioneGriglia;
+        assertTrue(controller.isTentativiValidi(tentativiValidi), "i tentativi sono validi");
+    }
 }
-
