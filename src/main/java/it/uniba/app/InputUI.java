@@ -20,7 +20,7 @@ public final class InputUI {
             "/mostratempo", "/mostragriglia", "/mostratentativi", "/abbandona");
     private static final List<String> LISTA_COMANDI_AMMESSI_SESSIONE = Arrays.asList(
             "/gioca", "/esci", "/facile", "/medio", "/difficile",
-            "/help", "/mostralivello", "/mostranavi", "/tentativi",
+            "/help", "/mostralivello", "/tentativi",
             "/standard", "/large", "/extralarge", "/tempo");
     private static final List<String> LISTA_COMANDI_AMMESSI_PARTITA = Arrays.asList(
             "/help", "/mostralivello", "/mostranavi", "/svelagriglia",

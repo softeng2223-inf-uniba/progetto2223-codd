@@ -36,13 +36,14 @@ public final class GrigliaUI {
 
         System.out.println("");
         stampaSeparatoreGriglia(dim);
-        System.out.print("\n   |     |");
+        System.out.print("\n   |      |");
         for (int i = 1; i <= dim; i++) {
             System.out.print(" " + LETTERE.get(i - 1) + " |");
         }
         stampaSeparatoreGriglia(dim);
         for (int i = 1; i <= dim; i++) {
-            System.out.print("\n   |  " + i + "\t|");
+            System.out.print("\n");
+            System.out.format("   |  %02d  |", i);
             for (int j = 1; j <= dim; j++) {
                 if (this.pcContr.isCellaColpita(i, j)) {
                     if (this.pcContr.isCellaOccupata(i, j)) {
@@ -56,6 +57,7 @@ public final class GrigliaUI {
             }
             stampaSeparatoreGriglia(dim);
         }
+        System.out.print("\n");
     }
 
     /**
@@ -67,13 +69,14 @@ public final class GrigliaUI {
 
         System.out.println("");
         stampaSeparatoreGriglia(dim);
-        System.out.print("\n   |     |");
+        System.out.print("\n   |      |");
         for (int i = 1; i <= dim; i++) {
             System.out.print(" " + LETTERE.get(i - 1) + " |");
         }
         stampaSeparatoreGriglia(dim);
         for (int i = 1; i <= dim; i++) {
-            System.out.print("\n   |  " + i + "\t|");
+            System.out.print("\n");
+            System.out.format("   |  %02d  |", i);
             for (int j = 1; j <= dim; j++) {
                 if (this.pcContr.isCellaOccupata(i, j)) {
                     System.out.print(YELLOW + " X " + RESET + "|");
@@ -83,6 +86,7 @@ public final class GrigliaUI {
             }
             stampaSeparatoreGriglia(dim);
         }
+        System.out.print("\n");
     }
 
     /**
@@ -94,18 +98,20 @@ public final class GrigliaUI {
 
         System.out.println("");
         stampaSeparatoreGriglia(dim);
-        System.out.print("\n   |     |");
+        System.out.print("\n   |      |");
         for (int i = 1; i <= dim; i++) {
             System.out.print(" " + LETTERE.get(i - 1) + " |");
         }
         stampaSeparatoreGriglia(dim);
         for (int i = 1; i <= dim; i++) {
-            System.out.print("\n   |  " + i + "\t|");
+            System.out.print("\n");
+            System.out.format("   |  %02d  |", i);
             for (int j = 1; j <= dim; j++) {
                 System.out.print("   |");
             }
             stampaSeparatoreGriglia(dim);
         }
+        System.out.print("\n");
     }
 
     /**
@@ -113,7 +119,7 @@ public final class GrigliaUI {
      * @param dim
      */
     private void stampaSeparatoreGriglia(final int dim) {
-        System.out.print("\n   +-----+");
+        System.out.print("\n   +------+");
         for (int i = 1; i <= dim; i++) {
             System.out.print("---+");
         }

@@ -79,6 +79,7 @@ public final class LivelloUI {
                 default:
                 break;
             }
+            System.out.println("\n: Ok.");
         }
     }
 
@@ -95,6 +96,7 @@ public final class LivelloUI {
             System.out.println("\n: Non puoi impostare un numero di tentativi maggiore della grandezza della griglia!");
         } else {
             this.livController.impostaTentativiPersonalizzato(tent);
+            System.out.println("\n: Ok.");
         }
     }
 

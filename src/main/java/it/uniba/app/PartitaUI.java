@@ -80,10 +80,10 @@ public final class PartitaUI {
         final int pos3 = 3;
 
         System.out.println("\n: Ecco la lista delle navi ancora presenti nella griglia:"
-        + "\n   - Cacciatorpediniere:\t\t[X][X]\t\tEsemplari: " + numNavi[pos0]
-        + "\n   - Incrociatore:\t\t[X][X][X]\t\tEsemplari: " + numNavi[pos1]
-        + "\n   - Corazzata:\t\t[X][X][X][X]\t\tEsemplari: " + numNavi[pos2]
-        + "\n   - Portaerei:\t\t[X][X][X][X][X]\t\tEsemplari: " + numNavi[pos3]
+        + "\n   - Cacciatorpediniere:  [X][X]           Esemplari: " + numNavi[pos0]
+        + "\n   - Incrociatore:        [X][X][X]        Esemplari: " + numNavi[pos1]
+        + "\n   - Corazzata:           [X][X][X][X]     Esemplari: " + numNavi[pos2]
+        + "\n   - Portaerei:           [X][X][X][X][X]  Esemplari: " + numNavi[pos3]
         + "\n");
     }
 
@@ -93,7 +93,7 @@ public final class PartitaUI {
     public void displayTentativi() {
         int[] tent = this.pcContr.ottieniTentativi();
         System.out.println("\n: Hai effettuato: " + tent[0] + " tentativi."
-        + "\n  Hai fallito: " + tent[1] + " tentativi"
+        + "\n: Hai fallito: " + tent[1] + " tentativi"
         + " su un massimo di " + tent[2] + ".");
     }
 
