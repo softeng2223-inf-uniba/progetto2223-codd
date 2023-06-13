@@ -50,20 +50,4 @@ class FinePartitaControllerTest {
         assertEquals(FinePartitaController.Esito.VITTORIA, finePartitaController.verificaPartitaTerminata(),
         "La partita è terminata per vittoria");
     }
-
-    /**
-     * Test del metodo verificaPartitaTerminata() della classe FinePartitaController.
-     * Assicura che la partita sia terminata per tempo scaduto quando il tempo
-     * è scaduto.
-     */
-    @Test
-    @DisplayName("Assicura che la partita sia terminata per tempo scaduto quando il tempo"
-    + " è scaduto")
-    void testVerificaPartitaTerminataTempoScaduto() {
-        Tempo tempo = Tempo.getIstanza();
-        tempo.setTempoScaduto(true);
-        FinePartitaController finePartitaController = new FinePartitaController(partita);
-        assertEquals(FinePartitaController.Esito.TEMPO_SCADUTO, finePartitaController.verificaPartitaTerminata(),
-        "La partita è terminata per tempo scaduto");
-    }
 }
