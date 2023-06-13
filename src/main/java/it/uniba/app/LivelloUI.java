@@ -60,11 +60,10 @@ public final class LivelloUI {
      */
     public void impostaTentativiPerLivello(final String[] comando) {
 
-        Proprieta prop = Proprieta.getIstanza();
         int tent = Integer.parseInt(comando[1]);
-        int dim = prop.getDimensioniGriglia() * prop.getDimensioniGriglia();
+        boolean isTentValido = this.livController.isTentativiValidi(tent);
 
-        if (tent > dim) {
+        if (!isTentValido) {
             System.out.println("\n: Non puoi impostare un numero di tentativi maggiore della grandezza della griglia!");
         } else {
             switch (comando[0]) {
@@ -89,11 +88,10 @@ public final class LivelloUI {
      */
     public void impostaTentativiPerLivelloPersonalizzato(final String[] comando) {
 
-        Proprieta prop = Proprieta.getIstanza();
         int tent = Integer.parseInt(comando[1]);
-        int dim = prop.getDimensioniGriglia() * prop.getDimensioniGriglia();
+        boolean isTentValido = this.livController.isTentativiValidi(tent);
 
-        if (tent > dim) {
+        if (!isTentValido) {
             System.out.println("\n: Non puoi impostare un numero di tentativi maggiore della grandezza della griglia!");
         } else {
             this.livController.impostaTentativiPersonalizzato(tent);
