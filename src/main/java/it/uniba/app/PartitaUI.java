@@ -87,6 +87,13 @@ public final class PartitaUI {
         + "\n");
     }
 
+    public void displayTentativi() {
+        int[] tent = this.pcContr.ottieniTentativi();
+        System.out.println("\n: Hai effettuato: " + tent[0] + " tentativi."
+        + "\n  Hai fallito: " + tent[1] + " tentativi"
+        + " su un massimo di " + tent[2] + ".");
+    }
+
     /**
      * Metodo di abbandono della partita.
      * @param tastiera
