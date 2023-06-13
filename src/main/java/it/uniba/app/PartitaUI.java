@@ -28,19 +28,22 @@ public final class PartitaUI {
     }
 
     /**
-     * Metodo che inizializza la partita.
+     * Metodo che inizia la partita e stampa la griglia vuota.
      */
-    public void inizializza() {
-        this.ipContr.disponiNavi();
-        this.ipContr.avviaTempoDiGioco();
+    public void inizia() {
+        GrigliaUI grigliaUI = new GrigliaUI(this.pcContr);
+        this.ipContr.iniziaPartita();
+        System.out.println("\n: Hai iniziato una nuova partita.\n");
+        grigliaUI.displayGrigliaVuota();
     }
 
     /**
-     * Metodo che effettua un tentativo dell'utente.
+     * Metodo che effettua un tentativo dell'utente e stampa la griglia aggiornata.
      * @param comando
      */
     public void effettuaTentativo(final String[] comando) {
 
+        GrigliaUI grigliaUI = new GrigliaUI(this.pcContr);
         final List<String> lettere = Arrays.asList("abcdefghijklmnopqrstuvwxyz".split(""));
         final int y = lettere.indexOf(comando[0]) + 1;
         final int x = Integer.parseInt(comando[1]);
@@ -63,6 +66,21 @@ public final class PartitaUI {
             default:
             break;
         }
+        grigliaUI.displayGriglia();
+    }
+
+    /**
+     * Metodo che mostra la lista aggiornata delle navi presenti nella griglia.
+     */
+    public void displayNavi() {
+        int[] numNavi = this.pcContr.ottieniNumNaviPresenti();
+
+        System.out.println("\n: Ecco la lista delle navi ancora presenti nella griglia:"
+        + "\n   - Cacciatorpediniere:\t\t[X][X]\t\tEsemplari: " + numNavi[0]
+        + "\n   - Incrociatore:\t\t[X][X][X]\t\tEsemplari: " + numNavi[1]
+        + "\n   - Corazzata:\t\t[X][X][X][X]\t\tEsemplari: " + numNavi[2]
+        + "\n   - Portaerei:\t\t[X][X][X][X][X]\t\tEsemplari: " + numNavi[3]
+        + "\n");
     }
 
     /**
