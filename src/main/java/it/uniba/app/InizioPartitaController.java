@@ -128,7 +128,7 @@ public final class InizioPartitaController {
      * @param nave
      * @param cella
      */
-    private void aggiungiAListaCelleOccupate(final Nave nave, final Griglia.Cella cella) {
+    public void aggiungiAListaCelleOccupate(final Nave nave, final Griglia.Cella cella) {
         List<Griglia.Cella> listaCelle = nave.getListaCelleOccupate();
         listaCelle.add(cella);
     }

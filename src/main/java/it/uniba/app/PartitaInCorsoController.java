@@ -73,7 +73,7 @@ public final class PartitaInCorsoController {
      * @param nave
      * @param cella
      */    
-    private void rimuoviDaListaCelleOccupate(final Nave nave, final Griglia.Cella cella) {
+    public void rimuoviDaListaCelleOccupate(final Nave nave, final Griglia.Cella cella) {
         List<Griglia.Cella> listaCelle = nave.getListaCelleOccupate();
         listaCelle.remove(cella);
     }
@@ -83,7 +83,7 @@ public final class PartitaInCorsoController {
      * @param griglia
      * @param nave
      */
-    private void rimuoviDaListaNaviPresenti(final Griglia griglia, final Nave nave) {
+    public void rimuoviDaListaNaviPresenti(final Griglia griglia, final Nave nave) {
         List<Nave> listaNavi = griglia.getListaNaviPresenti();
         listaNavi.remove(nave);
     }
@@ -93,7 +93,7 @@ public final class PartitaInCorsoController {
      * @param nave
      * @return true se la lista è vuota, false altrimenti
      */
-    private boolean isListaCelleOccupateVuota(final Nave nave) {
+    public boolean isListaCelleOccupateVuota(final Nave nave) {
         List<Griglia.Cella> listaCelle = nave.getListaCelleOccupate();
         return listaCelle.isEmpty();
     }
