@@ -61,6 +61,7 @@ class PartitaInCorsoControllerTest {
     @DisplayName("Assicura che se effettuo un tentativo in una cella occupata da una nave, il risultato sia COLPITO.")
     void testGestisciTentativoColpito() {
         Griglia griglia = partita.getGriglia();
+        InizioPartitaController ipContr = new InizioPartitaController(partita);
         final int coordinata1 = 1;
         final int coordinata2 = 2;
         Griglia.Cella cella1 = griglia.getCella(coordinata1, coordinata1);
@@ -68,8 +69,8 @@ class PartitaInCorsoControllerTest {
         Nave nave = new Cacciatorpediniere();
         cella1.setNaveOspitata(nave);
         cella2.setNaveOspitata(nave);
-        nave.aggiungiAListaCelleOccupate(cella1);
-        nave.aggiungiAListaCelleOccupate(cella2);
+        ipContr.aggiungiAListaCelleOccupate(nave, cella1);
+        ipContr.aggiungiAListaCelleOccupate(nave, cella2);
         PartitaInCorsoController.Esito risultato = controller.gestisciTentativo(coordinata1, coordinata1);
         assertEquals(PartitaInCorsoController.Esito.COLPITO, risultato, "Il risultato deve essere COLPITO");
     }
@@ -84,6 +85,7 @@ class PartitaInCorsoControllerTest {
     + "il risultato sia AFFONDATO.")
     void testGestisciTentativoAffondato() {
         Griglia griglia = partita.getGriglia();
+        InizioPartitaController ipContr = new InizioPartitaController(partita);
         final int coordinata1 = 1;
         final int coordinata2 = 2;
         Griglia.Cella cella1 = griglia.getCella(coordinata1, coordinata1);
@@ -91,12 +93,11 @@ class PartitaInCorsoControllerTest {
         Nave nave = new Cacciatorpediniere();
         cella1.setNaveOspitata(nave);
         cella2.setNaveOspitata(nave);
-        nave.aggiungiAListaCelleOccupate(cella1);
-        nave.aggiungiAListaCelleOccupate(cella2);
+        ipContr.aggiungiAListaCelleOccupate(nave, cella1);
+        ipContr.aggiungiAListaCelleOccupate(nave, cella2);
         cella1.setColpita(true);
-        nave.rimuoviDaListaCelleOccupate(cella1);
+        controller.rimuoviDaListaCelleOccupate(nave, cella1);
         PartitaInCorsoController.Esito risultato = controller.gestisciTentativo(coordinata1, coordinata2);
         assertEquals(PartitaInCorsoController.Esito.AFFONDATO, risultato, "Il risultato deve essere AFFONDATO");
     }
 }
-
