@@ -87,6 +87,9 @@ public final class PartitaUI {
         + "\n");
     }
 
+    /**
+     * Metodo che mostra il numero di tentativi effettuati, falliti e massimi.
+     */
     public void displayTentativi() {
         int[] tent = this.pcContr.ottieniTentativi();
         System.out.println("\n: Hai effettuato: " + tent[0] + " tentativi."

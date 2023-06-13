@@ -121,7 +121,7 @@ public final class App {
         InizioPartitaController ipContr = new InizioPartitaController(partita);
         PartitaInCorsoController pcContr = new PartitaInCorsoController(partita);
         FinePartitaController fpContr = new FinePartitaController(partita);
-        
+
         GrigliaUI grigliaUI = new GrigliaUI(pcContr);
         PartitaUI partitaUI = new PartitaUI(ipContr, pcContr, fpContr);
         TempoUI tempUI = new TempoUI(tempContr);
