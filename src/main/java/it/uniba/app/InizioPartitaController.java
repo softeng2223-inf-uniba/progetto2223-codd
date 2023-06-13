@@ -139,9 +139,9 @@ public final class InizioPartitaController {
      */
     public void avviaTempoDiGioco() {
 
-        Tempo temp = Tempo.getIstanza();
-        TempoController tempContr = new TempoController(temp);
-
-        tempContr.avviaTempo();
+        TempoController tempContr = new TempoController(Tempo.getIstanza());
+        if (tempContr.isTempoImpostato()) {
+            tempContr.avviaTempo();
+        }
     }
 }

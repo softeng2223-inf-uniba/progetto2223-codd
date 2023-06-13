@@ -1,17 +1,39 @@
 package it.uniba.app;
 
+/**
+ * <Boundary>
+ * Classe Boundary che gestisce l'interfaccia utente della partita.
+ */
 public final class PartitaUI {
 
     private InizioPartitaController ipContr = null;
     private PartitaInCorsoController pcContr = null;
     private FinePartitaController fpContr = null;
 
+    /**
+     * Costruttore che inizializza i controller.
+     * @param ip
+     * @param pc
+     * @param fp
+     */
     public PartitaUI(final InizioPartitaController ip, final PartitaInCorsoController pc, final FinePartitaController fp) {
         this.ipContr = ip;
         this.pcContr = pc;
         this.fpContr = fp;
     }
 
+    /**
+     * Metodo che inizializza la partita.
+     */
+    public void inizializza() {
+        this.ipContr.disponiNavi();
+        this.ipContr.avviaTempoDiGioco();
+    }
+
+    /**
+     * Metodo che effettua un tentativo dell'utente.
+     * @param comando
+     */
     public void effettuaTentativo(final String[] comando) {
 
         final List<String> lettere = "abcdefghijklmnopqrstuvwxyz".split("");
@@ -38,11 +60,20 @@ public final class PartitaUI {
         }
     }
 
+    /**
+     * Metodo di abbandono della partita.
+     * @param tastiera
+     * @return true se l'utente conferma l'abbandono, false altrimenti
+     */
     public boolean abbandona(final Scanner tastiera) {
         InputUI input = new InputUI();
         return input.acquisisciConferma(tastiera);
     }
 
+    /**
+     * Metodo che verifica se la partita è terminata.
+     * @return true se la partita è terminata, false altrimenti
+     */
     public boolean isTerminata() {
         if (this.fpContr.isPartitaTerminata()) {
             FinePartitaController.Esito esito = this.fpContr.verificaPartitaTerminata();
