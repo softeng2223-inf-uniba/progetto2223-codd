@@ -27,12 +27,14 @@ public final class App {
             return;
         }
         helpUI.displayHelp();
+        Scanner tastiera = new Scanner(System.in, "utf-8");
 
         Proprieta prop = Proprieta.getIstanza();
         Livello liv = Livello.getIstanza();
         Tempo temp = Tempo.getIstanza();
 
-        mainEngine(prop, liv, temp);
+        mainEngine(tastiera, prop, liv, temp);
+        tastiera.close();
     }
 
     /**
@@ -41,9 +43,9 @@ public final class App {
      * @param liv
      * @param temp
      */
-    private static void mainEngine(final Proprieta prop, final Livello liv, final Tempo temp) {
+    private static void mainEngine(final Scanner tastiera,
+        final Proprieta prop, final Livello liv, final Tempo temp) {
 
-        Scanner tastiera = new Scanner(System.in, "utf-8");
         String[] comando;
         InputUI input = new InputUI();
         InputUI.StatoGioco contesto = InputUI.StatoGioco.SESSIONE;
@@ -98,7 +100,6 @@ public final class App {
                 break;
             }
         }
-        tastiera.close();
     }
 
     /**
