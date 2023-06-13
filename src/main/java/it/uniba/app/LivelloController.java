@@ -1,6 +1,5 @@
 package it.uniba.app;
 
-
 /**
  * <Control>
  * Classe che gestisce gli interventi sulla difficoltà del gioco.
@@ -109,6 +108,7 @@ public final class LivelloController {
     public boolean isTentativiValidi(final int tent) {
         ProprietaController propContr = new ProprietaController(Proprieta.getIstanza());
         int dim = propContr.ottieniDimGriglia();
+        dim *= dim;
 
         if (tent > dim) {
             return false;

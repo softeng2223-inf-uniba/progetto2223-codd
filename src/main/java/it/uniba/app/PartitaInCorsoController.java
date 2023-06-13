@@ -138,4 +138,44 @@ public final class PartitaInCorsoController {
         Griglia.Cella cella = griglia.getCella(x, y);
         return cella.isColpita();
     }
+
+    /**
+     * Metodo che ottiene il numero di esemplari di ciascun tipo di nave.
+     * @return numNavi
+     */
+    public int[] ottieniNumNaviPresenti() {
+        Griglia griglia = this.partita.getGriglia();
+        final int num = 4;
+        final int numCelleCP = 2;
+        final int numCelleIN = 3;
+        final int numCelleCR = 4;
+        final int numCellePA = 5;
+        final int pos0 = 0;
+        final int pos1 = 1;
+        final int pos2 = 2;
+        final int pos3 = 3;
+        int[] numNavi = new int[num];
+
+        for (Nave nave : griglia.getListaNaviPresenti()) {
+            int numCelle = nave.getNumeroCelleOccupate();
+            switch (numCelle) {
+                case numCelleCP:
+                    numNavi[pos0]++;
+                break;
+                case numCelleIN:
+                    numNavi[pos1]++;
+                break;
+                case numCelleCR:
+                    numNavi[pos2]++;
+                break;
+                case numCellePA:
+                    numNavi[pos3]++;
+                break;
+                default:
+                break;
+            }
+        }
+
+        return numNavi;
+    }
 }

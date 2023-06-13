@@ -144,4 +144,12 @@ public final class InizioPartitaController {
             tempContr.avviaTempo();
         }
     }
+
+    /**
+     * Metodo che inizia una partita.
+     */
+    public void iniziaPartita() {
+        disponiNavi();
+        avviaTempoDiGioco();
+    }
 }
