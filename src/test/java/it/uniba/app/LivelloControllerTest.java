@@ -12,6 +12,7 @@ class LivelloControllerTest {
 
     private Livello livello;
     private LivelloController controller;
+    private Proprieta proprieta;
 
     /**
      * Metodo che istanza gli oggetti delle classi Livello e LivelloController.
@@ -20,6 +21,7 @@ class LivelloControllerTest {
     void setUp() {
         livello = Livello.getIstanza();
         controller = new LivelloController(livello);
+        proprieta = new Proprieta();
     }
 
     /**
@@ -155,5 +157,32 @@ class LivelloControllerTest {
         assertEquals(tentativi, controller.ottieniTentativiCorrenti(),
         "impostati tentativi di personalizzato");
     }
+
+    /**
+     * Test del metodo isTentativiValidi della classe LivelloController.
+     * Ci si aspetta che i tentativi siano validi.
+     */
+    @Test
+    @DisplayName("Assicura che i tentativi siano validi")
+    void testIsTentativiValidiCorretto() {
+    final int dimensioneGriglia = 10;
+    proprieta.setDimensioniGriglia(dimensioneGriglia);
+    int tentativiValidi = dimensioneGriglia - 1;   
+    assertTrue(livelloController.isTentativiValidi(tentativiValidi), "i tentativi sono validi");
+    }
+
+    /**
+     * Test del metodo isTentativiValidi della classe LivelloController.
+     * Ci si aspetta che i tentativi non siano validi.
+     */
+    @Test
+    @DisplayName("Assicura che i tentativi non siano validi")
+    void testIsTentativiValidiNonCorretto() {
+    final int dimensioneGriglia = 10;
+    proprieta.setDimensioniGriglia(dimensioneGriglia);
+    int tentativiNonValidi = dimensioneGriglia + 1;
+    assertFalse(livelloController.isTentativiValidi(tentativiNonValidi), "i tentativi non sono validi");
+    }
+
 }
 
