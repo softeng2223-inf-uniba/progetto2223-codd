@@ -44,6 +44,38 @@ class InizioPartitaControllerTest {
     }
 
     /**
+     * Test del metodo DisponiNavi della classe InizioPartitaController.
+     * Il valore aspettato è vero se il numero di navi disposte nella griglia è uguale
+     * a 10.
+     */
+    @Test
+    @DisplayName ("Assicura che il numero di navi disposte sia uguale a 10")
+    void testDisponiNaviNumeroNavi() {
+        controller.disponiNavi();
+        Griglia griglia = partita.getGriglia();
+        final int numeroNavi = 10;
+        assertTrue(griglia.getListaNaviPresenti().size() == numeroNavi, "vero se il numero di navi è uguale a 10");
+    }
+
+    /**
+     * Test del metodo DisponiNavi della classe InizioPartitaController.
+     * Il valore aspettato è vero se il numero di celle occupate dalle navi
+     * è uguale a 30.
+     */
+    @Test
+    @DisplayName ("Assicura che il numero di celle occupate dalle navi sia uguale a 30")
+    void testDisponiNaviNumeroCelle() {
+        controller.disponiNavi();
+        Griglia griglia = partita.getGriglia();
+        int numeroCelle = 0;
+        final int numeroCelleTotali = 30;
+        for (Nave nave : griglia.getListaNaviPresenti()) {
+            numeroCelle += nave.getListaCelleOccupate().size();
+        }
+        assertTrue(numeroCelle == numeroCelleTotali, "vero se il numero di celle occupate è uguale a 30");
+    }
+
+    /**
      * Test del metodo AvviaTempoDiGioco della classe InizioPartitaController.
      * Il valore aspettato è vero se il tempo di gioco è avviato.
      */
