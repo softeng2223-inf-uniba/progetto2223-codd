@@ -39,6 +39,7 @@ public final class FinePartitaController {
         if (isTempoTerminato()) {
             return Esito.TEMPO_SCADUTO;
         }
+        return null;
     }
 
     /**

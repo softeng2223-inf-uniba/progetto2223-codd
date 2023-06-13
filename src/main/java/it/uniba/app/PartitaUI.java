@@ -2,6 +2,7 @@ package it.uniba.app;
 
 import java.util.List;
 import java.util.Scanner;
+import java.util.Arrays;
 
 /**
  * <Boundary>
@@ -39,7 +40,7 @@ public final class PartitaUI {
      */
     public void effettuaTentativo(final String[] comando) {
 
-        final List<String> lettere = "abcdefghijklmnopqrstuvwxyz".split("");
+        final List<String> lettere = Arrays.asList("abcdefghijklmnopqrstuvwxyz".split(""));
         final int y = lettere.indexOf(comando[0]) + 1;
         final int x = Integer.parseInt(comando[1]);
 
