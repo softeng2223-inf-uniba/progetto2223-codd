@@ -1,9 +1,6 @@
 package it.uniba.app;
 
-import java.util.PropertyResourceBundle;
 import java.util.Scanner;
-
-import main.java.it.uniba.app.PartitaUI;
 
 /**
  * Classe Main dell'applicazione.
