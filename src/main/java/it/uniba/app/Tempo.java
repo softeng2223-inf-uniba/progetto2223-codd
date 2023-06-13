@@ -112,10 +112,10 @@ public final class Tempo extends Thread {
 
     /**
      * Setter della variabile booleana isTempoScaduto.
-     * @param isTempoImpostato
+     * @param impostato
      */
-    public void setTempoImpostato(final boolean isTempoImpostato) {
-        this.isTempoImpostato = isTempoImpostato;
+    public void setTempoImpostato(final boolean impostato) {
+        this.isTempoImpostato = impostato;
     }
 
     /**

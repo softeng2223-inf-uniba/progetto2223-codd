@@ -20,7 +20,8 @@ public final class PartitaUI {
      * @param pc
      * @param fp
      */
-    public PartitaUI(final InizioPartitaController ip, final PartitaInCorsoController pc, final FinePartitaController fp) {
+    public PartitaUI(final InizioPartitaController ip,
+    final PartitaInCorsoController pc, final FinePartitaController fp) {
         this.ipContr = ip;
         this.pcContr = pc;
         this.fpContr = fp;
