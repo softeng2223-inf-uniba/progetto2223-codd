@@ -1,5 +1,8 @@
 package it.uniba.app;
 
+import java.util.List;
+import java.util.Scanner;
+
 /**
  * <Boundary>
  * Classe Boundary che gestisce l'interfaccia utente della partita.
