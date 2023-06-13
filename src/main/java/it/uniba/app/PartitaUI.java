@@ -88,6 +88,16 @@ public final class PartitaUI {
     }
 
     /**
+     * Metodo che mostra il numero di tentativi effettuati, falliti e massimi.
+     */
+    public void displayTentativi() {
+        int[] tent = this.pcContr.ottieniTentativi();
+        System.out.println("\n: Hai effettuato: " + tent[0] + " tentativi."
+        + "\n  Hai fallito: " + tent[1] + " tentativi"
+        + " su un massimo di " + tent[2] + ".");
+    }
+
+    /**
      * Metodo di abbandono della partita.
      * @param tastiera
      * @return true se l'utente conferma l'abbandono, false altrimenti

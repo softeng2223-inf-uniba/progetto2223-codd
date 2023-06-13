@@ -21,12 +21,20 @@ public final class App {
      * @param args Argomenti linea di comando.
      */
     public static void main(final String[] args) {
+        HelpUI helpUI = new HelpUI();
+        if (args[0].equals("--help") || args[0].equals("-h")) {
+            helpUI.displayHelp();
+            return;
+        }
+        helpUI.displayHelp();
+        Scanner tastiera = new Scanner(System.in, "utf-8");
 
         Proprieta prop = Proprieta.getIstanza();
         Livello liv = Livello.getIstanza();
         Tempo temp = Tempo.getIstanza();
 
-        mainEngine(prop, liv, temp);
+        mainEngine(tastiera, prop, liv, temp);
+        tastiera.close();
     }
 
     /**
@@ -35,19 +43,21 @@ public final class App {
      * @param liv
      * @param temp
      */
-    private static void mainEngine(final Proprieta prop, final Livello liv, final Tempo temp) {
+    private static void mainEngine(final Scanner tastiera,
+        final Proprieta prop, final Livello liv, final Tempo temp) {
 
-        Scanner tastiera = new Scanner(System.in, "utf-8");
         String[] comando;
         InputUI input = new InputUI();
         InputUI.StatoGioco contesto = InputUI.StatoGioco.SESSIONE;
 
-        LivelloUI livUI;
-        LivelloController livContr;
-        TempoUI tempUI;
-        TempoController tempContr;
-        ProprietaUI propUI;
-        ProprietaController propContr;
+        LivelloController livContr = new LivelloController(liv);
+        TempoController tempContr = new TempoController(temp);
+        ProprietaController propContr = new ProprietaController(prop);
+
+        LivelloUI livUI = new LivelloUI(livContr);
+        TempoUI tempUI = new TempoUI(tempContr);
+        ProprietaUI propUI = new ProprietaUI(propContr);
+        HelpUI helpUI = new HelpUI();
 
         while (true) {
             comando = input.acquisisciComando(tastiera, contesto);
@@ -55,8 +65,6 @@ public final class App {
                 case "/facile":
                 case "/medio":
                 case "/difficile":
-                    livContr = new LivelloController(liv);
-                    livUI = new LivelloUI(livContr);
                     if (livUI.isImpostazioneLivello(comando)) {
                         livUI.impostaLivello(comando);
                     } else {
@@ -64,25 +72,17 @@ public final class App {
                     }
                 break;
                 case "/tentativi":
-                    livContr = new LivelloController(liv);
-                    livUI = new LivelloUI(livContr);
                     livUI.impostaTentativiPerLivelloPersonalizzato(comando);
                 break;
                 case "/mostralivello":
-                    livContr = new LivelloController(liv);
-                    livUI = new LivelloUI(livContr);
                     livUI.displayLivelloCorrente();
                 break;
                 case "/tempo":
-                    tempContr = new TempoController(temp);
-                    tempUI = new TempoUI(tempContr);
                     tempUI.impostaTempoDiGioco(comando);
                 break;
                 case "/standard":
                 case "/large":
                 case "/extralarge":
-                    propContr = new ProprietaController(prop);
-                    propUI = new ProprietaUI(propContr);
                     propUI.impostaDimensioniGriglia(comando);
                 break;
                 case "/esci":
@@ -90,10 +90,86 @@ public final class App {
                         return;
                     }
                 break;
+                case "/help":
+                    helpUI.displayHelp();
+                break;
+                case "/gioca":
+                    enginePartita(tastiera, liv, temp);
+                break;
                 default:
                 break;
             }
         }
+    }
+
+    /**
+     * Metodo che rappresenta il motore della partita.
+     * @param tastiera
+     * @param liv
+     * @param temp
+     */
+    private static void enginePartita(final Scanner tastiera, final Livello liv, final Tempo temp) {
+
+        String[] comando;
+        InputUI input = new InputUI();
+        InputUI.StatoGioco contesto = InputUI.StatoGioco.PARTITA;
+
+        Partita partita = new Partita();
+
+        TempoController tempContr = new TempoController(temp);
+        LivelloController livContr = new LivelloController(liv);
+        InizioPartitaController ipContr = new InizioPartitaController(partita);
+        PartitaInCorsoController pcContr = new PartitaInCorsoController(partita);
+        FinePartitaController fpContr = new FinePartitaController(partita);
+
+        GrigliaUI grigliaUI = new GrigliaUI(pcContr);
+        PartitaUI partitaUI = new PartitaUI(ipContr, pcContr, fpContr);
+        TempoUI tempUI = new TempoUI(tempContr);
+        LivelloUI livUI = new LivelloUI(livContr);
+        HelpUI helpUI = new HelpUI();
+
+        partitaUI.inizia();
+        while (true) {
+            comando = input.acquisisciComando(tastiera, contesto);
+            if (input.isTentativo(comando)) {
+                partitaUI.effettuaTentativo(comando);
+            } else {
+                switch (comando[0]) {
+                    case "/mostratentativi":
+                        partitaUI.displayTentativi();
+                    break;
+                    case "/mostratempo":
+                        tempUI.displayTempo();
+                    break;
+                    case "/mostralivello":
+                        livUI.displayLivelloCorrente();
+                    break;
+                    case "/mostragriglia":
+                        grigliaUI.displayGriglia();
+                    break;
+                    case "/svelagriglia":
+                        grigliaUI.displayGrigliaSvelata();
+                    break;
+                    case "/mostranavi":
+                        partitaUI.displayNavi();
+                    break;
+                    case "/abbandona":
+                        if (partitaUI.abbandona(tastiera)) {
+                            return;
+                        }
+                    break;
+                    case "/help":
+                        helpUI.displayHelp();
+                    break;
+                    default:
+                    break;
+                }
+            }
+            if (partitaUI.isTerminata()) {
+                break;
+            }
+        }
+
     }
 }
 
