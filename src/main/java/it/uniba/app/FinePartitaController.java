@@ -79,4 +79,11 @@ public final class FinePartitaController {
         return isTentativiTerminati() || isAllNaviAffondate() || isTempoTerminato();
     }
 
+    /**
+     * Metodo che termina una partita reimpostando il tempo.
+     */
+    public void terminaPartita() {
+        TempoController tempContr = new TempoController(Tempo.getIstanza());
+        tempContr.reimpostaTempo();
+    }
 }

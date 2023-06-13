@@ -95,6 +95,7 @@ public final class PartitaUI {
                 default:
                 break;
             }
+            this.fpContr.terminaPartita();
             return true;
         } else {
             return false;
