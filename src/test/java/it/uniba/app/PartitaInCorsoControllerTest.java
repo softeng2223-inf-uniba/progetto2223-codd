@@ -44,13 +44,13 @@ class PartitaInCorsoControllerTest {
     @Test
     @DisplayName("Assicura che se effettuo un tentativo in una cella già colpita, il risultato sia GIA_COLPITO.")
     void testGestisciTentativoGiaColpito() {
-    Griglia griglia = partita.getGriglia();
-    final int coordinata = 1;
-    Griglia.Cella cella = griglia.getCella(coordinata, coordinata);
-    cella.setColpita(true); // Imposta la cella come già colpita
-    PartitaInCorsoController.Esito risultato = controller.gestisciTentativo(coordinata, coordinata);
-    assertEquals(PartitaInCorsoController.Esito.GIA_COLPITO, risultato, "Il risultato deve essere GIA_COLPITO");
-}
+        Griglia griglia = partita.getGriglia();
+        final int coordinata = 1;
+        Griglia.Cella cella = griglia.getCella(coordinata, coordinata);
+        cella.setColpita(true); // Imposta la cella come già colpita
+        PartitaInCorsoController.Esito risultato = controller.gestisciTentativo(coordinata, coordinata);
+        assertEquals(PartitaInCorsoController.Esito.GIA_COLPITO, risultato, "Il risultato deve essere GIA_COLPITO");
+    }
 
     /**
      * Test del metodo gestisciTentativo della classe PartitaInCorsoController.

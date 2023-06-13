@@ -23,7 +23,7 @@ class InizioPartitaControllerTest {
         partita = new Partita();
         controller = new InizioPartitaController(partita);
         tempo = Tempo.getIstanza();
-        tempo.setTempoImpostato(true);
+        tempo.setImpostato(true);
     }
 
     /**

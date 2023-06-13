@@ -14,8 +14,9 @@ public final class Tempo extends Thread {
     private static final int TEMPO_ATTESA = 1000;
     private static final int SECONDI = 59;
 
-    private boolean isTempoImpostato = false;
-    private boolean isTempoScaduto = false;
+    private boolean impostato = false;
+
+    private boolean scaduto = false;
 
     private static Tempo istanza = null;
 
@@ -87,35 +88,35 @@ public final class Tempo extends Thread {
     }
 
     /**
-     * Getter della variabile booleana isTemposcaduto.
-     * @return isTempoScaduto
+     * Getter della variabile booleana scaduto.
+     * @return scaduto
      */
-    public boolean isTempoScaduto() {
-        return this.isTempoScaduto;
+    public boolean isScaduto() {
+        return this.scaduto;
     }
 
     /**
-     * Setter della variabile booleana isTempoScaduto.
-     * @param scaduto
+     * Setter della variabile booleana scaduto.
+     * @param isScaduto
      */
-    public void setTempoScaduto(final boolean scaduto) {
-        this.isTempoScaduto = scaduto;
+    public void setScaduto(final boolean isScaduto) {
+        this.scaduto = isScaduto;
     }
 
     /**
-     * Getter della variabile booleana isTempoImpostato.
-     * @return isTempoImpostato
+     * Getter della variabile booleana impostato.
+     * @return impostato
      */
-    public boolean isTempoImpostato() {
-        return this.isTempoImpostato;
+    public boolean isImpostato() {
+        return this.impostato;
     }
 
     /**
-     * Setter della variabile booleana isTempoScaduto.
-     * @param impostato
+     * Setter della variabile booleana impostato.
+     * @param isImpostato
      */
-    public void setTempoImpostato(final boolean impostato) {
-        this.isTempoImpostato = impostato;
+    public void setImpostato(final boolean isImpostato) {
+        this.impostato = isImpostato;
     }
 
     /**
@@ -124,7 +125,7 @@ public final class Tempo extends Thread {
     public void reset() {
         this.minutiTrascorsi = 0;
         this.secondiTrascorsi = 0;
-        this.isTempoScaduto = false;
+        this.scaduto = false;
     }
 
     /**
@@ -133,7 +134,7 @@ public final class Tempo extends Thread {
     @Override
     public void run() {
         reset();
-        while (!this.isTempoScaduto) {
+        while (!this.scaduto) {
             try {
                 Thread.sleep(TEMPO_ATTESA);
             } catch (InterruptedException e) {
@@ -146,7 +147,7 @@ public final class Tempo extends Thread {
                 this.secondiTrascorsi++;
             }
             if (this.minutiTrascorsi == this.minutiImpostati) {
-                this.isTempoScaduto = true;
+                this.scaduto = true;
             }
         }
     }
