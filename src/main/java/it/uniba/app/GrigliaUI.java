@@ -58,7 +58,7 @@ public final class GrigliaUI {
         }
     }
 
-    /*+
+    /**
      * Metodo che stampa sul terminale la griglia con tutte le navi posizionate.
      */
     public void displayGrigliaSvelata() {

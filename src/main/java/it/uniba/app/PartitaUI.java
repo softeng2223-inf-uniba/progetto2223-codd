@@ -74,12 +74,16 @@ public final class PartitaUI {
      */
     public void displayNavi() {
         int[] numNavi = this.pcContr.ottieniNumNaviPresenti();
+        final int pos0 = 0;
+        final int pos1 = 1;
+        final int pos2 = 2;
+        final int pos3 = 3;
 
         System.out.println("\n: Ecco la lista delle navi ancora presenti nella griglia:"
-        + "\n   - Cacciatorpediniere:\t\t[X][X]\t\tEsemplari: " + numNavi[0]
-        + "\n   - Incrociatore:\t\t[X][X][X]\t\tEsemplari: " + numNavi[1]
-        + "\n   - Corazzata:\t\t[X][X][X][X]\t\tEsemplari: " + numNavi[2]
-        + "\n   - Portaerei:\t\t[X][X][X][X][X]\t\tEsemplari: " + numNavi[3]
+        + "\n   - Cacciatorpediniere:\t\t[X][X]\t\tEsemplari: " + numNavi[pos0]
+        + "\n   - Incrociatore:\t\t[X][X][X]\t\tEsemplari: " + numNavi[pos1]
+        + "\n   - Corazzata:\t\t[X][X][X][X]\t\tEsemplari: " + numNavi[pos2]
+        + "\n   - Portaerei:\t\t[X][X][X][X][X]\t\tEsemplari: " + numNavi[pos3]
         + "\n");
     }
 

@@ -145,33 +145,36 @@ public final class PartitaInCorsoController {
      */
     public int[] ottieniNumNaviPresenti() {
         Griglia griglia = this.partita.getGriglia();
-        int contCP = 0, contIN = 0, contCR = 0, contPA = 0;
-        final int num = 4, numCelleCP = 2, numCelleIN = 3, numCelleCR = 4, numCellePA = 5;
+        final int num = 4;
+        final int numCelleCP = 2;
+        final int numCelleIN = 3;
+        final int numCelleCR = 4;
+        final int numCellePA = 5;
+        final int pos0 = 0;
+        final int pos1 = 1;
+        final int pos2 = 2;
+        final int pos3 = 3;
         int[] numNavi = new int[num];
 
         for (Nave nave : griglia.getListaNaviPresenti()) {
             int numCelle = nave.getNumeroCelleOccupate();
             switch (numCelle) {
                 case numCelleCP:
-                    contCP++;
+                    numNavi[pos0]++;
                 break;
                 case numCelleIN:
-                    contIN++;
+                    numNavi[pos1]++;
                 break;
                 case numCelleCR:
-                    contCR++;
+                    numNavi[pos2]++;
                 break;
                 case numCellePA:
-                    contPA++;
+                    numNavi[pos3]++;
                 break;
                 default:
                 break;
             }
         }
-        numNavi[0] = contCP;
-        numNavi[1] = contIN;
-        numNavi[2] = contCR;
-        numNavi[3] = contPA;
 
         return numNavi;
     }
