@@ -7,6 +7,7 @@ package it.uniba.app;
 public final class TempoController {
 
     private Tempo tempo = null;
+
     private static final int SECONDI = 60;
 
     /**
@@ -23,7 +24,7 @@ public final class TempoController {
      */
     public void impostaTempo(final int minuti) {
         this.tempo.setMinutiImpostati(minuti);
-        this.tempo.setTempoImpostato(true);
+        this.tempo.setImpostato(true);
     }
 
     /**
@@ -55,8 +56,15 @@ public final class TempoController {
         try {
             this.tempo.start();
         } catch (IllegalThreadStateException e) {
-            System.out.println("Tempo già avviato");
+            System.out.println("Tempo già avviato.");
         }
+    }
+
+    /**
+     * Metodo che imposta nuovamente il tempo come non impostato.
+     */
+    public void reimpostaTempo() {
+        this.tempo.setImpostato(false);
     }
 
     /**
@@ -64,7 +72,7 @@ public final class TempoController {
      * @return true se il tempo è stato impostato, false altrimenti
      */
     public boolean isTempoImpostato() {
-        return this.tempo.isTempoImpostato();
+        return this.tempo.isImpostato();
     }
 
     /**
@@ -72,6 +80,6 @@ public final class TempoController {
      * @return true se il tempo è scaduto, false altrimenti.
      */
     public boolean isTempoScaduto() {
-        return this.tempo.isTempoScaduto();
+        return this.tempo.isScaduto();
     }
 }
