@@ -30,14 +30,14 @@ public final class FinePartitaController {
      * @return esito
      */
     public Esito verificaPartitaTerminata() {
+        if (isTempoTerminato()) {
+            return Esito.TEMPO_SCADUTO;
+        }
         if (isTentativiTerminati()) {
             return Esito.SCONFITTA;
         }
         if (isAllNaviAffondate()) {
             return Esito.VITTORIA;
-        }
-        if (isTempoTerminato()) {
-            return Esito.TEMPO_SCADUTO;
         }
         return null;
     }
