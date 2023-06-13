@@ -172,5 +172,7 @@ public final class PartitaInCorsoController {
         numNavi[1] = contIN;
         numNavi[2] = contCR;
         numNavi[3] = contPA;
+
+        return numNavi;
     }
 }
