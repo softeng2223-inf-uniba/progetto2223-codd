@@ -121,6 +121,7 @@ public final class PartitaUI {
         boolean conferma = input.acquisisciConferma(tastiera);
         if (conferma) {
             System.out.println("\n" + WHITE_BC + BLACK + ": PARTITA TERMINATA." + RESET);
+            this.fpContr.terminaPartita();
         }
         return conferma;
     }
@@ -144,6 +145,7 @@ public final class PartitaUI {
                 break;
                 default:
                 break;
+                this.fpContr.terminaPartita();
             }
             return true;
         } else {

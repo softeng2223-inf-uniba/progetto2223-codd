@@ -73,5 +73,13 @@ public final class ProprietaController {
     public boolean isTempoImpostato() {
         return this.proprieta.isTempoImpostato();
     }
+
+    /**
+     * Metodo che reimposta il tempo.
+     */
+    public void reimpostaTempo() {
+        this.proprieta.setMinutiImpostati(0);
+        this.proprieta.setTempoImpostato(false);
+    }
 }
 

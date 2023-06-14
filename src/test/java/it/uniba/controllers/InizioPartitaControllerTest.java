@@ -15,7 +15,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class InizioPartitaControllerTest {
 
     private InizioPartitaController controller;
-    private Tempo tempo;
     private Partita partita;
 
     /**

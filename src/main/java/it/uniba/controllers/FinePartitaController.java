@@ -88,4 +88,11 @@ public final class FinePartitaController {
         return isTentativiTerminati() || isAllNaviAffondate() || isTempoTerminato();
     }
 
+    /**
+     * Metodo che termina la partita.
+     */
+    public void terminaPartita() {
+        ProprietaController propContr = new ProprietaController();
+        propContr.reimpostaTempo();
+    }
 }
