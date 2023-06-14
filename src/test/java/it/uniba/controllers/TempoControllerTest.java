@@ -15,6 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class TempoControllerTest {
 
     private TempoController tempoController;
+    private Tempo tempo;
 
     /**
      * Metodo che istanzia gli oggetti delle classi
@@ -22,7 +23,7 @@ class TempoControllerTest {
      */
     @BeforeEach
     void setUp() {
-        Tempo tempo = Tempo.getIstanza();
+        tempo = Tempo.getIstanza();
         tempo.reset();
         tempoController = new TempoController();
     }
@@ -35,7 +36,6 @@ class TempoControllerTest {
     @Test
     @DisplayName("Assicura che il tempo venga impostato a 5 minuti")
     void testImpostaTempo() {
-        Tempo tempo = Tempo.getIstanza();
         final int minuti = 5;
         tempoController.impostaTempo(minuti);
         final int minutiImpostati = tempo.getMinutiImpostati();
@@ -80,7 +80,6 @@ class TempoControllerTest {
      */
     @Test
     @DisplayName("Assicura che i minuti vengano reimpostati a zero")
-    @Test
     void testReimpostaTempoMinuti() {
         tempo.setMinutiImpostati(5);
         tempoController.reimpostaTempo();
