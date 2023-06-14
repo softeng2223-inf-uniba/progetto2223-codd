@@ -1,4 +1,7 @@
 package it.uniba.app;
+import it.uniba.boundaries;
+import it.uniba.controllers;
+import it.uniba.entities;
 
 import java.util.Scanner;
 
