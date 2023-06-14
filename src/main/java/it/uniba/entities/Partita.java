@@ -1,5 +1,7 @@
 package it.uniba.entities;
+
 import it.uniba.controllers.LivelloController;
+import it.uniba.controllers.ProprietaController;
 
 /**
  * <Entity>
@@ -19,11 +21,11 @@ public final class Partita {
      * associati alla partita.
      */
     public Partita() {
-        LivelloController livContr = new LivelloController(Livello.getIstanza());
+        LivelloController livContr = new LivelloController();
         this.maxTent = livContr.ottieniTentativiCorrenti();
 
-        Proprieta prop = Proprieta.getIstanza();
-        int dim = prop.getDimensioniGriglia();
+        ProprietaController propContr = new ProprietaController();
+        final int dim = propContr.ottieniDimGriglia();
         this.griglia = new Griglia(dim);
     }
 
