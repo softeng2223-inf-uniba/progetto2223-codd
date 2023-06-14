@@ -15,6 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class TempoControllerTest {
 
     private TempoController tempoController;
+    private Tempo tempo;
 
     /**
      * Metodo che istanzia gli oggetti delle classi
@@ -22,7 +23,7 @@ class TempoControllerTest {
      */
     @BeforeEach
     void setUp() {
-        Tempo tempo = Tempo.getIstanza();
+        tempo = Tempo.getIstanza();
         tempo.reset();
         tempoController = new TempoController();
     }
@@ -35,7 +36,6 @@ class TempoControllerTest {
     @Test
     @DisplayName("Assicura che il tempo venga impostato a 5 minuti")
     void testImpostaTempo() {
-        Tempo tempo = Tempo.getIstanza();
         final int minuti = 5;
         tempoController.impostaTempo(minuti);
         final int minutiImpostati = tempo.getMinutiImpostati();
@@ -72,6 +72,43 @@ class TempoControllerTest {
             e.printStackTrace();
         }
         assertTrue(tempoController.isTempoScaduto(), "Il tempo deve essere scaduto");
+    }
+
+    /**
+     * Test del metodo reimpostaTempo della classe TempoController.
+     * Assicura che i minuti impostati siano uguali a zero.
+     */
+    @Test
+    @DisplayName("Assicura che i minuti vengano reimpostati a zero")
+    void testReimpostaTempoMinuti() {
+        final int minuti = 5;
+        tempo.setMinutiImpostati(minuti);
+        tempoController.reimpostaTempo();
+        assertEquals(0, tempo.getMinutiImpostati(), "I minuti devono essere reimpostati a zero");
+    }
+
+    /**
+     * Test del metodo reimpostaTempo della classe TempoController.
+     * Il valore atteso è falso se il tempo non è scaduto.
+     */
+    @Test
+    @DisplayName("Assicura che il tempo non sia scaduto")
+    void testReimpostaTempoScaduto() {
+        tempo.setScaduto(true);
+        tempoController.reimpostaTempo();
+        assertFalse(tempo.isScaduto(), "Il tempo non deve essere scaduto");
+    }
+
+    /**
+     * Test del metodo reimpostaTempo della classe TempoController.
+     * Il valore atteso è falso se il tempo non è stato impostato.
+     */
+    @Test
+    @DisplayName("Assicura che il tempo non sia stato impostato")
+    void testReimpostaTempoImpostato() {
+        tempo.setImpostato(true);
+        tempoController.reimpostaTempo();
+        assertFalse(tempo.isImpostato(), "Il tempo non deve essere impostato");
     }
 }
 

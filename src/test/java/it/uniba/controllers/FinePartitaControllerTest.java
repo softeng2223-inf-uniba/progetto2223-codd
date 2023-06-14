@@ -14,13 +14,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class FinePartitaControllerTest {
 
     private Partita partita;
-
+    private FinePartitaController finePartitaController;
     /**
      * Metodo che istanzia l'oggetto della classe Partita.
      */
     @BeforeEach
     void setUp() {
         partita = new Partita();
+        finePartitaController = new FinePartitaController(partita);
     }
 
     /**
@@ -33,7 +34,6 @@ class FinePartitaControllerTest {
     + " falliti sono pari al massimo consentito")
     void testVerificaPartitaTerminataTentativiTerminati() {
         partita.setTentFalliti(partita.getMaxTent());  // Imposta i tentativi falliti al massimo consentito
-        FinePartitaController finePartitaController = new FinePartitaController(partita);
         assertEquals(FinePartitaController.Esito.SCONFITTA, finePartitaController.verificaPartitaTerminata(),
         "La partita è terminata per sconfitta");
     }
@@ -49,7 +49,6 @@ class FinePartitaControllerTest {
     void testVerificaPartitaTerminataAllNaviAffondate() {
         Griglia griglia = partita.getGriglia();
         griglia.getListaNaviPresenti().clear();  // Rimuove tutte le navi dalla griglia
-        FinePartitaController finePartitaController = new FinePartitaController(partita);
         assertEquals(FinePartitaController.Esito.VITTORIA, finePartitaController.verificaPartitaTerminata(),
         "La partita è terminata per vittoria");
     }
@@ -65,8 +64,8 @@ class FinePartitaControllerTest {
     void testVerificaPartitaTerminataTempoScaduto() {
         Tempo tempo = Tempo.getIstanza();
         tempo.setScaduto(true);
-        FinePartitaController finePartitaController = new FinePartitaController(partita);
         assertEquals(FinePartitaController.Esito.TEMPO_SCADUTO, finePartitaController.verificaPartitaTerminata(),
         "La partita è terminata per tempo scaduto");
     }
 }
+
