@@ -15,11 +15,12 @@ public final class GrigliaUI {
 
     private static final List<String> LETTERE = Arrays.asList("ABCDEFGHIJKLMNOPQRSTUVWXYZ".split(""));
 
-    private static final String RED = "\u001B[31m";
-    private static final String GREEN = "\u001B[32m";
-    private static final String BLUE = "\u001B[36m";
-    private static final String YELLOW = "\u001B[33m";
+    private static final String WHITE = "\u001B[37m";
+    private static final String CYAN = "\u001B[36m";
     private static final String RESET = "\u001B[0m";
+    private static final String RED_BC = "\u001B[41m";
+    private static final String GREEN_BC = "\u001B[42m";
+    private static final String YELLOW_BC = "\u001B[43m";
 
     /**
      * Costruttore che inizializza il controller.
@@ -50,12 +51,12 @@ public final class GrigliaUI {
             for (int j = 1; j <= dim; j++) {
                 if (this.pcContr.isCellaColpita(i, j)) {
                     if (this.pcContr.isCellaOccupata(i, j)) {
-                        System.out.print(GREEN + " X " + RESET + "|");
+                        System.out.print(GREEN_BC + " X " + RESET + "|");
                     } else {
-                        System.out.print(RED + " X " + RESET + "|");
+                        System.out.print(RED_BC + " X " + RESET + "|");
                     }
                 } else {
-                    System.out.print(BLUE + " O " + RESET + "|");
+                    System.out.print(CYAN + " O " + RESET + "|");
                 }
             }
             stampaSeparatoreGriglia(dim);
@@ -82,9 +83,9 @@ public final class GrigliaUI {
             System.out.format("   |  %02d  |", i);
             for (int j = 1; j <= dim; j++) {
                 if (this.pcContr.isCellaOccupata(i, j)) {
-                    System.out.print(YELLOW + " X " + RESET + "|");
+                    System.out.print(YELLOW_BC + " X " + RESET + "|");
                 } else {
-                    System.out.print(BLUE + " O " + RESET + "|");
+                    System.out.print(CYAN + " O " + RESET + "|");
                 }
             }
             stampaSeparatoreGriglia(dim);

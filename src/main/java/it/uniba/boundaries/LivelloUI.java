@@ -10,6 +10,11 @@ public final class LivelloUI {
 
     private LivelloController livController = null;
 
+    private static final String BLACK = "\u001B[30m";
+    private static final String YELLOW_BC = "\u001B[43m";
+    private static final String WHITE_BC = "\u001B[47m";
+    private static final String RESET = "\u001B[0m";
+
 
     /**
      * Costruttore che prende in input un istanza di LivelloController.
@@ -66,7 +71,8 @@ public final class LivelloUI {
         boolean isTentValido = this.livController.isTentativiValidi(tent);
 
         if (!isTentValido) {
-            System.out.println("\n: Non puoi impostare un numero di tentativi maggiore della grandezza della griglia!");
+            System.out.println("\n" + YELLOW_BC + BLACK
+            + ": Non puoi impostare un numero di tentativi maggiore della grandezza della griglia!" + RESET);
         } else {
             switch (comando[0]) {
                 case "/facile":
@@ -95,7 +101,8 @@ public final class LivelloUI {
         boolean isTentValido = this.livController.isTentativiValidi(tent);
 
         if (!isTentValido) {
-            System.out.println("\n: Non puoi impostare un numero di tentativi maggiore della grandezza della griglia!");
+            System.out.println("\n" + YELLOW_BC + BLACK
+            + ": Non puoi impostare un numero di tentativi maggiore della grandezza della griglia!" + RESET);
         } else {
             this.livController.impostaTentativiPersonalizzato(tent);
             System.out.println("\n: Ok.");

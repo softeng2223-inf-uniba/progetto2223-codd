@@ -10,10 +10,15 @@ import java.util.regex.Pattern;
 
 /**
  * <Boundary>
- * Classe che fornisce una interfaccia generica di acquisizione corretta dei
+ * Classe Boundary speciale che fornisce una interfaccia generica di acquisizione corretta dei
  * comandi dell'utente da tastiera.
  */
 public final class InputUI {
+
+    private static final String BLACK = "\u001B[30m";
+    private static final String YELLOW_BC = "\u001B[43m";
+    private static final String RESET = "\u001B[0m";
+
 
     private static final List<String> LISTA_COMANDI_COMPLETA = Arrays.asList(
             "/gioca", "/esci", "/facile", "/medio", "/difficile",
@@ -42,13 +47,6 @@ public final class InputUI {
         PARTITA, SESSIONE;
     }
 
-    /**
-     * Enumerativo che rappresenta il tipo di comando inserito
-     * dall'utente, distinguendo: AZIONE o TENTATIVO.
-     */
-    public enum TipoComando {
-        AZIONE, TENTATIVO;
-    }
 
     /**
      * Costruttore vuoto.
@@ -72,7 +70,7 @@ public final class InputUI {
         String input;
 
         while (true) {
-            System.out.print("\n\n\n> Inserisci a capo un comando:\n-> ");
+            System.out.print("\n\n\n> Inserisci a capo un comando:\n\n--> ");
             input = tastiera.nextLine().toLowerCase().trim();
             String[] inputTokens;
 
@@ -81,7 +79,7 @@ public final class InputUI {
                 inputTokens = input.split("\\s");
                 int numTokens = inputTokens.length;
                 if (numTokens > 2) {
-                    System.out.println("\n: Il comando inserito ha troppe parole!");
+                    stampaMessaggioErrore("Il comando inserito ha troppe parole!");
                 } else {
                     if (numTokens == 2) {
                         comando = inputTokens;
@@ -106,10 +104,10 @@ public final class InputUI {
                     comando = inputTokens;
                     break;
                 } else {
-                    System.out.println("\n: Le coordinate specificate sono fuori dalla griglia!");
+                    stampaMessaggioErrore("Le coordinate specificate sono fuori dalla griglia!");
                 }
             } else {
-                System.out.println("\n: Per effettuare un tentativo devi prima iniziare una partita!");
+                stampaMessaggioErrore("Per effettuare un tentativo devi prima iniziare una partita!");
             }
         }
 
@@ -127,19 +125,19 @@ public final class InputUI {
     private boolean verificaComando(final String[] comando, final StatoGioco contesto) {
 
         if (!LISTA_COMANDI_COMPLETA.contains(comando[0])) {
-            System.out.println("\n: Il comando inserito non esiste!");
+            stampaMessaggioErrore("Il comando inserito non esiste!");
             return false;
         }
         switch (contesto) {
             case PARTITA:
                 if (!LISTA_COMANDI_AMMESSI_PARTITA.contains(comando[0])) {
-                    System.out.println("\n: Il comando inserito non può essere utilizzato in questo contesto!");
+                    stampaMessaggioErrore("Il comando inserito non può essere utilizzato in partita!");
                     return false;
                 }
                 break;
             case SESSIONE:
                 if (!LISTA_COMANDI_AMMESSI_SESSIONE.contains(comando[0])) {
-                    System.out.println("\n: Il comando inserito non può essere utilizzato in questo contesto!");
+                    stampaMessaggioErrore("Il comando inserito non può essere utilizzato se non sei in partita!");
                     return false;
                 }
                 break;
@@ -147,11 +145,11 @@ public final class InputUI {
                 break;
         }
         if (!LISTA_COMANDI_CON_NUMERO.contains(comando[0]) && comando[1] != null) {
-            System.out.println("\n: Il comando inserito non può essere accompagnato da un numero!");
+            stampaMessaggioErrore("Il comando inserito non può essere accompagnato da un numero!");
             return false;
         }
         if (LISTA_COMANDI_CON_NUMERO_SPECIALI.contains(comando[0]) && comando[1] == null) {
-            System.out.println("\n: Il comando inserito non può essere utilizzato senza specificare un numero!");
+            stampaMessaggioErrore("Il comando inserito non può essere utilizzato senza specificare un numero!");
             return false;
         }
         if (LISTA_COMANDI_CON_NUMERO.contains(comando[0]) && comando[1] != null) {
@@ -174,11 +172,11 @@ public final class InputUI {
             if (i > 0) {
                 return true;
             } else {
-                System.out.println("\n: Il numero inserito non può essere negativo!");
+                stampaMessaggioErrore("Il numero per il comando inserito non può essere negativo!");
                 return false;
             }
         } catch (NumberFormatException e) {
-            System.out.println("\n: Il comando inserito prevede che accanto sia specificato un numero, non altro!");
+            stampaMessaggioErrore("Il comando inserito prevede che accanto sia specificato un numero, non altro!");
             return false;
         }
     }
@@ -197,8 +195,7 @@ public final class InputUI {
     }
 
     /**
-     * Metodo che acquisisce una conferma dell'utente, relativamente ad una
-     * richiesta.
+     * Metodo che acquisisce una conferma dell'utente, relativamente ad una richiesta.
      * @param tastiera
      * @return true se la conferma è positiva, false altrimenti.
      */
@@ -208,7 +205,7 @@ public final class InputUI {
         boolean conferma = false;
 
         while (true) {
-            System.out.print("\n> Inserisci SI per confermare, altrimenti NO:\n-> ");
+            System.out.print("\n> Inserisci SI per confermare, altrimenti NO:\n--> ");
             input = tastiera.nextLine().toLowerCase().trim();
 
             if (input.equals("si")) {
@@ -218,10 +215,18 @@ public final class InputUI {
                 conferma = false;
                 break;
             } else {
-                System.out.println("\n: Non capisco...");
+                stampaMessaggioErrore("Non capisco...");
             }
         }
-
         return conferma;
     }
+
+    /**
+     * Metodo che stampa una stringa data come un errore.
+     * @param stringa
+     */
+    private void stampaMessaggioErrore(final String stringa) {
+        System.out.println("\n" + YELLOW_BC + BLACK + ": " + stringa + RESET);
+    }
+
 }
