@@ -75,7 +75,7 @@ class ProprietaControllerTest {
     @DisplayName ("Assicura che i minuti siano impostati")
      void testImpostaTempo() {
         final int minuti = 5;
-        proprietaController.impostaTempo(5);
+        proprietaController.impostaTempo(minuti);
         int minutiImpostati = proprieta.getMinutiImpostati();
         assertEquals(minuti, minutiImpostati, "i minuti sono stati impostati");
     }

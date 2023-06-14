@@ -5,7 +5,6 @@ import it.uniba.entities.Griglia;
 import it.uniba.entities.Nave;
 import it.uniba.entities.Corazzata;
 import it.uniba.entities.Portaerei;
-import it.uniba.entities.Proprieta;
 import it.uniba.entities.Incrociatore;
 import it.uniba.entities.Cacciatorpediniere;
 import it.uniba.entities.Tempo;

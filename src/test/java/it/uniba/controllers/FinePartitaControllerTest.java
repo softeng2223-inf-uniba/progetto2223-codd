@@ -20,6 +20,9 @@ class FinePartitaControllerTest {
      */
     @BeforeEach
     void setUp() {
+        ProprietaController propContr = new ProprietaController();
+        final int minuti = 10;
+        propContr.impostaTempo(minuti);
         partita = new Partita();
         finePartitaController = new FinePartitaController(partita);
     }
