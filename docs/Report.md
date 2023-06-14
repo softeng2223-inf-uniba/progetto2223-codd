@@ -392,6 +392,15 @@ Sono classi singoletto le classi Proprieta, Tempo e Livello dal momento che rapp
 
                     
 
+## 6. Riepilogo del test
+
+Nella redazione dei casi di test si è deciso di testare i metodi pubblici più rilevanti delle classi, escludendo dunque metodi standard quali setter e getter, e di conseguenza anche metodi riconducibili alla loro logica.
+Pertanto non abbiamo effettuato test delle classi Entity, dal momento che i metodi in esse presenti erano principalemente setter e getter. Questi sono infatti stati implicitamente testati nel test delle classi Control, le quali contenevano i metodi meglio rappresentanti la logica dell'applicazione. 
+Di seguito mostriamo la percentuale di riuscita delle classi Control testate: 
+
+![TestControllers](./img/TestControllers.png)
+
+                    
 
 ## 7. Manuale utente
 
