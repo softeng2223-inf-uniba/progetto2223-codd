@@ -288,6 +288,108 @@ docker run --rm -it ghcr.io/softeng2223-inf-uniba/battleship-base2223:latest
 
 dove *base2223* sarà sostitituito con il nome del gruppo.
 
+                    
+
+## 4. System Design
+
+### 4.1 Stile architetturale adottato
+
+Lo stile architetturale scelto per il progetto è il **Model-View-Presenter**: esso offre una corrispondenza con la tassonomia entity-control-boundary (ECB), già sfruttata per l'implementazione delle user story.
+
+Entrambi infatti prevedono l'utilizzo di controllori come unica porta di accesso al modello dei dati da parte dell'interfaccia utente.
+
+Il package **entities** corrisponde al sottosistema **Model**: in esso, infatti, sono contenuti gli oggetti che rappresentano la conoscenza del dominio dell'applicazione ed i relativi metodi di accesso ai dati.
+
+Il package **boundaries** corrisponde al sottosistema **View**: in esso, infatti, è contenuta la logica di presentazione dei dati, la quale non ha alcun accesso diretto agli stessi, se non tramite l'interfaccia fornita dal sottosistema Presenter.
+
+Il package **controllers** corrisponde al sottosistema **Presenter**: in esso, infatti, è contenuta la logica di business dell'applicazione.
+
+La suddivisione sopracitata separa in un sottosistema a sé la presentazione dei dati all'utente: ciò proprio in linea con il principio di *presentazione separata*, il quale prevede che la parte di codice relativa alla rappresentazione sia tenuta, appunto, separata dal resto dell'applicazione.
+Nel nostro caso l'attuazione di questo principio permette di eseguire l'applicazione su terminale, come richiesto dal requisito non funzionale RNF1.
+
+                    
+
+### 4.2 Diagramma dei package
+
+Di seguito si rappresenta il **diagramma dei package** che rispecchia la tassonomia **Entity Control Boundary** con la quale si è proceduto a modellare il software. I package, infatti, sono stati ridenominati in base alle tre componenti che formano il modello **ECB**.
+
+![DiagrammaDeiPackage](../drawings/DiagrammaDeiPackage.png)
+
+                    
+
+## 5. OO Design
+
+### 5.1 Diagramma delle classi e di sequenza
+
+- **User story**:
+  - **come giocatore voglio impostare il livello di gioco per variare il numero di tentativi sbagliati**.
+
+  - **come giocatore voglio impostare il numero massimo di tentativi falliti per livello di gioco**.
+
+  Nei seguenti diagrammi si è rappresentato il caso specifico in cui l'utente imposta il livello a FACILE, con eventuale numero di tentativi correlato.
+
+  ![DiagrammaDelleClassiLIVELLO](../drawings/DiagrammaDelleClassiLIVELLO.png)
+
+  ![DiagrammaDiSequenzaLIVELLO](../drawings/DiagrammaDiSequenzaLIVELLO.png)
+
+                    
+
+  - **come giocatore voglio impostare il tempo di gioco**.
+
+  Nei seguenti diagrammi si è rappresentato il caso specifico in cui l'utente imposta il tempo della successiva partita.
+
+  ![DiagrammaDelleClassiTEMPO](../drawings/DiagrammaDelleClassiTEMPO.png)
+
+  ![DiagrammaDiSequenzaTEMPO](../drawings/DiagrammaDiSequenzaTEMPO.png)
+
+                    
+
+  - **come giocatore voglio effettuare un tentativo per colpire una nave**.
+
+  Nei seguenti diagrammi si è rappresentato il caso specifico in cui l'utente effettua un tentativo per colpire una nave durante una partita.
+
+  ![DiagrammaDelleClassiEFFETTUA](../drawings/DiagrammaDelleClassiEFFETTUA.png)
+
+  ![DiagrammaDiSequenzaEFFETTUA](../drawings/DiagrammaDiSequenzaEFFETTUA.png)
+
+                    
+
+  - **come giocatore voglio impostare la taglia della griglia**.
+
+  Nei seguenti diagrammi si è rappresentato il caso specifico in cui l'utente imposta la dimensione della griglia ad extralarge, opzione presente tra le tre disponibili.
+
+  ![DiagrammaDelleClassiPROPRIETA](../drawings/DiagrammaDelleClassiPROPRIETA.png)
+
+  ![DiagrammaDiSequenzaPROPRIETA](../drawings/DiagrammaDiSequenzaPROPRIETA.png)
+
+                    
+
+### 5.2 Analisi delle scelte effettuate secondo i principi della OO Design
+
+Durante la progettazione del codice, si è prestata attenzione ai principi di OO design. Elenchiamo di seguito i soli aspetti rilevanti.
+
+- **Information Hiding**: tutti gli attributi delle classi presenti all'interno del codice hanno visibilità privata. Essi sono accessibili e modificabili solo con
+  i relativi setter e getter, rispettando dunque il principio di incapsulamento.
+
+- **Alta coesione**: equivalente al principio **SOLID** di *single responsability*, ogni classe presenta una responsabilià ben definita. Un esempio di ciò sono le classi 
+  controller della partita: InizioPartitaController si occupa della sola inizializzazione della partita, PartitaInCorsoController del proseguimento della stessa,
+  FinePartitaController della terminazione della partita. 
+
+- **Basso accoppiamento**: le dipendenze tra le classi sono ridotte, grazie anche alla modellazione del codice secondo ECB.
+
+- **Presentazione separata**: avendo modellato il codice secondo la tassonomia ECB, la logica di presentazione è tenuta separata dal resto dell'applicazione. Difatti è
+  capitato di dover modificare parti di codice relative all'interfaccia con l'utente, senza che le modifiche intaccassero classi control ed entity. Ad esempio classi che si occupano della sola rappresentazione sono GrigliaUI e PartitaUI.
+
+  Per quanto concerne i principi SOLID, viene rispettato il principio di sostituzione di Liskov: infatti le sottoclassi di Nave quali Cacciatorpenidiere, Corazzata, etc. possono essere usate al posto della loro classe padre. 
+
+                    
+
+### 5.3 Design Pattern
+
+Si è discusso della possibilità dell'applicazione di **Design Pattern** e si è deciso di applicare come unico pattern il pattern Singleton.
+Sono classi singoletto le classi Proprieta, Tempo e Livello dal momento che rappresentano le impostazioni della successiva partita da giocare persistenti per tutta la durata della sessione di gioco: non è dunque necessario dichiarare molteplici oggetti di tali classi. 
+
+                    
 
 
 ## 7. Manuale utente
