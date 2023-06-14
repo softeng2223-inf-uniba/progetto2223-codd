@@ -44,11 +44,10 @@ public final class TempoController {
      * @return temp
      */
     public int[] ottieniTempoRestante() {
-        int[] temp = new int[2];
-        final int diff = this.tempo.getMinutiImpostati() - this.tempo.getMinutiTrascorsi();
-        temp[0] = this.tempo.getMinutiImpostati() - this.tempo.getMinutiTrascorsi() - diff;
-        temp[1] = SECONDI - this.tempo.getSecondiTrascorsi();
-        return temp;
+        int tempoImpostato = (this.tempo.getMinutiImpostati() * SECONDI) + this.tempo.getSecondiImpostati();
+        int tempoTrascorso = (this.tempo.getMinutiTrascorsi() * SECONDI) + this.tempo.getSecondiTrascorsi();
+        int differenza = tempoImpostato - tempoTrascorso;
+        return new int[] {differenza / SECONDI, differenza % SECONDI};
     }
 
     /**
