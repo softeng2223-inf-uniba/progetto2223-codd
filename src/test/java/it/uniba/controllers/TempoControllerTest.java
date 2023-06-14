@@ -1,11 +1,10 @@
 package it.uniba.controllers;
-import it.uniba.entities.Tempo;
 
+import it.uniba.entities.Tempo;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;
-
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -25,7 +24,7 @@ class TempoControllerTest {
     void setUp() {
         Tempo tempo = Tempo.getIstanza();
         tempo.reset();
-        tempoController = new TempoController(tempo);
+        tempoController = new TempoController();
     }
 
     /**
@@ -64,11 +63,11 @@ class TempoControllerTest {
     @DisplayName("Assicura che il tempo sia scaduto")
     void testIsTempoScaduto() {
         final int minuti = 1;
-        final int millisecondi = 65000;
+        final int millisecondi = 63000;
         tempoController.impostaTempo(minuti);
         tempoController.avviaTempo();
         try {
-            Thread.sleep(millisecondi);  // Aspetta 65 secondi
+            Thread.sleep(millisecondi);  // Aspetta 63 secondi
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

@@ -15,11 +15,10 @@ public final class ProprietaController {
     private static final int DIMENSIONI_GRIGLIA_EXTRALARGE = 26;
 
     /**
-     * Costruttore di ProprietaController.
-     * @param prop
+     * Costruttore della classe ProprietaController.
      */
-    public ProprietaController(final Proprieta prop) {
-        this.proprieta = prop;
+    public ProprietaController() {
+        this.proprieta = Proprieta.getIstanza();
     }
 
     /**

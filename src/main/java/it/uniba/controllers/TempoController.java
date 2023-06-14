@@ -14,10 +14,9 @@ public final class TempoController {
 
     /**
      * Costruttore della classe TempoController.
-     * @param temp
      */
-    public TempoController(final Tempo temp) {
-        this.tempo = temp;
+    public TempoController() {
+        this.tempo = Tempo.getIstanza();
     }
 
     /**

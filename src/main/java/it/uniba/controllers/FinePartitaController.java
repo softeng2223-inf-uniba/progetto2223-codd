@@ -1,8 +1,8 @@
 package it.uniba.controllers;
+
 import it.uniba.entities.Partita;
 import it.uniba.entities.Griglia;
 import it.uniba.entities.Nave;
-import it.uniba.entities.Tempo;
 import java.util.List;
 
 /**
@@ -71,7 +71,7 @@ public final class FinePartitaController {
      * @return true se il tempo è terminato, false altrimenti
      */
     public boolean isTempoTerminato() {
-        TempoController tempContr = new TempoController(Tempo.getIstanza());
+        TempoController tempContr = new TempoController();
         return tempContr.isTempoScaduto();
     }
 
@@ -87,7 +87,7 @@ public final class FinePartitaController {
      * Metodo che termina una partita reimpostando il tempo.
      */
     public void terminaPartita() {
-        TempoController tempContr = new TempoController(Tempo.getIstanza());
+        TempoController tempContr = new TempoController();
         tempContr.reimpostaTempo();
     }
 }

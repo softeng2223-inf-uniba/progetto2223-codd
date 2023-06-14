@@ -1,6 +1,6 @@
 package it.uniba.controllers;
+
 import it.uniba.entities.Livello;
-import it.uniba.entities.Proprieta;
 
 
 /**
@@ -13,11 +13,10 @@ public final class LivelloController {
 
 
     /**
-     * Costruttore che inizializza la variabile livello.
-     * @param liv
+     * Costruttore della classe LivelloController.
      */
-    public LivelloController(final Livello liv) {
-        this.livello = liv;
+    public LivelloController() {
+        this.livello = Livello.getIstanza();
     }
 
 
@@ -26,7 +25,6 @@ public final class LivelloController {
      * @param liv
      */
     public void impostaLivelloCorrente(final Livello.Tipo liv) {
-
         this.livello.setLivCorrente(liv);
     }
 
@@ -59,7 +57,6 @@ public final class LivelloController {
      * @param tent
      */
     public void impostaTentativiPersonalizzato(final int tent) {
-
         this.livello.setLivCorrente(Livello.Tipo.PERSONALIZZATO);
         this.livello.setTentPersonalizzati(tent);
     }
@@ -69,7 +66,6 @@ public final class LivelloController {
      * @return livello impostato
      */
     public Livello.Tipo ottieniLivelloCorrente() {
-
         return this.livello.getLivCorrente();
     }
 
@@ -109,7 +105,7 @@ public final class LivelloController {
      * @return true se il numero di tentativi è valido, false altrimenti.
      */
     public boolean isTentativiValidi(final int tent) {
-        ProprietaController propContr = new ProprietaController(Proprieta.getIstanza());
+        ProprietaController propContr = new ProprietaController();
         int dim = propContr.ottieniDimGriglia();
         dim *= dim;
 

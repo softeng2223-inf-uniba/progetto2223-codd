@@ -1,6 +1,6 @@
 package it.uniba.controllers;
-import it.uniba.entities.Proprieta;
 
+import it.uniba.entities.Proprieta;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -23,7 +23,7 @@ class ProprietaControllerTest {
     @BeforeEach
     void setUp() {
         proprieta = Proprieta.getIstanza();
-        proprietaController = new ProprietaController(proprieta);
+        proprietaController = new ProprietaController();
     }
 
     /**
