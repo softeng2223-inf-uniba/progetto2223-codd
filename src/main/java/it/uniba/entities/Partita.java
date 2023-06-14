@@ -1,4 +1,5 @@
 package it.uniba.entities;
+import it.uniba.controllers.LivelloController;
 
 /**
  * <Entity>
