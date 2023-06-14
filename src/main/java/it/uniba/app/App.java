@@ -1,4 +1,22 @@
 package it.uniba.app;
+import it.uniba.boundaries.HelpUI;
+import it.uniba.boundaries.InputUI;
+import it.uniba.boundaries.LivelloUI;
+import it.uniba.boundaries.PartitaUI;
+import it.uniba.boundaries.ProprietaUI;
+import it.uniba.boundaries.TempoUI;
+import it.uniba.boundaries.GrigliaUI;
+import it.uniba.controllers.LivelloController;
+import it.uniba.controllers.ProprietaController;
+import it.uniba.controllers.TempoController;
+import it.uniba.controllers.InizioPartitaController;
+import it.uniba.controllers.PartitaInCorsoController;
+import it.uniba.controllers.FinePartitaController;
+import it.uniba.entities.Livello;
+import it.uniba.entities.Proprieta;
+import it.uniba.entities.Tempo;
+import it.uniba.entities.Partita;
+
 
 import java.util.Scanner;
 
