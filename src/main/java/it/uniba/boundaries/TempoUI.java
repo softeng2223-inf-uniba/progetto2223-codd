@@ -21,16 +21,6 @@ public final class TempoUI {
     }
 
     /**
-     * Metodo che imposta il tempo massimo di gioco.
-     * @param comando
-     */
-    public void impostaTempoDiGioco(final String[] comando) {
-        int minuti = Integer.parseInt(comando[1]);
-        this.tempController.impostaTempo(minuti);
-        System.out.println("\n: Ok.");
-    }
-
-    /**
      * Metodo che mostra il tempo trascorso e quello rimanente.
      */
     public void displayTempo() {

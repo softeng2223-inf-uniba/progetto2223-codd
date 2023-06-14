@@ -67,5 +67,17 @@ class ProprietaControllerTest {
         assertEquals(dimensioneExtralarge, dimensioniGriglia,
         "la dimensione della griglia è 26");
     }
+
+    /**
+     * Test del metodo ImpostaTempo che assicura che i minuti siano impostati.
+     */
+    @Test
+    @DisplayName ("Assicura che i minuti siano impostati")
+     void testImpostaTempo() {
+        final int minuti = 5;
+        proprietaController.impostaTempo(5);
+        int minutiImpostati = proprieta.getMinutiImpostati();
+        assertEquals(minuti, minutiImpostati, "i minuti sono stati impostati");
+    }
 }
 

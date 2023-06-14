@@ -71,9 +71,10 @@ public final class FinePartitaController {
      * @return true se il tempo è terminato, false altrimenti
      */
     public boolean isTempoTerminato() {
-        Tempo tempo = this.partita.getTempo();
-        TempoController tempContr = new TempoController(tempo);
-        if (tempContr.isTempoImpostato()) {
+        ProprietaController propContr = new ProprietaController();
+        if (propContr.isTempoImpostato()) {
+            Tempo tempo = this.partita.getTempo();
+            TempoController tempContr = new TempoController(tempo);
             return tempContr.isTempoScaduto();
         }
         return false;

@@ -49,5 +49,29 @@ public final class ProprietaController {
     public int ottieniDimGriglia() {
         return this.proprieta.getDimensioniGriglia();
     }
+
+    /**
+     * Metodo che imposta i minuti trascorsi e setta il tempo come impostato.
+     * @param minuti
+     */
+    public void impostaTempo(final int minuti) {
+        this.proprieta.setMinutiImpostati(minuti);
+        this.proprieta.setTempoImpostato(true);
+    }
+
+    /**
+     * Metodo che ottiene i minuti impostati.
+     * @return minutiImpostati
+     */
+    public int ottieniMinutiImpostati() {
+        return this.proprieta.getMinutiImpostati();
+    }
+
+    /**
+     * Metodo che verifica se il tempo è impostato.
+     */
+    public boolean isTempoImpostato() {
+        return this.proprieta.isTempoImpostato();
+    }
 }
 

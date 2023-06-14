@@ -37,7 +37,7 @@ class TempoControllerTest {
     @DisplayName("Assicura che il tempo venga impostato a 5 minuti")
     void testImpostaTempo() {
         final int minuti = 5;
-        tempoController.impostaTempo(minuti);
+        tempoController.impostaMinuti(minuti);
         final int minutiImpostati = tempo.getMinutiImpostati();
         assertEquals(minuti, minutiImpostati, "Il tempo deve essere impostato a 5 minuti");
     }
@@ -50,7 +50,7 @@ class TempoControllerTest {
     @DisplayName("Assicura che il tempo venga avviato")
     void testAvviaTempo() {
         final int minuti = 1;
-        tempoController.impostaTempo(minuti);
+        tempoController.impostaMinuti(minuti);
         tempoController.avviaTempo();
         assertFalse(tempoController.isTempoScaduto(), "Il tempo non deve essere scaduto");
     }
@@ -64,7 +64,7 @@ class TempoControllerTest {
     void testIsTempoScaduto() {
         final int minuti = 1;
         final int millisecondi = 63000;
-        tempoController.impostaTempo(minuti);
+        tempoController.impostaMinuti(minuti);
         tempoController.avviaTempo();
         try {
             Thread.sleep(millisecondi);  // Aspetta 63 secondi
