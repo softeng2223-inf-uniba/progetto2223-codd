@@ -350,6 +350,8 @@ Di seguito ti lascio una lista dei comandi che potrai utilizzare:
   
   L'alternativa alla piattaforma di chat, nonché quella più utilizzata dal team, è stata la quotidiana possibilità di ritrovarsi di persona, cercando di rispettare i principi dello sviluppo agile di un software, svolgendo una serie di `Scrum meetings` giornalieri e discutendo ogni modifica apportata durante lo sviluppo del software.
 
+  ![Discord](./img/Discord.png)
+
         
 
 - ### **Scrum meetings**
