@@ -18,25 +18,11 @@ public final class Tempo extends Thread {
 
     private boolean scaduto = false;
 
-    private static Tempo istanza = null;
 
     /**
-     * Costruttore privato per implementare il pattern Singleton.
+     * Costruttore della classe Tempo.
      */
-    private Tempo() {
-        // Costruttore vuoto
-    }
-
-    /**
-     * Metodo che restituisce l'istanza della classe Tempo.
-     * Implementa il pattern Singleton.
-     * @return istanza
-     */
-    public static Tempo getIstanza() {
-        if (istanza == null) {
-            istanza = new Tempo();
-        }
-        return istanza;
+    public Tempo() {
     }
 
     /**

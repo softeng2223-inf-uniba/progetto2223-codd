@@ -14,9 +14,10 @@ public final class TempoController {
 
     /**
      * Costruttore della classe TempoController.
+     * @param temp
      */
-    public TempoController() {
-        this.tempo = Tempo.getIstanza();
+    public TempoController(final Tempo temp) {
+        this.tempo = temp;
     }
 
     /**
@@ -59,15 +60,6 @@ public final class TempoController {
         } catch (IllegalThreadStateException e) {
             System.out.println("Tempo già avviato.");
         }
-    }
-
-    /**
-     * Metodo che reimposta il tempo.
-     */
-    public void reimpostaTempo() {
-        this.tempo.reset();
-        this.tempo.setMinutiImpostati(0);
-        this.tempo.setImpostato(false);
     }
 
     /**

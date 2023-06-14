@@ -26,7 +26,7 @@ class InizioPartitaControllerTest {
     void setUp() {
         partita = new Partita();
         controller = new InizioPartitaController(partita);
-        tempo = Tempo.getIstanza();
+        tempo = partita.getTempo();
         tempo.setImpostato(true);
     }
 

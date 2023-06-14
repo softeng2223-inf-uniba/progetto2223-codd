@@ -62,7 +62,7 @@ class FinePartitaControllerTest {
     @DisplayName("Assicura che la partita sia terminata per tempo scaduto quando il tempo"
     + " è scaduto")
     void testVerificaPartitaTerminataTempoScaduto() {
-        Tempo tempo = Tempo.getIstanza();
+        Tempo tempo = partita.getTempo();
         tempo.setScaduto(true);
         assertEquals(FinePartitaController.Esito.TEMPO_SCADUTO, finePartitaController.verificaPartitaTerminata(),
         "La partita è terminata per tempo scaduto");
