@@ -63,11 +63,9 @@ public final class App {
         InputUI.StatoGioco contesto = InputUI.StatoGioco.SESSIONE;
 
         LivelloController livContr = new LivelloController();
-        TempoController tempContr = new TempoController();
         ProprietaController propContr = new ProprietaController();
 
         LivelloUI livUI = new LivelloUI(livContr);
-        TempoUI tempUI = new TempoUI(tempContr);
         ProprietaUI propUI = new ProprietaUI(propContr);
         HelpUI helpUI = new HelpUI();
 
@@ -90,7 +88,7 @@ public final class App {
                     livUI.displayLivelloCorrente();
                 break;
                 case "/tempo":
-                    tempUI.impostaTempoDiGioco(comando);
+                    propUI.impostaTempoDiGioco(comando);
                 break;
                 case "/standard":
                 case "/large":
@@ -126,7 +124,7 @@ public final class App {
 
         Partita partita = new Partita();
 
-        TempoController tempContr = new TempoController();
+        TempoController tempContr = new TempoController(partita.getTempo());
         LivelloController livContr = new LivelloController();
         InizioPartitaController ipContr = new InizioPartitaController(partita);
         PartitaInCorsoController pcContr = new PartitaInCorsoController(partita);

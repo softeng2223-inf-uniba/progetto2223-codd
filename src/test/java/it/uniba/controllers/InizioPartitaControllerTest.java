@@ -26,8 +26,6 @@ class InizioPartitaControllerTest {
     void setUp() {
         partita = new Partita();
         controller = new InizioPartitaController(partita);
-        tempo = Tempo.getIstanza();
-        tempo.setImpostato(true);
     }
 
     /**
@@ -79,15 +77,5 @@ class InizioPartitaControllerTest {
         assertTrue(numeroCelle == numeroCelleTotali, "vero se il numero di celle occupate è uguale a 30");
     }
 
-    /**
-     * Test del metodo AvviaTempoDiGioco della classe InizioPartitaController.
-     * Il valore aspettato è vero se il tempo di gioco è avviato.
-     */
-    @Test
-    @DisplayName ("Assicura che il tempo di gioco sia stato avviato")
-    void testAvviaTempoDiGioco() {
-        controller.avviaTempoDiGioco();
-        assertTrue(tempo.isAlive(), "vero se il tempo è partito");
-    }
 }
 

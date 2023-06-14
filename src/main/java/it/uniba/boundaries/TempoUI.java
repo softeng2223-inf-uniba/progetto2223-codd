@@ -1,7 +1,7 @@
 package it.uniba.boundaries;
 
 import it.uniba.controllers.TempoController;
-
+import it.uniba.controllers.ProprietaController;
 
 /**
  * <Boundary>
@@ -21,20 +21,11 @@ public final class TempoUI {
     }
 
     /**
-     * Metodo che imposta il tempo massimo di gioco.
-     * @param comando
-     */
-    public void impostaTempoDiGioco(final String[] comando) {
-        int minuti = Integer.parseInt(comando[1]);
-        this.tempController.impostaTempo(minuti);
-        System.out.println("\n: Ok.");
-    }
-
-    /**
      * Metodo che mostra il tempo trascorso e quello rimanente.
      */
     public void displayTempo() {
-        if (this.tempController.isTempoImpostato()) {
+        ProprietaController propContr = new ProprietaController();
+        if (propContr.isTempoImpostato()) {
             int[] temp = this.tempController.ottieniTempoTrascorso();
             System.out.println("\n: Sono trascorsi: " + temp[0] + " minuti : " + temp[1] + " secondi.");
             temp = this.tempController.ottieniTempoRestante();

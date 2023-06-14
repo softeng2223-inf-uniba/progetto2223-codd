@@ -7,6 +7,8 @@ import it.uniba.entities.Corazzata;
 import it.uniba.entities.Portaerei;
 import it.uniba.entities.Incrociatore;
 import it.uniba.entities.Cacciatorpediniere;
+import it.uniba.entities.Tempo;
+
 import java.util.List;
 import java.util.Arrays;
 import java.util.Collections;
@@ -142,12 +144,14 @@ public final class InizioPartitaController {
 
 
     /**
-     * Metodo che avvia il tempo di gioco della partita.
+     * Metodo che avvia il tempo di gioco della partita, se impostato.
      */
     public void avviaTempoDiGioco() {
-
-        TempoController tempContr = new TempoController();
-        if (tempContr.isTempoImpostato()) {
+        ProprietaController propContr = new ProprietaController();
+        if (propContr.isTempoImpostato()) {
+            Tempo tempo = this.partita.getTempo();
+            TempoController tempContr = new TempoController(tempo);
+            tempContr.impostaMinuti(propContr.ottieniMinutiImpostati());
             tempContr.avviaTempo();
         }
     }

@@ -23,9 +23,9 @@ class TempoControllerTest {
      */
     @BeforeEach
     void setUp() {
-        tempo = Tempo.getIstanza();
+        tempo = new Tempo();
         tempo.reset();
-        tempoController = new TempoController();
+        tempoController = new TempoController(tempo);
     }
 
     /**
@@ -37,7 +37,7 @@ class TempoControllerTest {
     @DisplayName("Assicura che il tempo venga impostato a 5 minuti")
     void testImpostaTempo() {
         final int minuti = 5;
-        tempoController.impostaTempo(minuti);
+        tempoController.impostaMinuti(minuti);
         final int minutiImpostati = tempo.getMinutiImpostati();
         assertEquals(minuti, minutiImpostati, "Il tempo deve essere impostato a 5 minuti");
     }
@@ -50,7 +50,7 @@ class TempoControllerTest {
     @DisplayName("Assicura che il tempo venga avviato")
     void testAvviaTempo() {
         final int minuti = 1;
-        tempoController.impostaTempo(minuti);
+        tempoController.impostaMinuti(minuti);
         tempoController.avviaTempo();
         assertFalse(tempoController.isTempoScaduto(), "Il tempo non deve essere scaduto");
     }
@@ -64,7 +64,7 @@ class TempoControllerTest {
     void testIsTempoScaduto() {
         final int minuti = 1;
         final int millisecondi = 63000;
-        tempoController.impostaTempo(minuti);
+        tempoController.impostaMinuti(minuti);
         tempoController.avviaTempo();
         try {
             Thread.sleep(millisecondi);  // Aspetta 63 secondi
@@ -74,41 +74,4 @@ class TempoControllerTest {
         assertTrue(tempoController.isTempoScaduto(), "Il tempo deve essere scaduto");
     }
 
-    /**
-     * Test del metodo reimpostaTempo della classe TempoController.
-     * Assicura che i minuti impostati siano uguali a zero.
-     */
-    @Test
-    @DisplayName("Assicura che i minuti vengano reimpostati a zero")
-    void testReimpostaTempoMinuti() {
-        final int minuti = 5;
-        tempo.setMinutiImpostati(minuti);
-        tempoController.reimpostaTempo();
-        assertEquals(0, tempo.getMinutiImpostati(), "I minuti devono essere reimpostati a zero");
-    }
-
-    /**
-     * Test del metodo reimpostaTempo della classe TempoController.
-     * Il valore atteso è falso se il tempo non è scaduto.
-     */
-    @Test
-    @DisplayName("Assicura che il tempo non sia scaduto")
-    void testReimpostaTempoScaduto() {
-        tempo.setScaduto(true);
-        tempoController.reimpostaTempo();
-        assertFalse(tempo.isScaduto(), "Il tempo non deve essere scaduto");
-    }
-
-    /**
-     * Test del metodo reimpostaTempo della classe TempoController.
-     * Il valore atteso è falso se il tempo non è stato impostato.
-     */
-    @Test
-    @DisplayName("Assicura che il tempo non sia stato impostato")
-    void testReimpostaTempoImpostato() {
-        tempo.setImpostato(true);
-        tempoController.reimpostaTempo();
-        assertFalse(tempo.isImpostato(), "Il tempo non deve essere impostato");
-    }
 }
-

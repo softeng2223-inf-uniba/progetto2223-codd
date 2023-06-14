@@ -14,29 +14,13 @@ public final class Tempo extends Thread {
     private static final int TEMPO_ATTESA = 1000;
     private static final int SECONDI = 59;
 
-    private boolean impostato = false;
-
     private boolean scaduto = false;
 
-    private static Tempo istanza = null;
 
     /**
-     * Costruttore privato per implementare il pattern Singleton.
+     * Costruttore della classe Tempo.
      */
-    private Tempo() {
-        // Costruttore vuoto
-    }
-
-    /**
-     * Metodo che restituisce l'istanza della classe Tempo.
-     * Implementa il pattern Singleton.
-     * @return istanza
-     */
-    public static Tempo getIstanza() {
-        if (istanza == null) {
-            istanza = new Tempo();
-        }
-        return istanza;
+    public Tempo() {
     }
 
     /**
@@ -101,22 +85,6 @@ public final class Tempo extends Thread {
      */
     public void setScaduto(final boolean isScaduto) {
         this.scaduto = isScaduto;
-    }
-
-    /**
-     * Getter della variabile booleana impostato.
-     * @return impostato
-     */
-    public boolean isImpostato() {
-        return this.impostato;
-    }
-
-    /**
-     * Setter della variabile booleana impostato.
-     * @param isImpostato
-     */
-    public void setImpostato(final boolean isImpostato) {
-        this.impostato = isImpostato;
     }
 
     /**

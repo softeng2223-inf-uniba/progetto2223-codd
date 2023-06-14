@@ -14,18 +14,17 @@ public final class TempoController {
 
     /**
      * Costruttore della classe TempoController.
+     * @param temp
      */
-    public TempoController() {
-        this.tempo = Tempo.getIstanza();
+    public TempoController(final Tempo temp) {
+        this.tempo = temp;
     }
 
     /**
-     * Metodo che imposta i minuti trascorsi e setta il tempo come impostato.
-     * @param minuti
+     * Metodo che imposta i minuti.
      */
-    public void impostaTempo(final int minuti) {
+    public void impostaMinuti(final int minuti) {
         this.tempo.setMinutiImpostati(minuti);
-        this.tempo.setImpostato(true);
     }
 
     /**
@@ -51,6 +50,14 @@ public final class TempoController {
     }
 
     /**
+     * Metodo che verifica se il tempo è scaduto.
+     * @return scaduto
+     */
+    public boolean isTempoScaduto() {
+        return this.tempo.isScaduto();
+    }
+
+    /**
      * Metodo che avvia il tempo.
      */
     public void avviaTempo() {
@@ -61,28 +68,4 @@ public final class TempoController {
         }
     }
 
-    /**
-     * Metodo che reimposta il tempo.
-     */
-    public void reimpostaTempo() {
-        this.tempo.reset();
-        this.tempo.setMinutiImpostati(0);
-        this.tempo.setImpostato(false);
-    }
-
-    /**
-     * Metodo che verifica se il tempo è stato impostato.
-     * @return true se il tempo è stato impostato, false altrimenti
-     */
-    public boolean isTempoImpostato() {
-        return this.tempo.isImpostato();
-    }
-
-    /**
-     * Metodo che avvisa se il tempo è scaduto.
-     * @return true se il tempo è scaduto, false altrimenti.
-     */
-    public boolean isTempoScaduto() {
-        return this.tempo.isScaduto();
-    }
 }

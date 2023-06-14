@@ -10,6 +10,7 @@ import it.uniba.controllers.ProprietaController;
 public final class Partita {
 
     private Griglia griglia = null;
+    private Tempo tempo = null;
 
     private int tentEffettuati = 0;
     private int tentFalliti = 0;
@@ -27,6 +28,7 @@ public final class Partita {
         ProprietaController propContr = new ProprietaController();
         final int dim = propContr.ottieniDimGriglia();
         this.griglia = new Griglia(dim);
+        this.tempo = new Tempo();
     }
 
     /**
@@ -77,4 +79,11 @@ public final class Partita {
         return this.maxTent;
     }
 
+    /**
+     * Getter del tempo della partita.
+     * @return tempo
+     */
+    public Tempo getTempo() {
+        return this.tempo;
+    }
 }

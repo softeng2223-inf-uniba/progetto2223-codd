@@ -20,6 +20,9 @@ class FinePartitaControllerTest {
      */
     @BeforeEach
     void setUp() {
+        ProprietaController propContr = new ProprietaController();
+        final int minuti = 10;
+        propContr.impostaTempo(minuti);
         partita = new Partita();
         finePartitaController = new FinePartitaController(partita);
     }
@@ -62,7 +65,7 @@ class FinePartitaControllerTest {
     @DisplayName("Assicura che la partita sia terminata per tempo scaduto quando il tempo"
     + " è scaduto")
     void testVerificaPartitaTerminataTempoScaduto() {
-        Tempo tempo = Tempo.getIstanza();
+        Tempo tempo = partita.getTempo();
         tempo.setScaduto(true);
         assertEquals(FinePartitaController.Esito.TEMPO_SCADUTO, finePartitaController.verificaPartitaTerminata(),
         "La partita è terminata per tempo scaduto");

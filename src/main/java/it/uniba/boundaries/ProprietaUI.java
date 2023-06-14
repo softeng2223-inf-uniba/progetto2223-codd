@@ -38,4 +38,14 @@ public final class ProprietaUI {
         }
         System.out.println("\n: Ok.");
     }
+
+    /**
+     * Metodo che imposta il tempo massimo di gioco.
+     * @param comando
+     */
+    public void impostaTempoDiGioco(final String[] comando) {
+        int minuti = Integer.parseInt(comando[1]);
+        this.propController.impostaTempo(minuti);
+        System.out.println("\n: Ok.");
+    }
 }
