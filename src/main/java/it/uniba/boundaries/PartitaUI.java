@@ -118,7 +118,12 @@ public final class PartitaUI {
      */
     public boolean abbandona(final Scanner tastiera) {
         InputUI input = new InputUI();
-        return input.acquisisciConferma(tastiera);
+        boolean conferma = input.acquisisciConferma(tastiera);
+        if (conferma) {
+            this.fpContr.terminaPartita();
+            System.out.println("\n" + WHITE_BC + ": PARTITA TERMINATA." + RESET);
+        }
+        return conferma;
     }
 
     /**
