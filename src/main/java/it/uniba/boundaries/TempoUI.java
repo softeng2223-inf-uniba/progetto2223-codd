@@ -1,7 +1,7 @@
 package it.uniba.boundaries;
 
 import it.uniba.controllers.TempoController;
-
+import it.uniba.controllers.ProprietaController;
 
 /**
  * <Boundary>
