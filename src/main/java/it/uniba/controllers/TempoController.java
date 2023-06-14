@@ -65,8 +65,8 @@ public final class TempoController {
      * Metodo che reimposta il tempo.
      */
     public void reimpostaTempo() {
+        this.tempo.reset();
         this.tempo.setMinutiImpostati(0);
-        this.tempo.setScaduto(false);
         this.tempo.setImpostato(false);
     }
 
