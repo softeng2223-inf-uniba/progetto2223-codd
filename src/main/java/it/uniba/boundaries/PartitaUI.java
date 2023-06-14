@@ -46,8 +46,8 @@ public final class PartitaUI {
     public void inizia() {
         GrigliaUI grigliaUI = new GrigliaUI(this.pcContr);
         this.ipContr.iniziaPartita();
-        System.out.println("\n\n" + WHITE_BC + BLACK + ": [Hai iniziato una nuova partita.]"
-        + RESET + "\n");
+        System.out.println("\n\n" + WHITE_BC + BLACK + ": [ Hai iniziato una nuova partita ]"
+        + RESET);
         grigliaUI.displayGrigliaVuota();
     }
 
@@ -121,7 +121,7 @@ public final class PartitaUI {
         boolean conferma = input.acquisisciConferma(tastiera);
         if (conferma) {
             this.fpContr.terminaPartita();
-            System.out.println("\n" + WHITE_BC + ": PARTITA TERMINATA." + RESET);
+            System.out.println("\n" + WHITE_BC + BLACK + ": PARTITA TERMINATA." + RESET);
         }
         return conferma;
     }
