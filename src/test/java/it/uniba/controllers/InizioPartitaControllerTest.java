@@ -1,7 +1,7 @@
 package it.uniba.controllers;
+
 import it.uniba.entities.Partita;
 import it.uniba.entities.Griglia;
-import it.uniba.entities.Tempo;
 import it.uniba.entities.Nave;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -15,7 +15,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class InizioPartitaControllerTest {
 
     private InizioPartitaController controller;
-    private Tempo tempo;
     private Partita partita;
 
     /**
