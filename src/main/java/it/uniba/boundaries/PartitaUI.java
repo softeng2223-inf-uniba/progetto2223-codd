@@ -1,4 +1,5 @@
 package it.uniba.boundaries;
+
 import it.uniba.controllers.FinePartitaController;
 import it.uniba.controllers.InizioPartitaController;
 import it.uniba.controllers.PartitaInCorsoController;
@@ -17,6 +18,14 @@ public final class PartitaUI {
     private InizioPartitaController ipContr = null;
     private PartitaInCorsoController pcContr = null;
     private FinePartitaController fpContr = null;
+
+    private static final String BLACK = "\u001B[30m";
+    private static final String RESET = "\u001B[0m";
+    private static final String RED_BC = "\u001B[41m";
+    private static final String GREEN_BC = "\u001B[42m";
+    private static final String YELLOW_BC = "\u001B[43m";
+    private static final String WHITE_BC = "\u001B[47m";
+
 
     /**
      * Costruttore che inizializza i controller.
@@ -37,7 +46,8 @@ public final class PartitaUI {
     public void inizia() {
         GrigliaUI grigliaUI = new GrigliaUI(this.pcContr);
         this.ipContr.iniziaPartita();
-        System.out.println("\n: Hai iniziato una nuova partita.\n");
+        System.out.println("\n\n" + WHITE_BC + BLACK + ": [Hai iniziato una nuova partita.]"
+        + RESET + "\n");
         grigliaUI.displayGrigliaVuota();
     }
 
@@ -56,16 +66,16 @@ public final class PartitaUI {
 
         switch (esito) {
             case ACQUA:
-                System.out.println("\n: ACQUA.");
+                System.out.println("\n" + WHITE_BC + BLACK + ": ACQUA." + RESET);
             break;
             case COLPITO:
-                System.out.println("\n: COLPITO.");
+                System.out.println("\n" + WHITE_BC + BLACK + ": COLPITO." + RESET);
             break;
             case AFFONDATO:
-                System.out.println("\n: COLPITO E AFFONDATO.");
+                System.out.println("\n" + WHITE_BC + BLACK + ": COLPITO E AFFONDATO." + RESET);
             break;
             case GIA_COLPITO:
-                System.out.println("\n: Hai già colpito questa cella!");
+                System.out.println("\n" + YELLOW_BC + BLACK + ": Hai già colpito questa cella!" + RESET);
             break;
             default:
             break;
@@ -83,7 +93,7 @@ public final class PartitaUI {
         final int pos2 = 2;
         final int pos3 = 3;
 
-        System.out.println("\n: Ecco la lista delle navi ancora presenti nella griglia:"
+        System.out.println("\n: Ecco la lista delle navi ancora presenti nella griglia:\n"
         + "\n   - Cacciatorpediniere:  [X][X]           Esemplari: " + numNavi[pos0]
         + "\n   - Incrociatore:        [X][X][X]        Esemplari: " + numNavi[pos1]
         + "\n   - Corazzata:           [X][X][X][X]     Esemplari: " + numNavi[pos2]
@@ -120,13 +130,13 @@ public final class PartitaUI {
             FinePartitaController.Esito esito = this.fpContr.verificaPartitaTerminata();
             switch (esito) {
                 case VITTORIA:
-                    System.out.println("\n: HAI VINTO!");
+                    System.out.println("\n" + GREEN_BC + ": HAI VINTO!" + RESET);
                 break;
                 case SCONFITTA:
-                    System.out.println("\n: HAI FINITO I TENTATIVI!");
+                    System.out.println("\n" + RED_BC + ": HAI FINITO I TENTATIVI!" + RESET);
                 break;
                 case TEMPO_SCADUTO:
-                    System.out.println("\n: TEMPO SCADUTO!");
+                    System.out.println("\n" + RED_BC + ": TEMPO SCADUTO!" + RESET);
                 break;
                 default:
                 break;
