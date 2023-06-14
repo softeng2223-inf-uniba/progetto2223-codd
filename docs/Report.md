@@ -323,10 +323,9 @@ Di seguito si rappresenta il **diagramma dei package** che rispecchia la tassono
 
 ### 5.1 Diagramma delle classi e di sequenza
 
-- **User story**:
-  - **come giocatore voglio impostare il livello di gioco per variare il numero di tentativi sbagliati**.
+  - **Come giocatore voglio impostare il livello di gioco per variare il numero di tentativi sbagliati**.
 
-  - **come giocatore voglio impostare il numero massimo di tentativi falliti per livello di gioco**.
+  - **Come giocatore voglio impostare il numero massimo di tentativi falliti per livello di gioco**.
 
   Nei seguenti diagrammi si è rappresentato il caso specifico in cui l'utente imposta il livello a FACILE, con eventuale numero di tentativi correlato.
 
@@ -336,7 +335,7 @@ Di seguito si rappresenta il **diagramma dei package** che rispecchia la tassono
 
                     
 
-  - **come giocatore voglio impostare il tempo di gioco**.
+  - **Come giocatore voglio impostare il tempo di gioco**.
 
   Nei seguenti diagrammi si è rappresentato il caso specifico in cui l'utente imposta il tempo della successiva partita.
 
@@ -346,7 +345,7 @@ Di seguito si rappresenta il **diagramma dei package** che rispecchia la tassono
 
                     
 
-  - **come giocatore voglio effettuare un tentativo per colpire una nave**.
+  - **Come giocatore voglio effettuare un tentativo per colpire una nave**.
 
   Nei seguenti diagrammi si è rappresentato il caso specifico in cui l'utente effettua un tentativo per colpire una nave durante una partita.
 
@@ -356,7 +355,7 @@ Di seguito si rappresenta il **diagramma dei package** che rispecchia la tassono
 
                     
 
-  - **come giocatore voglio impostare la taglia della griglia**.
+  - **Come giocatore voglio impostare la taglia della griglia**.
 
   Nei seguenti diagrammi si è rappresentato il caso specifico in cui l'utente imposta la dimensione della griglia ad extralarge, opzione presente tra le tre disponibili.
 
