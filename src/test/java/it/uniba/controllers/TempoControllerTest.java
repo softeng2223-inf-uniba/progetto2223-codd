@@ -81,9 +81,10 @@ class TempoControllerTest {
     @Test
     @DisplayName("Assicura che i minuti vengano reimpostati a zero")
     void testReimpostaTempoMinuti() {
-        tempo.setMinutiImpostati(5);
+        final int minuti = 5;
+        tempo.setMinutiImpostati(minuti);
         tempoController.reimpostaTempo();
-        assertEquals(0,tempo.getMinutiImpostati(), "I minuti devono essere reimpostati a zero");
+        assertEquals(0, tempo.getMinutiImpostati(), "I minuti devono essere reimpostati a zero");
     }
 
     /**
