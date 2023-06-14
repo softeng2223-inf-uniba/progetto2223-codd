@@ -2,8 +2,6 @@ package it.uniba.controllers;
 
 import it.uniba.entities.Partita;
 import it.uniba.entities.Griglia;
-import it.uniba.entities.Griglia.Direzione;
-import it.uniba.entities.Griglia.Cella;
 import it.uniba.entities.Nave;
 import it.uniba.entities.Corazzata;
 import it.uniba.entities.Portaerei;

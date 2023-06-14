@@ -1,6 +1,5 @@
 package it.uniba.controllers;
 import it.uniba.entities.Livello;
-import it.uniba.entities.Livello.Tipo;
 import it.uniba.entities.Proprieta;
 
 

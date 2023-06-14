@@ -1,7 +1,6 @@
 package it.uniba.boundaries;
 import it.uniba.controllers.LivelloController;
 import it.uniba.entities.Livello;
-import it.uniba.entities.Livello.Tipo;
 
 /**
  * <Boudary>

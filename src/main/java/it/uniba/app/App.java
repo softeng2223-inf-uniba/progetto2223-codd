@@ -1,7 +1,6 @@
 package it.uniba.app;
 import it.uniba.boundaries.HelpUI;
 import it.uniba.boundaries.InputUI;
-import it.uniba.boundaries.InputUI.StatoGioco;
 import it.uniba.boundaries.LivelloUI;
 import it.uniba.boundaries.PartitaUI;
 import it.uniba.boundaries.ProprietaUI;

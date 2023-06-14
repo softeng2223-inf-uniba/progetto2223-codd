@@ -2,7 +2,6 @@ package it.uniba.boundaries;
 import it.uniba.controllers.FinePartitaController;
 import it.uniba.controllers.InizioPartitaController;
 import it.uniba.controllers.PartitaInCorsoController;
-import it.uniba.controllers.FinePartitaController.Esito;
 
 
 import java.util.List;
