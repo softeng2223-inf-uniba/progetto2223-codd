@@ -145,8 +145,8 @@ public final class PartitaUI {
                 break;
                 default:
                 break;
-                this.fpContr.terminaPartita();
             }
+            this.fpContr.terminaPartita();
             return true;
         } else {
             return false;
