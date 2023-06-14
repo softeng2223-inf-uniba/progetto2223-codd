@@ -14,6 +14,8 @@
 
 7. Manuale utente
 
+8. Processo di sviluppo e organizzazione del lavoro
+
 9. Analisi retrospettiva
 
    - 9.1 Sprint 0
@@ -329,6 +331,98 @@ Di seguito ti lascio una lista dei comandi che potrai utilizzare:
 
 - /svelagriglia : per mostrare la griglia e tutte le navi posizionate
 
+
+## 8. Processo di sviluppo e organizzazione del lavoro
+
+- ### **Processo di sviluppo**
+  
+  Si è adottato lo stile di processo di sviluppo <code>iterativo</code>, secondo il modello `Scrum` che prevede l'applicazione del modello a cascata, in modo iterativo, dove ogni ciclo corrisponde ad una nuova e aggiornata release del programma. 
+  
+  Ognuna delle iterazioni equivale ad uno `Sprint Backlog` (che nel nostro caso corrispondono a tre), ciascuno dei quali possiede uno `Sprint Goal`, come obiettivo finale. 
+  
+          
+
+- ### **Comunicazione adottata**
+  
+  Si è scelto di adottare come mezzo di comunicazione la piattaforma Discord, utilizzata ogni qual volta il gruppo non sia riuscito a riunirsi in presenza. 
+  
+  La piattaforma, infatti, risulta comoda per la comunicazione, poiché consente un'interazione veloce tra i partecipanti del team. Utile, anche, la possibilità di usufruire di alcuni strumenti offerti da Discord, come la condivisione simultanea del proprio schermo all'intero team.
+  
+  L'alternativa alla piattaforma di chat, nonché quella più utilizzata dal team, è stata la quotidiana possibilità di ritrovarsi di persona, cercando di rispettare i principi dello sviluppo agile di un software, svolgendo una serie di `Scrum meetings` giornalieri e discutendo ogni modifica apportata durante lo sviluppo del software.
+
+        
+
+- ### **Scrum meetings**
+  
+  La prerogativa del team è sempre stata quella di presenziare le riunioni.
+  
+  Ogni giorno il gruppo ha deciso se incontrarsi anche il seguente, altrimenti si è programmato un orario, nel quale il gruppo si sarebbe potuto incontrare sulla piattaforma Discord.
+  
+  Ogni comunicazione di servizio è stata fatta, all'interno di un gruppo di chat testuale ossia Whatsapp. 
+  
+  Come esplicato anche nella teoria sullo sviluppo del software, durante ogni Scrum meeting, il gruppo è sempre riuscito a ritagliarsi dei momenti di relax, di scambio reciproco di idee e possibili altre implementazioni da aggiungere all'interno del software.
+  
+          
+
+- ### **WorkFlow utilizzato**
+  
+  È stato adottato il ****GitHub Flow****, composto dalle seguenti fasi:  
+
+- #### Creazione di un nuovo branch
+  
+  In questa fase, viene creato un nuovo `branch`, copia del `branch Master`, a sua volta copia locale del repository in remoto.
+  
+  Il branch creato è stato utilizzato dai membri del team per apportare le diverse modifiche pertinenti le `user story` relative ai diversi Sprint.  
+
+- #### Aggiunta di commit
+  
+  Ogni modifica apportata all'interno del branch locale è stata, in un primo momento, aggiunta alla `Staging Area`, e in seguito, sempre accompagnato da una breve descrizione significativa ed esplicativa circa la modifica appena apportata, si è eseguito il `commit`.
+  
+  Tramite quest'ultimo si è reso possibile tracciare le diverse modifiche, rappresentate dai vari commit e apportate al software.
+
+- #### Apertura di una Pull Request
+  
+  Dopo aver effettuato i diversi commit si procede all'azione di `push` sul repository in remoto, all'interno della piattaforma GitHub. Quest'azione permette l'apertura di una `Pull Request`, ovvero una "proposta" di accettazione da parte dei componenti del team in merito ai cambiamenti apportati da un membro.
+
+- #### Discussione e Valutazione
+  
+  Durante questa fase ogni componente del gruppo ha il compito di revisionare i diversi commit ed eventualmente di lasciare dei commenti che possono suggerire ulteriori modifiche, permettendo così una vera e propria interazione tra i componenti del team.
+  
+  Dopo l'approvazione collettiva del team si procede al `Merging` e all'eliminazione del branch remoto.
+
+- #### Merging e Deployment
+  
+  In quest'ultima fase del workflow, dopo aver effettuato il merging sul Branch Master, qualora non si siano presentati eventuali conflitti (circa, ad esempio, la compilazione dell'analizzatore statico) si è proceduto all'eliminazione del branch remoto all'interno del repository di GitHub.
+  Durante le riunioni giornaliere si è sempre utilizzato il workflow esplicato in questo elenco, attenendosi all'applicazione delle `Best Practices`, come ad esempio il pull sulla repository locale contestualmente al merging sul repository remoto. 
+
+- ## Suddivisione dei compiti
+  
+  Durante lo sviluppo si è cercato di ripartire i diversi task fra i componenti del gruppo nella maniera più equa, considerando che tutte le modifiche sono state seguite pedissequamente da ogni componente del team. 
+  
+  Successivamente alla presentazione di ogni nuovo Sprint, è stato organizzato un `daily meeting` in cui si è discusso delle nuove user story da implementare. 
+  
+  Le user story dalla logica più complessa sono state assegnate a più persone. Ogni componente del gruppo ha seguito le diverse modifiche da apportare e ha suggerito, eventualmente, modi per evadere la user story in sviluppo.
+  
+  Le user story dalla complessità più bassa sono state assegnate ad un solo membro del gruppo.  
+  
+          
+
+- ## Uso delle boards
+  
+  È stata utilizzata la possibilità di GitHub di fornire delle `board` integrate in modo da contrassegnare lo stato degli issue, durante il "ciclo vitale".
+  La board è composta dalle cards, rappresentate dalle issue, riposte su un totale di cinque colonne:
+  
+  - ****TO DO**** dove sono state inserite le **issues** appena create, che dovevano essere ancora svolte;
+  - ****IN PROGRESS**** dove sono state inserite le **issues** aperte ed in fase di svolgimento.
+  - ****REVIEW**** dove sono state collocate le **issues** per le quali è stata aperta una pull request, e che dovevano essere revisionate dai componenti del team;
+  - ****READY**** qui sono state spostate le **issues** che aspettano di essere revisionate anche dal docente;
+  - ****DONE**** dove verrano spostate le **issues** terminate e ufficialmente chiuse.
+
+È stata creata una project board generale (all'interno della quale si trovano tutte le user stories) e le seguenti sprint boards:
+
+- Sprint 0
+- Sprint 1
+- Sprint 2
 
 
 ## 9. Analisi retrospettiva
