@@ -353,9 +353,9 @@ Di seguito si rappresenta il **diagramma dei package** che rispecchia la tassono
 
                     
 
-  - **Come giocatore voglio impostare il tempo di gioco**.
+  - **Come giocatore voglio mostrare il tempo di gioco**.
 
-  Nei seguenti diagrammi si è rappresentato il caso specifico in cui l'utente imposta il tempo della successiva partita.
+  Nei seguenti diagrammi si è rappresentato il caso specifico in cui l'utente mostra il tempo trascorso e rimanente della partita in corso.
 
   ![DiagrammaDelleClassiTEMPO](../drawings/DiagrammaDelleClassiTEMPO.png)
 
@@ -433,7 +433,8 @@ Di seguito si elencano i warnings segnalati da Spotbugs e volutamente non risolt
   alcuni metodi getter di classi Entity: questi metodi sono essenziali poichè restituiscono volutamente il riferimento alle suddette variabili d'istanza, di modo che si possa intervenire su di essi nelle classi Controller, per cui anche questo warning non è stato risolto.
 
 
-- <code>M V EI2</code> 
+- <code>M V EI2</code> questo warning segnala la possibile non voluta esposizione di rappresentazione interna dovuta alla memorizzazione di un oggetto esterno mutabile
+  come variabile di istanza della classe in questione, ciò però è necessario in quanto gli oggetti di classi Entity che vengono memorizzati devono poter essere modificati, per cui questo warning non è stato risolto.
 
                     
 
@@ -461,9 +462,15 @@ Di seguito ti lascio una lista dei comandi che potrai utilizzare:
 
 - /help : per visualizzare questo manuale durante il gioco
 
-- /gioca : per avviare una nuova partita 
+  ![help](./img/help.jpg)
+
+- /gioca : per avviare una nuova partita
+
+  ![gioca](./img/gioca.jpg)
 
 - /esci : per uscire dal gioco
+
+  ![esci](./img/esci.jpg)
 
 - /facile : per impostare il livello della partita a facile (MAX 50 tentativi falliti)
 
@@ -471,11 +478,19 @@ Di seguito ti lascio una lista dei comandi che potrai utilizzare:
 
 - /difficile : per impostare il livello della partita a difficile (MAX 10 tentativi falliti)
 
-- /mostralivello : per mostrare il livello di difficoltà impostato 
+![livello](./img/livello.jpg)
+
+- /mostralivello : per mostrare il livello di difficoltà impostato
+
+  ![mostralivello](./img/mostralivello.jpg)
 
 - /mostranavi : per mostrare il tipo, la dimensione e il numero delle navi che devi ancora affondare
 
+  ![mostranavi](./img/mostranavi.jpg)
+
 - /svelagriglia : per mostrare la griglia e tutte le navi posizionate
+
+  ![svelagriglia](./img/svelagriglia.jpg)
 
 - /facile *numero* : per impostare a *numero* il numero massimo di tentativi falliti
 
@@ -483,7 +498,11 @@ Di seguito ti lascio una lista dei comandi che potrai utilizzare:
 
 - /difficile *numero* : per impostare a *numero* il numero massimo di tentativi falliti
 
+![livellonumero](./img/livellonumero.jpg)
+
 - /tentativi *numero* : per impostare a *numero* il numero massimo di tentativi falliti
+
+  ![tentativi](./img/tentativi.jpg)
 
 - /standard : per impostare la dimensione della griglia a 10 x 10
 
@@ -491,17 +510,33 @@ Di seguito ti lascio una lista dei comandi che potrai utilizzare:
 
 - /standard : per impostare la dimensione della griglia a 26 x 26
 
+  ![tagliagriglia](./img/tagliagriglia.jpg)
+
 - /tempo *numero* : per impostare a *numero* il numero di minuti a disposizione per giocare
+
+  ![impostatempo](./img/impostatempo.jpg)
 
 - /mostratempo : per visualizzare il numero di minuti trascorsi e il numero di minuti ancora disponibili
 
+  ![mostratempo](./img/mostratempo.jpg)
+
 - <lettera> - <numero> : per effettuare un tentativo per colpire una nave
+
+  ![tentativocolpo](./img/tentativocolpo.jpg)
+
+  ![tentativoacqua](./img/tentativoacqua.jpg)
 
 - /mostragriglia : per mostrare la griglia con le navi affondate e le sole parti già colpite delle navi non affondate
 
+  ![mostragriglia](./img/mostragriglia.jpg)
+
 - /mostratentativi : per mostrare il numero di tentativi già effettuati, falliti e il numero massimo di tentativi falliti
 
+  ![mostratentativi](./img/mostratentativi.jpg)
+
 - /abbandona : per abbandonare una partita in corso
+
+  ![abbandona](./img/abbandona.jpg)
 
 
 ## 8. Processo di sviluppo e organizzazione del lavoro
