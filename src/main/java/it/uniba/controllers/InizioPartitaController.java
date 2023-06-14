@@ -7,7 +7,6 @@ import it.uniba.entities.Corazzata;
 import it.uniba.entities.Portaerei;
 import it.uniba.entities.Incrociatore;
 import it.uniba.entities.Cacciatorpediniere;
-import it.uniba.entities.Tempo;
 import java.util.List;
 import java.util.Arrays;
 import java.util.Collections;
@@ -63,7 +62,7 @@ public final class InizioPartitaController {
         Griglia griglia = this.partita.getGriglia();
         final int dim = griglia.getDimensione();
         List<Griglia.Direzione> listaDir = Arrays.asList(
-            Griglia.Direzione.ALTO, Griglia.Direzione.BASSO, Griglia.Direzione.SINISTRA, Griglia.Direzione.DESTRA);
+            Griglia.Direzione.ALTO, Griglia.Direzione.SINISTRA, Griglia.Direzione.BASSO, Griglia.Direzione.DESTRA);
 
         inizializzaListaNavi();
         for (Nave nave : griglia.getListaNaviPresenti()) {
@@ -147,7 +146,7 @@ public final class InizioPartitaController {
      */
     public void avviaTempoDiGioco() {
 
-        TempoController tempContr = new TempoController(Tempo.getIstanza());
+        TempoController tempContr = new TempoController();
         if (tempContr.isTempoImpostato()) {
             tempContr.avviaTempo();
         }

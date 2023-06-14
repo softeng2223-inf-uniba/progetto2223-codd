@@ -1,6 +1,6 @@
 package it.uniba.boundaries;
+
 import it.uniba.controllers.ProprietaController;
-import it.uniba.entities.Proprieta;
 
 import java.util.Arrays;
 import java.util.List;
@@ -95,7 +95,7 @@ public final class InputUI {
                 }
 
             } else if (contesto == StatoGioco.PARTITA) {
-                ProprietaController propContr = new ProprietaController(Proprieta.getIstanza());
+                ProprietaController propContr = new ProprietaController();
                 final int limite = propContr.ottieniDimGriglia();
                 inputTokens = input.split("-");
 

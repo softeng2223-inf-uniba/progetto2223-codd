@@ -1,4 +1,5 @@
 package it.uniba.controllers;
+
 import it.uniba.entities.Livello;
 import it.uniba.entities.Proprieta;
 
@@ -20,12 +21,12 @@ class LivelloControllerTest {
     private Proprieta proprieta;
 
     /**
-     * Metodo che istanza gli oggetti delle classi Livello e LivelloController.
+     * Metodo che istanza gli oggetti delle classi Livello, LivelloController e Proprietà.
      */
     @BeforeEach
     void setUp() {
         livello = Livello.getIstanza();
-        controller = new LivelloController(livello);
+        controller = new LivelloController();
         proprieta = Proprieta.getIstanza();
     }
 

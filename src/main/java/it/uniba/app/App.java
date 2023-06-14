@@ -1,4 +1,5 @@
 package it.uniba.app;
+
 import it.uniba.boundaries.HelpUI;
 import it.uniba.boundaries.InputUI;
 import it.uniba.boundaries.LivelloUI;
@@ -12,13 +13,10 @@ import it.uniba.controllers.TempoController;
 import it.uniba.controllers.InizioPartitaController;
 import it.uniba.controllers.PartitaInCorsoController;
 import it.uniba.controllers.FinePartitaController;
-import it.uniba.entities.Livello;
-import it.uniba.entities.Proprieta;
-import it.uniba.entities.Tempo;
 import it.uniba.entities.Partita;
 
-
 import java.util.Scanner;
+
 
 /**
  * Classe Main dell'applicazione.
@@ -47,32 +45,26 @@ public final class App {
             }
         }
         helpUI.displayHelp();
+
         Scanner tastiera = new Scanner(System.in, "utf-8");
 
-        Proprieta prop = Proprieta.getIstanza();
-        Livello liv = Livello.getIstanza();
-        Tempo temp = Tempo.getIstanza();
-
-        mainEngine(tastiera, prop, liv, temp);
+        mainEngine(tastiera);
         tastiera.close();
     }
 
     /**
      * Metodo che rappresenta il motore del gioco.
-     * @param prop
-     * @param liv
-     * @param temp
+     * @param tastiera
      */
-    private static void mainEngine(final Scanner tastiera,
-        final Proprieta prop, final Livello liv, final Tempo temp) {
+    private static void mainEngine(final Scanner tastiera) {
 
         String[] comando;
         InputUI input = new InputUI();
         InputUI.StatoGioco contesto = InputUI.StatoGioco.SESSIONE;
 
-        LivelloController livContr = new LivelloController(liv);
-        TempoController tempContr = new TempoController(temp);
-        ProprietaController propContr = new ProprietaController(prop);
+        LivelloController livContr = new LivelloController();
+        TempoController tempContr = new TempoController();
+        ProprietaController propContr = new ProprietaController();
 
         LivelloUI livUI = new LivelloUI(livContr);
         TempoUI tempUI = new TempoUI(tempContr);
@@ -114,7 +106,7 @@ public final class App {
                     helpUI.displayHelp();
                 break;
                 case "/gioca":
-                    enginePartita(tastiera, liv, temp);
+                    enginePartita(tastiera);
                 break;
                 default:
                 break;
@@ -125,10 +117,8 @@ public final class App {
     /**
      * Metodo che rappresenta il motore della partita.
      * @param tastiera
-     * @param liv
-     * @param temp
      */
-    private static void enginePartita(final Scanner tastiera, final Livello liv, final Tempo temp) {
+    private static void enginePartita(final Scanner tastiera) {
 
         String[] comando;
         InputUI input = new InputUI();
@@ -136,8 +126,8 @@ public final class App {
 
         Partita partita = new Partita();
 
-        TempoController tempContr = new TempoController(temp);
-        LivelloController livContr = new LivelloController(liv);
+        TempoController tempContr = new TempoController();
+        LivelloController livContr = new LivelloController();
         InizioPartitaController ipContr = new InizioPartitaController(partita);
         PartitaInCorsoController pcContr = new PartitaInCorsoController(partita);
         FinePartitaController fpContr = new FinePartitaController(partita);
@@ -192,4 +182,3 @@ public final class App {
 
     }
 }
-

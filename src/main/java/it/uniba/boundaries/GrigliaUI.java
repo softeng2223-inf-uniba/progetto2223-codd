@@ -1,9 +1,7 @@
 package it.uniba.boundaries;
+
 import it.uniba.controllers.PartitaInCorsoController;
 import it.uniba.controllers.ProprietaController;
-import it.uniba.entities.Proprieta;
-
-
 import java.util.List;
 import java.util.Arrays;
 
@@ -16,6 +14,7 @@ public final class GrigliaUI {
     private PartitaInCorsoController pcContr = null;
 
     private static final List<String> LETTERE = Arrays.asList("ABCDEFGHIJKLMNOPQRSTUVWXYZ".split(""));
+
     private static final String RED = "\u001B[31m";
     private static final String GREEN = "\u001B[32m";
     private static final String BLUE = "\u001B[36m";
@@ -35,7 +34,7 @@ public final class GrigliaUI {
      * Metodo che stampa sul terminale la griglia che mostra le celle e le navi colpite.
      */
     public void displayGriglia() {
-        ProprietaController propContr = new ProprietaController(Proprieta.getIstanza());
+        ProprietaController propContr = new ProprietaController();
         final int dim = propContr.ottieniDimGriglia();
 
         System.out.println("");
@@ -68,7 +67,7 @@ public final class GrigliaUI {
      * Metodo che stampa sul terminale la griglia con tutte le navi posizionate.
      */
     public void displayGrigliaSvelata() {
-        ProprietaController propContr = new ProprietaController(Proprieta.getIstanza());
+        ProprietaController propContr = new ProprietaController();
         final int dim = propContr.ottieniDimGriglia();
 
         System.out.println("");
@@ -97,7 +96,7 @@ public final class GrigliaUI {
      * Metodo che stampa sul terminale la griglia vuota.
      */
     public void displayGrigliaVuota() {
-        ProprietaController propContr = new ProprietaController(Proprieta.getIstanza());
+        ProprietaController propContr = new ProprietaController();
         final int dim = propContr.ottieniDimGriglia();
 
         System.out.println("");
