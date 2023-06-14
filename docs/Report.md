@@ -12,6 +12,22 @@
    
    - 3.2 Requisiti non funzionali
 
+4. System Design
+
+    - 4.1 Stile architetturale adottato
+  
+    - 4.2 Diagramma dei package
+
+5. OO Design
+
+    - 5.1 Diagramma delle classi e di sequenza
+    
+    - 5.2 Analisi delle scelte effettuate secondo i principi della OO Design
+
+    - 5.3 Design Pattern
+
+6. Riepilogo del test
+
 7. Manuale utente
 
 8. Processo di sviluppo e organizzazione del lavoro
@@ -19,6 +35,8 @@
 9. Analisi retrospettiva
 
    - 9.1 Sprint 0
+
+   - 9.2 Sprint 1
 			
 			
 			
@@ -323,10 +341,9 @@ Di seguito si rappresenta il **diagramma dei package** che rispecchia la tassono
 
 ### 5.1 Diagramma delle classi e di sequenza
 
-- **User story**:
-  - **come giocatore voglio impostare il livello di gioco per variare il numero di tentativi sbagliati**.
+  - **Come giocatore voglio impostare il livello di gioco per variare il numero di tentativi sbagliati**.
 
-  - **come giocatore voglio impostare il numero massimo di tentativi falliti per livello di gioco**.
+  - **Come giocatore voglio impostare il numero massimo di tentativi falliti per livello di gioco**.
 
   Nei seguenti diagrammi si è rappresentato il caso specifico in cui l'utente imposta il livello a FACILE, con eventuale numero di tentativi correlato.
 
@@ -336,9 +353,9 @@ Di seguito si rappresenta il **diagramma dei package** che rispecchia la tassono
 
                     
 
-  - **come giocatore voglio impostare il tempo di gioco**.
+  - **Come giocatore voglio mostrare il tempo di gioco**.
 
-  Nei seguenti diagrammi si è rappresentato il caso specifico in cui l'utente imposta il tempo della successiva partita.
+  Nei seguenti diagrammi si è rappresentato il caso specifico in cui l'utente mostra il tempo trascorso e rimanente della partita in corso.
 
   ![DiagrammaDelleClassiTEMPO](../drawings/DiagrammaDelleClassiTEMPO.png)
 
@@ -346,7 +363,7 @@ Di seguito si rappresenta il **diagramma dei package** che rispecchia la tassono
 
                     
 
-  - **come giocatore voglio effettuare un tentativo per colpire una nave**.
+  - **Come giocatore voglio effettuare un tentativo per colpire una nave**.
 
   Nei seguenti diagrammi si è rappresentato il caso specifico in cui l'utente effettua un tentativo per colpire una nave durante una partita.
 
@@ -356,7 +373,7 @@ Di seguito si rappresenta il **diagramma dei package** che rispecchia la tassono
 
                     
 
-  - **come giocatore voglio impostare la taglia della griglia**.
+  - **Come giocatore voglio impostare la taglia della griglia**.
 
   Nei seguenti diagrammi si è rappresentato il caso specifico in cui l'utente imposta la dimensione della griglia ad extralarge, opzione presente tra le tre disponibili.
 
@@ -389,25 +406,53 @@ Durante la progettazione del codice, si è prestata attenzione ai principi di OO
 ### 5.3 Design Pattern
 
 Si è discusso della possibilità dell'applicazione di **Design Pattern** e si è deciso di applicare come unico pattern il pattern Singleton.
-Sono classi singoletto le classi Proprieta, Tempo e Livello dal momento che rappresentano le impostazioni della successiva partita da giocare persistenti per tutta la durata della sessione di gioco: non è dunque necessario dichiarare molteplici oggetti di tali classi. 
+Sono classi singoletto le classi Proprieta e Livello dal momento che rappresentano le impostazioni della successiva partita da giocare persistenti per tutta la durata della sessione di gioco: non è dunque necessario dichiarare molteplici oggetti di tali classi. 
 
                     
 
+## 6. Riepilogo del test
+
+### 6.1 Criteri di selezione, localizzazione e numero dei casi di test
+
+Nella redazione dei casi di test si è deciso di testare i metodi pubblici più rilevanti delle classi, escludendo dunque metodi standard quali setter e getter, e di conseguenza anche metodi riconducibili alla loro logica.
+Pertanto non abbiamo effettuato test delle classi Entity, dal momento che i metodi in esse presenti erano principalemente setter e getter. Questi sono infatti stati implicitamente testati nel test delle classi Control, le quali contenevano i metodi meglio rappresentanti la logica dell'applicazione. 
+Di seguito mostriamo la percentuale di riuscita delle classi Control testate: 
+
+![TestControllers](./img/TestControllers.png)
+
+                    
+
+### 6.2 Spotbugs
+
+Di seguito si elencano i warnings segnalati da Spotbugs e volutamente non risolti con le relative motivazioni:
+
+- <code>M V MS</code> questo warning segnala la possibile non voluta esposizione di rappresentazione interna. Viene segnalato sul metodo *getIstanza* delle classi
+  Singleton che ritorna l'istanza singoletto della classe. Questo metodo è essenziale per l'implementazione del pattern Singleton, per cui il warning non è stato risolto.
+
+- <code>M V EI</code> questo warning segnala la possibile non voluta esposizione di rappresentazione interna di una variabile d'istanza oggetto. Viene segnalato su
+  alcuni metodi getter di classi Entity: questi metodi sono essenziali poichè restituiscono volutamente il riferimento alle suddette variabili d'istanza, di modo che si possa intervenire su di essi nelle classi Controller, per cui anche questo warning non è stato risolto.
+
+
+- <code>M V EI2</code> questo warning segnala la possibile non voluta esposizione di rappresentazione interna dovuta alla memorizzazione di un oggetto esterno mutabile
+  come variabile di istanza della classe in questione, ciò però è necessario in quanto gli oggetti di classi Entity che vengono memorizzati devono poter essere modificati, per cui questo warning non è stato risolto.
+
+                    
 
 ## 7. Manuale utente
 
 **Descrizione del gioco**:
 
-Il gioco della battaglia navale prevede la generazione di una griglia 10 x 10, all'interno della quale saranno posizionate 10 navi. 
+Il gioco della battaglia navale prevede la generazione di una griglia, all'interno della quale saranno posizionate 10 navi. 
 
 L'obiettivo del gioco è quello di trovarle e affondarle, indicando ad ogni turno le coordinate della cella che vorrai colpire. 
 
 In base al livello scelto avrai un numero massimo di tentativi che potrai fallire. Potrai scegliere tra i seguenti livelli: facile, medio e difficile.
 
+È possibile inoltre impostare un livello personalizzato con il numero di tentativi che meglio desideri.
+
 Se riuscirai ad affondarle tutte, avrai vinto la partita. 
 
 Mi raccomando! Le coordinate devono essere espresse nella forma: [colonna][riga] 
-(dove le colonne sono inidicate dalle lettere dalla A alla J, e le righe dai numeri da 1 a 10).
         
 
         
@@ -417,9 +462,15 @@ Di seguito ti lascio una lista dei comandi che potrai utilizzare:
 
 - /help : per visualizzare questo manuale durante il gioco
 
-- /gioca : per avviare una nuova partita 
+  ![help](./img/help.jpg)
+
+- /gioca : per avviare una nuova partita
+
+  ![gioca](./img/gioca.jpg)
 
 - /esci : per uscire dal gioco
+
+  ![esci](./img/esci.jpg)
 
 - /facile : per impostare il livello della partita a facile (MAX 50 tentativi falliti)
 
@@ -427,11 +478,65 @@ Di seguito ti lascio una lista dei comandi che potrai utilizzare:
 
 - /difficile : per impostare il livello della partita a difficile (MAX 10 tentativi falliti)
 
-- /mostralivello : per mostrare il livello di difficoltà impostato 
+![livello](./img/livello.jpg)
+
+- /mostralivello : per mostrare il livello di difficoltà impostato
+
+  ![mostralivello](./img/mostralivello.jpg)
 
 - /mostranavi : per mostrare il tipo, la dimensione e il numero delle navi che devi ancora affondare
 
+  ![mostranavi](./img/mostranavi.jpg)
+
 - /svelagriglia : per mostrare la griglia e tutte le navi posizionate
+
+  ![svelagriglia](./img/svelagriglia.jpg)
+
+- /facile *numero* : per impostare a *numero* il numero massimo di tentativi falliti
+
+- /medio *numero* : per impostare a *numero* il numero massimo di tentativi falliti
+
+- /difficile *numero* : per impostare a *numero* il numero massimo di tentativi falliti
+
+![livellonumero](./img/livellonumero.jpg)
+
+- /tentativi *numero* : per impostare a *numero* il numero massimo di tentativi falliti
+
+  ![tentativi](./img/tentativi.jpg)
+
+- /standard : per impostare la dimensione della griglia a 10 x 10
+
+- /large : per impostare la dimensione della griglia a 18 x 18
+
+- /standard : per impostare la dimensione della griglia a 26 x 26
+
+  ![tagliagriglia](./img/tagliagriglia.jpg)
+
+- /tempo *numero* : per impostare a *numero* il numero di minuti a disposizione per giocare
+
+  ![impostatempo](./img/impostatempo.jpg)
+
+- /mostratempo : per visualizzare il numero di minuti trascorsi e il numero di minuti ancora disponibili
+
+  ![mostratempo](./img/mostratempo.jpg)
+
+- <lettera> - <numero> : per effettuare un tentativo per colpire una nave
+
+  ![tentativocolpo](./img/tentativocolpo.jpg)
+
+  ![tentativoacqua](./img/tentativoacqua.jpg)
+
+- /mostragriglia : per mostrare la griglia con le navi affondate e le sole parti già colpite delle navi non affondate
+
+  ![mostragriglia](./img/mostragriglia.jpg)
+
+- /mostratentativi : per mostrare il numero di tentativi già effettuati, falliti e il numero massimo di tentativi falliti
+
+  ![mostratentativi](./img/mostratentativi.jpg)
+
+- /abbandona : per abbandonare una partita in corso
+
+  ![abbandona](./img/abbandona.jpg)
 
 
 ## 8. Processo di sviluppo e organizzazione del lavoro
