@@ -24,7 +24,8 @@ public final class TempoUI {
      * Metodo che mostra il tempo trascorso e quello rimanente.
      */
     public void displayTempo() {
-        if (this.tempController.isTempoImpostato()) {
+        ProprietaController propContr = new ProprietaController();
+        if (this.propContr.isTempoImpostato()) {
             int[] temp = this.tempController.ottieniTempoTrascorso();
             System.out.println("\n: Sono trascorsi: " + temp[0] + " minuti : " + temp[1] + " secondi.");
             temp = this.tempController.ottieniTempoRestante();
